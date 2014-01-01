@@ -1,0 +1,10 @@
+*.class
+
+# Package Files #
+*.war
+*.ear
+*.jar
+*axis_tdjava.*
+.metadata*
+*.project
+*.log
