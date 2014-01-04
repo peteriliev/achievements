@@ -18,10 +18,20 @@
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<configuration>
-					<webApp>
+				
+				<!--  <systemProperties>
+						<force>true</force>
+						<systemProperty>
+						<name>org.apache.jasper.compiler.disablejsr199</name>
+						<value>true</value>
+						</systemProperty>
+					</systemProperties> -->
+				
+					<webAppConfig>
 						<contextPath>/achievements-webapp</contextPath>
-					</webApp>
-				<scanIntervalSeconds>5</scanIntervalSeconds>
+						<!--<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>-->
+					</webAppConfig>
+					<scanIntervalSeconds>5</scanIntervalSeconds>
 				</configuration>
 			</plugin>
 		</plugins>
