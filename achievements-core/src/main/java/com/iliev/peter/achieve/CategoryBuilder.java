@@ -15,7 +15,7 @@ public class CategoryBuilder {
 	private final static CategoryMgr catMgr = Initializer.cateogryMgr;
 	
 	// TODO:hanlde exception
-	public final List<CategoryNode> buid() throws NotFoundException {
+	public final static List<CategoryNode> build() throws NotFoundException {
 		final List<CategoryNode> result = new ArrayList<>();
 		
 		final List<Category> topLevelCats = catMgr.read(Queries.TOP_LEVEL_CATS);

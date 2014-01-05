@@ -43,13 +43,26 @@
 <h2><%=headerText%></h2>
 
 <ul>
-	<% for (final Category cat : Initializer.cateogryMgr.read(Queries.SELECT_ALL))  {%>
-		<% if(cat.getUUID().equals(catUUID)) { %> 
-			<li><%=cat.getName()%></li>
-		<% } else { %>
-			<li><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cat.getUUID()%>"><%=cat.getName()%></a></li>
-		<% } %>
+<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
+	
+	for (final CategoryNode cn : topLevel)  { %> 
+			<% if(cn.getUUID().equals(catUUID)) { %>
+				<li><%=cn.getName()%></li>
+			<% } else { %>
+				<li><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>"><%=cn.getName()%></a></li>
+			<% } %>
+	
+	<% final List<Category> children = cn.getChildren();
+		for (final Category child : children) { %>
+			<% if(child.getUUID().equals(catUUID)) { %>
+				<li>+<%=child.getName()%></li>
+			<% } else { %>
+				<li>+<a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=child.getUUID()%>"><%=child.getName()%></a></li>
+			<% } %>
+		<%}%>
+			
 	<% } %></ul>
+	
 
 	<%
 		final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);

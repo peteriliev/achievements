@@ -21,7 +21,7 @@ public class MockCategoryManager implements CategoryMgr {
 		final UUID uuid = UUID.randomUUID();
 
 		categoriesMap.put(uuid,
-				Category.newInstance(uuid, a.getName(), a.getDescription()));
+				Category.newInstance(uuid, a.getParentUUID(), a.getName(), a.getDescription()));
 		return uuid;
 	}
 

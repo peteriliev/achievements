@@ -1,3 +1,7 @@
+<%@ page import="com.iliev.peter.db.*" %>
+<%@ page import="com.iliev.peter.achieve.*" %>
+<%@ page import="java.util.function.Predicate" %>
+<%@ page import="java.util.List" %>
 <%@page import="org.apache.shiro.authc.UsernamePasswordToken"%>
 <%@page import="org.apache.shiro.SecurityUtils"%>
 <%@page import="org.apache.shiro.subject.Subject"%>
@@ -6,9 +10,6 @@
 <html>
 <head>
 
-<%@ page import="com.iliev.peter.db.*" %>
-<%@ page import="com.iliev.peter.achieve.*" %>
-<%@ page import="java.util.function.Predicate" %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>User Dashboard</title>
 </head>
@@ -21,10 +22,13 @@
 <%=currentUser.getPrincipal()%><a href="/achievements-webapp/Logout.jsp">logout</a>
 
 <ul>
-	<% for (final Category cat : Initializer.cateogryMgr.read(Queries.SELECT_ALL))  {%> 
-		<li><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cat.getUUID()%>"><%=cat.getName()%></a></li>
-	<%}%>
-</ul>
-
+	<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
+		
+		for (final CategoryNode cn : topLevel)  { %> 
+		<li><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>"><%=cn.getName()%></a></li>
+		
+		<% final List<Category> children = cn.getChildren();
+			for (final Category child : children) { %>
+					<li>+<a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=child.getUUID()%>"><%=child.getName()%></a></li><%}}%></ul>
 </body>
 </html>
