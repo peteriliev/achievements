@@ -31,11 +31,13 @@ public class Initializer {
 		}
 	}
 
+	private static final UUID NO_PARENT = null;
+	
 	private static void init(final AchievementMgr aMgr, final CategoryMgr cMgr, final ARecordMgr aRecordMgr, final UserMgr userMgr) throws NotFoundException {
 
-		final Category blackCat = Category.newInstance("Black Cat", "Black cat descr");
-		final Category whiteCat = Category.newInstance("White Cat", "White cat descr");
-		final Category redCat = Category.newInstance("Red Cat", "Red cat descr");
+		final Category blackCat = Category.newInstance(NO_PARENT, "Black Cat", "Black cat descr");
+		final Category whiteCat = Category.newInstance(NO_PARENT, "White Cat", "White cat descr");
+		final Category redCat = Category.newInstance(NO_PARENT, "Red Cat", "Red cat descr");
 
 		final UUID blackUUID = cMgr.create(blackCat);
 		final UUID whiteUUID = cMgr.create(whiteCat);

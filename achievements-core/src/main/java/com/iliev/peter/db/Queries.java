@@ -87,7 +87,7 @@ public class Queries {
 			return this.userUUID.equals(aRecord.getUser().getUUID());
 		}
 	}
-	
+
 	public static class UserByLogin implements Predicate<User> {
 
 		private final String login;
@@ -105,4 +105,33 @@ public class Queries {
 			return this.login.equalsIgnoreCase(aRecord.getLogin());
 		}
 	}
+
+	public static class CatByParent implements Predicate<Category> {
+
+		private final UUID uuid;
+
+		public CatByParent(final UUID cat) {
+			this.uuid = cat;
+		}
+
+		@Override
+		public boolean test(final Category cat) {
+			if (null == cat) {
+				return false;
+			}
+
+			return this.uuid.equals(cat.getParentUUID());
+		}
+	}
+
+	public static final Predicate<Category> TOP_LEVEL_CATS = new Predicate<Category>() {
+
+		@Override
+		public boolean test(final Category c) {
+			if (null == c) {
+				return false;
+			}
+			return c.getParentUUID() == null;
+		}
+	};
 }
