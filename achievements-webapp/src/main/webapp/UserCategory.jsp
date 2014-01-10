@@ -7,6 +7,7 @@
 <%@page import="com.iliev.peter.db.*"%>
 <%@page import="com.iliev.peter.achieve.*"%>
 <%@page import="java.util.function.Predicate"%>
+<%@page import="com.iliev.peter.db.exception.NotFoundException"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -36,11 +37,29 @@
 	} catch (Exception exc) {
 
 	}
+	
+	List<User> allTargetUsers = null;
+	try {
+		allTargetUsers  = Initializer.userMgr.read(Queries.ALL_TARGET_USERS);
+	} catch (NotFoundException e) {
+		e.printStackTrace();
+	}
 %>
 
 <%=currentUser.getPrincipal()%><a href="/achievements-webapp/Logout.jsp">logout</a>
 
 <h2><%=headerText%></h2>
+
+<select>
+	<% for (final User tu: allTargetUsers)
+       { %>
+       
+       <option value="<%=tu.getUUID()%>"> <%=tu.getLogin()%>
+       
+       <% }
+	%>
+
+</select>
 
 <ul>
 <%	final List<CategoryNode> topLevel = CategoryBuilder.build();
@@ -65,12 +84,12 @@
 	
 
 	<%
-		final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
+        final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
 		final List<IAchievement> allAchievements = Initializer.achievementMgr.read(catPredi);
 			
-			final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
-			final Predicate<ARecord> userPredicate = new Queries.ARecordByUserAndCat(usr.getUUID());
-			final List<IAchievement> userAchievements = Initializer.aRecordMgr.readByUser(userPredicate, allAchievements);
+		final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
+        final Predicate<ARecord> userPredicate = new Queries.ARecordByUserAndCat(usr.getUUID());
+        final List<IAchievement> userAchievements = Initializer.aRecordMgr.readByUser(userPredicate, allAchievements);
 	%>
 
 	<ul>

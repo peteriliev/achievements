@@ -134,4 +134,19 @@ public class Queries {
 			return c.getParentUUID() == null;
 		}
 	};
+	
+	
+	
+	public static final Predicate<User> ALL_TARGET_USERS = new Predicate<User>() {
+
+		@Override
+		public boolean test(final User c) {
+			// TODO:peteri
+			final Predicate<User> p1 = new Queries.UserByLogin("peteri");
+			final Predicate<User> p2 = new Queries.UserByLogin("lonestarr");
+			final Predicate<User> composite = p1.or(p2);
+			
+			return composite.test(c);
+		}
+	};
 }

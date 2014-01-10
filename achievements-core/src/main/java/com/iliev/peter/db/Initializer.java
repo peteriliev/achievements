@@ -112,8 +112,12 @@ public class Initializer {
 		final UUID peteriUUID = userMgr.create(userPeteri);
 		final User userPeteriPO = userMgr.readSingle(new Queries.ObjectByUUID(peteriUUID));
 		
-		final ARecord aRecBlackOne = ARecord.newInstance(null, bAchievementOnePO, userLonestarrPO, new Date());
-		final ARecord aRecBlackTwo = ARecord.newInstance(null, bAchievementTwoPO, userPeteriPO, new Date());
+		final User userAdmin = User.newInstance(null, "admin");
+		final UUID adminUUID = userMgr.create(userAdmin);
+		final User userAdminPO = userMgr.readSingle(new Queries.ObjectByUUID(adminUUID));
+		
+		final ARecord aRecBlackOne = ARecord.newDTOInstance(bAchievementOnePO, userLonestarrPO, new Date(), userAdminPO);
+		final ARecord aRecBlackTwo = ARecord.newDTOInstance(bAchievementTwoPO, userPeteriPO, new Date(), userAdminPO);
 		
 		aRecordMgr.create(aRecBlackOne);
 		aRecordMgr.create(aRecBlackTwo);

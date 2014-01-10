@@ -12,7 +12,7 @@ public class User implements UUIDObject {
 		this.uuid = uuid;
 		this.login = login;
 	}
-	
+
 	public static User newInstance(final UUID uuid, final String login) {
 		return new User(uuid, login);
 	}
