@@ -29,7 +29,7 @@
 				
 					<webAppConfig>
 						<contextPath>/achievements-webapp</contextPath>
-						<!--<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>-->
+						<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
 					</webAppConfig>
 					<scanIntervalSeconds>5</scanIntervalSeconds>
 				</configuration>

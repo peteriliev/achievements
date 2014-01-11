@@ -15,9 +15,14 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<script src="js/jquery-2.0.3.js"></script>
+	<script src="js/main.js"></script>
 	<title>User Category</title>
 	<%
 		Subject currentUser = SecurityUtils.getSubject();
+		final Predicate currentAdminP = new Queries.UserByLogin(currentUser.getPrincipal().toString());
+		
+		final User currentAdmin = Initializer.userMgr.readSingle(currentAdminP);
 	
 		UUID catUUID = null;
 			try {
@@ -49,8 +54,9 @@
 <%=currentUser.getPrincipal()%><a href="/achievements-webapp/Logout.jsp">logout</a>
 
 <h2><%=headerText%></h2>
+<input type="hidden" id="current_admin" value="<%=currentAdmin.getUUID()%>"/>
 
-<select>
+<select id="target_user">
 	<% for (final User tu: allTargetUsers)
        { %>
        
@@ -98,6 +104,8 @@
 				<%=achieve.getName()%>=<%=achieve.getPoints()%>
 				<%if (achieve instanceof ARecord) { %>
 					*
+				<% }  else { %>
+					<a id="btn_complete_<%=achieve.getUUID()%>" auuid="<%=achieve.getUUID()%>" class="btn_complete" href="#">complete</a>
 				<% } %>
 			</li>
 	<% } %></ul></body></html>
