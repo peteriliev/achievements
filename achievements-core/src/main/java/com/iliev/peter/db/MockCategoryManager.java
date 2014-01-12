@@ -8,6 +8,7 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import com.iliev.peter.achieve.Category;
+import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.CategoryMgr;
 import com.iliev.peter.db.exception.NotFoundException;
@@ -73,5 +74,11 @@ public class MockCategoryManager implements CategoryMgr {
 		}
 
 		throw new NotFoundException(predicate);
+	}
+	
+	@Override
+	public Category readSingle(final UUID uuid) throws NotFoundException {
+		final Predicate<UUIDObject> p = new Queries.ObjectByUUID(uuid);
+		return readSingle(p);
 	}
 }

@@ -75,4 +75,10 @@ public class MockAchievementManager implements AchievementMgr {
 
 		throw new NotFoundException(predicate);
 	}
+
+	@Override
+	public IAchievement readSingle(final UUID uuid) throws NotFoundException {
+		final Predicate<UUIDObject> p = new Queries.ObjectByUUID(uuid);
+		return readSingle(p);
+	}
 }

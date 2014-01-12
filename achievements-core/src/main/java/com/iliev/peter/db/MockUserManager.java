@@ -8,6 +8,7 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import com.iliev.peter.user.User;
+import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.UserMgr;
 import com.iliev.peter.db.exception.NotFoundException;
@@ -69,5 +70,11 @@ public class MockUserManager implements UserMgr {
 		}
 
 		throw new NotFoundException(p);
+	}
+	
+	@Override
+	public User readSingle(final UUID uuid) throws NotFoundException {
+		final Predicate<UUIDObject> p = new Queries.ObjectByUUID(uuid);
+		return readSingle(p);
 	}
 }

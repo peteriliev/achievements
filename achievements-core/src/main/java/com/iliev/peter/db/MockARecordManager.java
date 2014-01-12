@@ -106,4 +106,10 @@ public class MockARecordManager implements ARecordMgr {
 
 		return result;
 	}
+	
+	@Override
+	public ARecord readSingle(final UUID uuid) throws NotFoundException {
+		final Predicate<UUIDObject> p = new Queries.ObjectByUUID(uuid);
+		return readSingle(p);
+	}
 }
