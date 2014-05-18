@@ -1,0 +1,1885 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
+<head xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
+<meta http-equiv="imagetoolbar" content="false" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>StarCraft II Official Game Site</title>
+<link rel="icon" href="/achievements-webapp/sc2/static/images/icons/favicon.ico"
+	type="image/x-icon" />
+<link rel="shortcut icon" href="/achievements-webapp/sc2/static/images/icons/favicon.ico"
+	type="image/x-icon" />
+<link title="StarCraftÂ® II - News" href="/achievements-webapp/sc2/en/feed/news"
+	type="application/atom+xml" rel="alternate" />
+<link rel="search" type="application/opensearchdescription+xml"
+	href="http://us.battle.net/en-us/data/opensearch"
+	title="Battle.net Search" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/achievements-webapp/sc2/static/local-common/css/common-game-site.css?v=58" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/achievements-webapp/sc2/static/css/legal/ratings.css?v=58-28" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/achievements-webapp/sc2/static/css/sc2.css?v=28" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/achievements-webapp/sc2/static/cms-overlay/css/build/cms.min.css?v=28" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/achievements-webapp/sc2/static/css/blog/blog.css?v=28" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/achievements-webapp/sc2/static/css/blog/blog-article.css?v=28" />
+<link rel="stylesheet" type="text/css" media="all"
+	href="/achievements-webapp/sc2/static/css/lightbox.css?v=28" />
+<script type="text/javascript"
+	src="/achievements-webapp/sc2/static/local-common/js/third-party.js?v=58"></script>
+<script type="text/javascript"
+	src="/achievements-webapp/sc2/static/local-common/js/common-game-site.js?v=58"></script>
+<meta name="description"
+	content="Wage war across the galaxy with three unique and powerful races. StarCraft II is a real-time strategy game from Blizzard Entertainment for the PC and Mac." />
+<!--[if IE 6]> <script type="text/javascript">
+//<![CDATA[
+try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+	//<![CDATA[
+	var Core = Core || {}, Login = Login || {};
+	Core.staticUrl = '/sc2/static';
+	Core.sharedStaticUrl = '/sc2/static/local-common';
+	Core.baseUrl = '/sc2/en';
+	Core.projectUrl = '/sc2';
+	Core.cdnUrl = 'http://media.blizzard.com';
+	Core.supportUrl = 'http://us.battle.net/support/';
+	Core.secureSupportUrl = 'https://us.battle.net/support/';
+	Core.project = 'sc2';
+	Core.locale = 'en-us';
+	Core.language = 'en';
+	Core.region = 'us';
+	Core.shortDateFormat = 'MM/dd/yyyy';
+	Core.dateTimeFormat = 'MM/dd/yyyy hh:mm a';
+	Core.loggedIn = true;
+	Core.userAgent = 'web';
+	Login.embeddedUrl = 'https://us.battle.net/login/login.frag';
+	var Flash = Flash || {};
+	Flash.videoPlayer = 'http://media.blizzard.com/global-video-player/themes/sc2/video-player.swf';
+	Flash.videoBase = 'http://media.blizzard.com/sc2/media/videos';
+	Flash.ratingImage = 'http://media.blizzard.com/global-video-player/ratings/sc2/en-us.jpg';
+	Flash.expressInstall = 'http://media.blizzard.com/global-video-player/expressInstall.swf';
+	var _gaq = _gaq || [];
+	_gaq.push([ '_setAccount', 'UA-544112-16' ]);
+	_gaq.push([ '_setDomainName', '.battle.net' ]);
+	_gaq.push([ '_setAllowLinker', true ]);
+	_gaq.push([ '_trackPageview' ]);
+	//]]>
+</script>
+<meta property="fb:app_id" content="157509169473" />
+<meta property="og:site_name" content="StarCraft II" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://us.battle.net/sc2/en/" />
+<meta property="og:image"
+	content="http://media.blizzard.com/battle.net/logos/og-sc2.png" />
+<meta property="og:image"
+	content="http://media.blizzard.com/battle.net/logos/og-blizzard.png" />
+<meta property="og:title" content="StarCraft II" />
+<meta property="og:description"
+	content="Wage war across the galaxy with three unique and powerful races. StarCraft II is a real-time strategy game from Blizzard Entertainment for the PC and Mac." />
+<link rel="canonical" href="http://us.battle.net/sc2/en/" />
+</head>
+<body class="en-us homepage news" itemscope="itemscope"
+	itemtype="http://schema.org/WebPage">
+	<div class="wrapper">
+		<div class="head">
+			<h1 class="logo">
+				<a href="/achievements-webapp/sc2/en/">StarCraftÂ® II</a>
+			</h1>
+			<div class="search-bar">
+				<form action="/sc2/en/search" method="get" autocomplete="off">
+					<div>
+						<input type="text" class="search-field input" name="q"
+							id="search-field" maxlength="200" tabindex="40"
+							alt="Search StarCraft II" value="Search StarCraft II" /> <input
+							type="submit" class="search-button" value="" tabindex="41" />
+					</div>
+				</form>
+			</div>
+			<ul class="menu" id="menu">
+				<li class="menu-home" itemscope="itemscope"
+					itemtype="http://schema.org/SiteNavigationElement"><a
+					itemprop="url" href="/achievements-webapp/sc2/en/" class="menu-active"> <span
+						itemprop="name">Home</span>
+				</a></li>
+				<li class="menu-game" itemscope="itemscope"
+					itemtype="http://schema.org/SiteNavigationElement"><a
+					itemprop="url" href="/achievements-webapp/sc2/en/game/"> <span itemprop="name">Game
+							Guide</span>
+				</a></li>
+				<li class="menu-esports" itemscope="itemscope"
+					itemtype="http://schema.org/SiteNavigationElement"><a
+					itemprop="url"
+					href="http://wcs.battle.net/sc2/en/?utm_source=battle.net&amp;utm_medium=internal&amp;utm_campaign=wcs&amp;utm_content=sc2-nav">
+						<span itemprop="name">eSports</span>
+				</a></li>
+				<li class="menu-media" itemscope="itemscope"
+					itemtype="http://schema.org/SiteNavigationElement"><a
+					itemprop="url" href="/achievements-webapp/sc2/en/media/"> <span itemprop="name">Media</span>
+				</a></li>
+				<li class="menu-forums" itemscope="itemscope"
+					itemtype="http://schema.org/SiteNavigationElement"><a
+					itemprop="url" href="/achievements-webapp/sc2/en/forum/"> <span itemprop="name">Forums</span>
+				</a></li>
+				<li class="menu-buy-now" itemscope="itemscope"
+					itemtype="http://schema.org/SiteNavigationElement"><a
+					itemprop="url" href="/achievements-webapp/sc2/en/buy-now/"> <span itemprop="name">Buy
+							Now</span>
+				</a></li>
+			</ul>
+			<div class="character-card card-no-chars ajax-update">
+				<div class="message">
+					<span class="player-name"> Peter </span> No characters were found.
+				</div>
+				<span class="avatar-frame"> <span class="no-avatar"></span> <span
+					class="border"></span>
+				</span>
+			</div>
+			<div class="header-bottom">&#160;</div>
+		</div>
+		<div class="body" itemscope="itemscope"
+			itemtype="http://schema.org/WebPageElement">
+			<div class="body-top">
+				<div class="body-bot">
+
+
+
+
+
+					<div id="slideshow" class="ui-slideshow">
+						<div class="slideshow">
+
+							<div class="slide" id="slide-0"
+								style="background-image: url('//bnetcmsus-a.akamaihd.net/cms/carousel_header/05V68HSEPPKY1399582359589.jpg');">
+
+							</div>
+
+							<div class="slide" id="slide-1"
+								style="background-image: url('//bnetcmsus-a.akamaihd.net/cms/carousel_header/QS62GXPAUJ7J1399425991594.jpg'); display: none;">
+
+							</div>
+
+							<div class="slide" id="slide-2"
+								style="background-image: url('//bnetcmsus-a.akamaihd.net/cms/carousel_header/PL4WDF9QN1ET1398193085745.jpg'); display: none;">
+
+							</div>
+						</div>
+
+						<div class="paging">
+							<a href="javascript:;" class="prev" onclick="Slideshow.prev();"></a>
+							<a href="javascript:;" class="next" onclick="Slideshow.next();"></a>
+						</div>
+
+						<div class="caption">
+							<h3>
+								<a href="javascript:;" class="link">Arcade Highlight</a>
+							</h3>
+							Help restore power to Aiur in this comedic, puzzle game.
+						</div>
+
+						<div class="preview"></div>
+						<div class="mask"></div>
+					</div>
+
+					<script type="text/javascript">
+						//<![CDATA[
+						$(function() {
+							Slideshow
+									.initialize(
+											'#slideshow',
+											[
+													{
+														image : "//bnetcmsus-a.akamaihd.net/cms/carousel_header/05V68HSEPPKY1399582359589.jpg",
+														desc : "Help restore power to Aiur in this comedic, puzzle game. ",
+														title : "Arcade Highlight",
+														url : "http://us.battle.net/arcade/en/blog/14003206/arcade-highlight-additional-pylons-5-8-2014",
+														id : "13998377",
+														duration : 7
+													},
+													{
+														image : "//bnetcmsus-a.akamaihd.net/cms/carousel_header/QS62GXPAUJ7J1399425991594.jpg",
+														desc : "",
+														title : "",
+														url : "http://us.battle.net/arcade/en/blog/14070047/",
+														id : "14076932",
+														duration : 7
+													},
+													{
+														image : "//bnetcmsus-a.akamaihd.net/cms/carousel_header/PL4WDF9QN1ET1398193085745.jpg",
+														desc : "StarCraft II World Championship Series will return to BlizzCon in 2014.",
+														title : "WCS Global Finals at BlizzCon",
+														url : "http://us.battle.net/sc2/en/blog/13813406/",
+														id : "13843517",
+														duration : 7
+													} ]);
+
+						});
+						//]]>
+					</script>
+
+					<div class="right-sidebar">
+
+
+
+
+
+
+						<div id="sidebar-marketing" class="sidebar-module">
+							<div class="bnet-offer">
+								<div class="bnet-offer-bg">
+									<a
+										href="https://us.battle.net/account/activation/landing.html?product=S2&amp;trial"
+										target="_blank" id="ad10928148" class="bnet-offer-image"
+										onclick="Marketing.trackAd('campaignId:10928148 - imgId:9911726', 'sc2_starter', 'sc2', true);">
+										<img
+										src="//bnetcmsus-a.akamaihd.net/cms/ad_300x250/8XCXYOM8KJCV1317210229183.jpg"
+										width="300" height="250" alt="" />
+									</a>
+								</div>
+								<script type="text/javascript">
+									//<![CDATA[
+									Marketing
+											.trackAd(
+													'campaignId:10928148 - imgId:9911726',
+													'sc2_starter', 'sc2');
+									//]]>
+								</script>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+						<div class="sidebar" id="sidebar">
+							<div class="sidebar-top">
+								<div class="sidebar-bot">
+									<div class="sidebar-loading" id="sidebar-loading">
+										Content loadingâ€¦</div>
+
+
+
+
+									<div class="sidebar-module " id="sidebar-wcs">
+										<div class="sidebar-title">
+
+
+											<h3 class="header-3 title-wcs">World Championship
+												Series</h3>
+										</div>
+
+										<div class="sidebar-content">
+											<ul>
+												<li class="wcs-sidebar"><a
+													href="http://wcs.battle.net/sc2/en/?utm_source=battle.net&amp;utm_medium=internal&amp;utm_campaign=wcs&amp;utm_content=sc2-nav?utm_source=battle.net&amp;utm_medium=internal&amp;utm_campaign=wcs&amp;utm_content=sc2-rail"
+													target="_blank" class="banner"></a>
+													<ul class="sidebar-list-default">
+														<li><a href="//wcs.battle.net/sc2/en/standings"
+															target="_blank">Current Standings</a></li>
+														<li><a href="//wcs.battle.net/sc2/en/brackets"
+															target="_blank">Brackets</a></li>
+														<li><a href="//wcs.battle.net/sc2/en/schedule"
+															target="_blank">Live Streaming Schedule</a></li>
+													</ul></li>
+											</ul>
+										</div>
+									</div>
+
+
+									<div class="sidebar-module " id="sidebar-arcade">
+										<div class="sidebar-title">
+
+
+											<h3 class="header-3 title-arcade">Play it free</h3>
+										</div>
+
+										<div class="sidebar-content">
+											<a href="http://us.battle.net/arcade/en-us" target="_blank"
+												class="banner"></a>
+										</div>
+									</div>
+
+
+									<div class="sidebar-module " id="sidebar-gear-store">
+										<div class="sidebar-title">
+
+
+											<h3 class="header-3 title-gear-store">Blizzard Gear</h3>
+										</div>
+
+										<div class="sidebar-content">
+											<a href="http://gear.blizzard.com/" target="_blank"
+												class="banner gear-store"></a>
+										</div>
+									</div>
+
+
+									<div class="sidebar-module " id="sidebar-guide">
+										<div class="sidebar-title">
+
+
+											<h3 class="header-3 title-guide">New Players</h3>
+										</div>
+
+										<div class="sidebar-content">
+											<a class="beginners" href="/achievements-webapp/sc2/en/game/guide/whats-sc2">
+												<span class="learn-more">Beginner's Guide</span>
+											</a> <a class="multiplayer" href="/achievements-webapp/sc2/en/game/strategy-guide/">
+												<span class="learn-more">Multiplayer Tips</span>
+											</a>
+										</div>
+									</div>
+
+
+
+									<div class="sidebar-module " id="sidebar-social-media">
+										<div class="sidebar-title">
+
+
+											<h3 class="header-3 title-social-media">Stay Connected
+
+
+
+											</h3>
+										</div>
+
+										<div class="sidebar-content">
+
+
+											<ul class="social-media">
+												<li class="atom-feed"><a href="/achievements-webapp/sc2/en/feed/news"
+													target="_blank"></a></li>
+												<li class="facebook"><a
+													href="http://www.facebook.com/StarCraft"
+													title="StarCraft on Facebook"></a></li>
+												<li class="twitter"><a
+													href="http://twitter.com/StarCraft" title=""></a></li>
+												<li class="youtube"><a
+													href="http://www.youtube.com/StarCraft" title=""></a></li>
+												<li class="reddit"><a
+													href="http://www.reddit.com/r/starcraft"
+													title="StarCraft on reddit"></a></li>
+												<span class="clear">
+													<!-- -->
+												</span>
+											</ul>
+										</div>
+									</div>
+									<div id="fb-root"></div>
+
+									<div id="dynamic-sidebar-target"></div>
+								</div>
+							</div>
+						</div>
+
+						<script type="text/javascript">
+							//<![CDATA[
+							$(function() {
+								Sidebar.sidebar([ {
+									"type" : "blizzard-posts",
+									"query" : ""
+								} ]);
+							});
+							//]]>
+						</script>
+
+					</div>
+					<div class="left-content" itemscope="itemscope"
+						itemtype="http://schema.org/WebPageElement">
+						<div class="left-content-inner">
+
+							<div class="featured-news-container">
+								<ul class="featured-news">
+
+
+
+
+
+									<li>
+										<div class="article-wrapper">
+											<a
+												href="/achievements-webapp/sc2/en/blog/13971967/call-to-action-may-14-balance-testing-5-14-2014"
+												class="featured-news-link" data-category="sc2"
+												data-action="Blog_Click-Throughs"
+												data-label="home 0 - us - 13971967 - 13110891">
+												<div class="article-image"
+													style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/MJKITTQ2TFTP1393566739061.jpg)">
+													<div class="article-image-frame"></div>
+												</div>
+												<div class="article-content">
+													<span class="article-title"
+														title="Call to Action: May 14 Balance Testing">Call
+														to Action: May 14 Balance Testing</span> <span
+														class="article-summary">Weâ€™ve just published a new
+														version of the Balance Test Map to the StarCraft II Custom
+														Games list titled " <strong>MerryGoRoundLE (2.1.1
+															Balance v1.1)</strong>".
+													</span>
+												</div>
+											</a>
+											<div class="article-meta">
+												<a
+													href="/achievements-webapp/sc2/en/blog/13971967/call-to-action-may-14-balance-testing-5-14-2014#comments"
+													class="comments-link">22</a> <span class="publish-date"
+													title="May 14, 2014 8:00 PM PDT">2 days ago</span>
+											</div>
+										</div>
+									</li>
+
+
+
+
+
+
+
+									<li>
+										<div class="article-wrapper">
+											<a
+												href="/achievements-webapp/sc2/en/blog/13698959/wcs-2014-season-1-finals-4-8-2014"
+												class="featured-news-link" data-category="sc2"
+												data-action="Blog_Click-Throughs"
+												data-label="home 1 - us - 13698959 - 11781245">
+												<div class="article-image"
+													style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/ANPMGGN3V3JE1385486932303.jpg)">
+													<div class="article-image-frame"></div>
+												</div>
+												<div class="article-content">
+													<span class="article-title"
+														title="WCS 2014 Season 1 Finals">WCS 2014 Season 1
+														Finals</span> <span class="article-summary"><p>
+															The European and American Season 1 Finals of the World
+															Championship Series <a
+																href="http://wcs.battle.net/sc2/en/brackets/2014/europe-premier-1"
+																target="blank">Premier League</a> are fast approaching.
+															Some exciting StarCraft II matches will be taking place
+															between April 10 and 13, and youâ€™ll find all the details
+															inside.
+														</p> </span>
+												</div>
+											</a>
+											<div class="article-meta">
+												<a
+													href="/achievements-webapp/sc2/en/blog/13698959/wcs-2014-season-1-finals-4-8-2014#comments"
+													class="comments-link">2</a> <span class="publish-date"
+													title="Apr 8, 2014 6:00 PM PDT">4/8/2014</span>
+											</div>
+										</div>
+									</li>
+
+
+
+
+
+
+
+									<li>
+										<div class="article-wrapper">
+											<a
+												href="/achievements-webapp/sc2/en/blog/13646985/chat-with-friends-in-the-battlenet%C2%AE-desktop-app-4-3-2014"
+												class="featured-news-link" data-category="sc2"
+												data-action="Blog_Click-Throughs"
+												data-label="home 2 - us - 13646985 - 10113815">
+												<div class="article-image"
+													style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/LKSFE3ZBCXPN1370042865533.jpg)">
+													<div class="article-image-frame"></div>
+												</div>
+												<div class="article-content">
+													<span class="article-title"
+														title="Chat with Friends in the Battle.netÂ® Desktop App">Chat
+														with Friends in the Battle.netÂ® Desktop App</span> <span
+														class="article-summary">Friend request accepted!
+														You can now chat with your Battle.net friends directly
+														through the <a href="http://www.battle.net/app/">desktop
+															app for Battle.net</a>.
+													</span>
+												</div>
+											</a>
+											<div class="article-meta">
+												<a
+													href="/achievements-webapp/sc2/en/blog/13646985/chat-with-friends-in-the-battlenet%C2%AE-desktop-app-4-3-2014#comments"
+													class="comments-link">23</a> <span class="publish-date"
+													title="Apr 3, 2014 6:00 PM PDT">4/3/2014</span>
+											</div>
+										</div>
+									</li>
+
+
+
+
+								</ul>
+							</div>
+
+
+							<span class="clear">
+								<!-- -->
+							</span>
+
+							<div id="blog-articles" class="blog-articles"
+								itemscope="itemscope" itemtype="http://schema.org/Blog">
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="http://us.battle.net/arcade/en-us/blog/14178120/arcade-workshop-titan-emergence-5-16-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/A3PVVFF1Z93U1400285879906.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline">
+													Arcade Workshop: Titan Emergence </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">Today's
+												Arcade Workshop places you in the role of destruction or
+												salvation. Read more about Titan Emergence.</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-16T18:00:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-16T18:00:00-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:1" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/A3PVVFF1Z93U1400285879906.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 16, 2014 6:00 PM PDT">
+											11 hours ago </span> <a
+											href="http://us.battle.net/arcade/en-us/blog/14178120/arcade-workshop-titan-emergence-5-16-2014#comments"
+											class="comments-link">1</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="/achievements-webapp/sc2/en/blog/13971967/call-to-action-may-14-balance-testing-5-14-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/MJKITTQ2TFTP1393566739061.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline"> Call
+													to Action: May 14 Balance Testing </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">
+												Weâ€™ve just published a new version of the Balance Test Map
+												to the StarCraft II Custom Games list titled " <strong>MerryGoRoundLE
+													(2.1.1 Balance v1.1)</strong>".
+											</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-14T20:00:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-15T13:27:53-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:22" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/MJKITTQ2TFTP1393566739061.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 14, 2014 8:00 PM PDT">
+											2 days ago </span> <a
+											href="/achievements-webapp/sc2/en/blog/13971967/call-to-action-may-14-balance-testing-5-14-2014#comments"
+											class="comments-link">22</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="http://us.battle.net/arcade/en-us/blog/13720685/rock-the-cabinet-contest-entries-may-13-5-14-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/L1H14OO435V21390340101325.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline"> Rock
+													the Cabinet Contest Entries -- May 13 </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">A
+												list of the entries weâ€™ve received so far, with links to
+												their submission posts, and details on how you can
+												participate.</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-14T16:00:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-15T10:17:45-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:12" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/L1H14OO435V21390340101325.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 14, 2014 4:00 PM PDT">
+											2 days ago </span> <a
+											href="http://us.battle.net/arcade/en-us/blog/13720685/rock-the-cabinet-contest-entries-may-13-5-14-2014#comments"
+											class="comments-link">12</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="http://us.battle.net/arcade/en-us/blog/14142590/arcade-night-rock-the-cabinet-may-17-5-13-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/O79NSRRGL4O71390296448391.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline">
+													Arcade Night: Rock the Cabinet May 17 </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">Another
+												opportunity to get your Rock the Cabinet entry play-tested
+												before the contest ends!</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-13T09:52:24-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-13T09:53:00-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:8" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/O79NSRRGL4O71390296448391.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 13, 2014 9:52 AM PDT">
+											3 days ago </span> <a
+											href="http://us.battle.net/arcade/en-us/blog/14142590/arcade-night-rock-the-cabinet-may-17-5-13-2014#comments"
+											class="comments-link">8</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="/achievements-webapp/sc2/en/blog/14096400/starcraft-ii-copa-america-2014-5-9-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/AOUYJKOAU32A1399677465349.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline">
+													StarCraft II Copa America 2014 </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">The
+												StarCraft II Copa America is back for 2014! Featuring the
+												best talent from North and South America, the Copa America
+												will feature months of competition and a $15,000 prize pool.</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-09T16:34:36-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-12T10:13:18-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:17" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/blog_thumbnail/AOUYJKOAU32A1399677465349.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 9, 2014 4:34 PM PDT">
+											5/9/2014 </span> <a
+											href="/achievements-webapp/sc2/en/blog/14096400/starcraft-ii-copa-america-2014-5-9-2014#comments"
+											class="comments-link">17</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="http://us.battle.net/arcade/en-us/blog/14096391/plugged-in-may-9-5-9-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/9N7EKZIQ1DO51397094688193.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline">
+													Plugged In - May 9 </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">Plugged
+												In is a digest of all things Arcade-related.</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-09T13:00:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-09T13:00:00-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:3" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/9N7EKZIQ1DO51397094688193.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 9, 2014 1:00 PM PDT">
+											5/9/2014 </span> <a
+											href="http://us.battle.net/arcade/en-us/blog/14096391/plugged-in-may-9-5-9-2014#comments"
+											class="comments-link">3</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="/achievements-webapp/sc2/en/blog/14070054/carbot-animation%E2%80%99s-starcrafts-season-3-episode-5-5-8-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/GHC0M0ME7RC61397257322537.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline">
+													Carbot Animationâ€™s â€œStarCraftsâ€� â€“ Season 3 Episode 5 </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">Carbot
+												Animationâ€™s weekly vignettes on the trials and tribulations
+												of life in the Koprulu Sector may only be a minute or two
+												long, but theyâ€™ll keep you laughing for hours. Click here to
+												watch the latest episode.</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-08T13:34:08-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-08T13:34:08-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:6" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/GHC0M0ME7RC61397257322537.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 8, 2014 1:34 PM PDT">
+											5/8/2014 </span> <a
+											href="/achievements-webapp/sc2/en/blog/14070054/carbot-animation%E2%80%99s-starcrafts-season-3-episode-5-5-8-2014#comments"
+											class="comments-link">6</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="http://us.battle.net/arcade/en-us/blog/14003206/arcade-highlight-additional-pylons-5-8-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/PU7E428WNO0Y1399068930360.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline">
+													Arcade Highlight: Additional Pylons </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">The
+												newest Arcade Highlight features the award-winning puzzle
+												game, Additional Pylons!</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-08T13:30:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-09T05:23:16-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:5" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/PU7E428WNO0Y1399068930360.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 8, 2014 1:30 PM PDT">
+											5/8/2014 </span> <a
+											href="http://us.battle.net/arcade/en-us/blog/14003206/arcade-highlight-additional-pylons-5-8-2014#comments"
+											class="comments-link">5</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="http://us.battle.net/arcade/en-us/blog/14070047/rock-the-cabinet-announcing-new-rock-on-bonus-arcade-assets-5-6-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/AYXZLSZJBS2F1399416367656.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline"> Rock
+													the Cabinet: Announcing New Rock on! Bonus Arcade Assets </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">When
+												we first announced the Rock the Cabinet contest, we knew
+												weâ€™d get some amazing submissions, but we were not prepared.</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-06T17:00:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-06T17:00:00-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:17" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/AYXZLSZJBS2F1399416367656.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 6, 2014 5:00 PM PDT">
+											5/6/2014 </span> <a
+											href="http://us.battle.net/arcade/en-us/blog/14070047/rock-the-cabinet-announcing-new-rock-on-bonus-arcade-assets-5-6-2014#comments"
+											class="comments-link">17</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="/achievements-webapp/sc2/en/blog/14030254/call-to-action-may-5-balance-testing-5-5-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/MJKITTQ2TFTP1393566739061.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline"> Call
+													to Action: May 5 Balance Testing </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">
+												Weâ€™ve just published a new Balance Test Map to the StarCraft
+												II Custom Games list titled " <strong>MerryGoRoundLE
+													(2.1.1 Balance v1.0)</strong>" in order to test a couple of Terran
+												balance tweaks in Heart of the Swarm multiplayer.
+											</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-05T13:30:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-15T09:50:04-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:43" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/MJKITTQ2TFTP1393566739061.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 5, 2014 1:30 PM PDT">
+											5/5/2014 </span> <a
+											href="/achievements-webapp/sc2/en/blog/14030254/call-to-action-may-5-balance-testing-5-5-2014#comments"
+											class="comments-link">43</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+
+
+								<div class="article-wrapper">
+									<a
+										href="/achievements-webapp/sc2/en/blog/14005215/blizzcon%C2%AE-2014-ticket-buying-tips-5-5-2014"
+										itemprop="url">
+										<div class="article-image"
+											style="background-image: url(//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/V5WTL74LC3X91384200748051.jpg)">
+											<div class="article-image-frame"></div>
+										</div>
+										<div class="article-content" itemprop="blogPost"
+											itemscope="itemscope"
+											itemtype="http://schema.org/BlogPosting">
+
+
+											<h2 class="header-2">
+												<span class="article-title" itemprop="headline">
+													BlizzConÂ® 2014 Ticket Buying Tips </span>
+											</h2>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+											<div class="article-summary" itemprop="description">Reminder:
+												The first batch of BlizzCon 2014 tickets goes on sale next
+												Wednesday, May 7 at 7:00 p.m. PDT. Here are a few quick tips
+												to help you get ready to try and snag some.</div>
+											<span class="clear">
+												<!-- -->
+											</span>
+
+
+											<meta itemprop="datePublished"
+												content="2014-05-05T10:00:00-07" />
+											<meta itemprop="dateModified"
+												content="2014-05-05T11:45:45-07" />
+											<meta itemprop="inLanguage" content="en-US" />
+											<meta itemprop="interactionCount" content="UserComments:6" />
+											<meta itemprop="thumbnailUrl"
+												content="//bnetcmsus-a.akamaihd.net/cms/connect_thumbnail/V5WTL74LC3X91384200748051.jpg" />
+										</div>
+									</a>
+
+									<div class="article-meta">
+
+										<span class="publish-date" title="May 5, 2014 10:00 AM PDT">
+											5/5/2014 </span> <a
+											href="/achievements-webapp/sc2/en/blog/14005215/blizzcon%C2%AE-2014-ticket-buying-tips-5-5-2014#comments"
+											class="comments-link">6</a>
+
+
+
+									</div>
+									<span class="clear">
+										<!-- -->
+									</span>
+
+								</div>
+
+
+							</div>
+
+							<span class="clear">
+								<!-- -->
+							</span>
+
+
+
+
+							<div class="blog-load-more">
+								<a class="load-more" id="load-more" href="javascript:;">Load
+									more</a> <span class="clear">
+									<!-- -->
+								</span>
+							</div>
+
+						</div>
+					</div>
+
+					<span class="clear">
+						<!-- -->
+					</span>
+					<script type="text/javascript">
+						//<![CDATA[
+						var google_conversion_id = 1066360874;
+						var google_conversion_language = "en";
+						var google_conversion_format = "3";
+						var google_conversion_color = "666666";
+						var google_conversion_label = "__FfCILMkgIQqsC9_AM";
+						var google_conversion_value = 0;
+						//]]>
+					</script>
+					<script type="text/javascript"
+						src="http://www.googleadservices.com/pagead/conversion.js"
+						async="async"></script>
+
+					<script type="text/javascript">
+						//<![CDATA[
+						$(function() {
+
+							Blog.init({
+								loadMore : true,
+								loadMorePath : "/sc2/en/blog/infinite",
+								loadMoreArticleTarget : "#blog-articles",
+								loadMoreArticleType : "blog",
+								loadMoreArticleLimit : 11
+							});
+
+						});
+						//]]>
+					</script>
+					<span class="clear">
+						<!-- -->
+					</span> <a href="javascript:;" class="chat-gem" id="chat-gem"></a>
+				</div>
+			</div>
+			<div class="body-trail">
+				<div class="breadcrumb-wrapper">
+					<ol class="ui-breadcrumb">
+						<li class="last" itemscope="itemscope"
+							itemtype="http://schema.org/SiteNavigationElement"><a
+							href="/achievements-webapp/sc2/en/" rel="np" itemprop="url"> <span
+								class="breadcrumb-text" itemprop="name">StarCraft II</span>
+						</a></li>
+					</ol>
+				</div>
+				<span class="clear">
+					<!-- -->
+				</span>
+			</div>
+		</div>
+		<div class="foot" id="footer" itemscope="itemscope"
+			itemtype="http://schema.org/WPFooter">
+			<div id="sitemap">
+				<div class="column">
+					<h3 class="bnet">
+						<a href="http://us.battle.net/" tabindex="100"
+							data-action="Battle.net Home - Battle.net Home">Battle.net
+							Home</a>
+					</h3>
+					<ul>
+						<li><a href="http://us.battle.net/what-is/"
+							data-action="Battle.net Home - What is Battle.net?">What is
+								Battle.net?</a></li>
+						<li><a href="https://us.battle.net/shop/"
+							data-action="Battle.net Home - Shop">Shop</a></li>
+						<li><a href="https://us.battle.net/account/management/"
+							data-action="Battle.net Home - Account">Account</a></li>
+						<li><a href="http://us.battle.net/support/"
+							data-action="Battle.net Home - Support">Support</a></li>
+						<li><a href="http://us.battle.net/realid/"
+							data-action="Battle.net Home - Real ID">Real ID</a></li>
+						<li><a href="http://us.battle.net/battletag/"
+							data-action="Battle.net Home - BattleTag">BattleTag</a></li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="games">
+						<a href="http://us.battle.net/" tabindex="100"
+							data-action="Games - Games">Games</a>
+					</h3>
+					<ul>
+						<li><a href="http://us.battle.net/sc2/"
+							data-action="Games - StarCraftÂ® II">StarCraftÂ® II</a></li>
+						<li><a href="http://us.battle.net/wow/"
+							data-action="Games - World of WarcraftÂ®">World of WarcraftÂ®</a></li>
+						<li><a href="http://us.battle.net/d3/"
+							data-action="Games - DiabloÂ® III">DiabloÂ® III</a></li>
+						<li><a href="http://us.battle.net/hearthstone/"
+							data-action="Games - Hearthstoneâ„¢">Hearthstoneâ„¢</a></li>
+						<li><a href="http://us.battle.net/games/classic"
+							data-action="Games - Classic Games">Classic Games</a></li>
+						<li><a href="https://us.battle.net/account/download/"
+							data-action="Games - Game Client Downloads">Game Client
+								Downloads</a></li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="account">
+						<a href="https://us.battle.net/account/management/" tabindex="100">Account</a>
+					</h3>
+					<ul>
+						<li><a
+							href="https://us.battle.net/account/support/login-support.html"
+							data-action="Account - Canâ€™t log in?">Canâ€™t log in?</a></li>
+						<li><a href="https://us.battle.net/account/creation/tos.html"
+							data-action="Account - Create Account">Create Account</a></li>
+						<li><a href="https://us.battle.net/account/management/"
+							data-action="Account - Account Summary">Account Summary</a></li>
+						<li><a href="http://us.battle.net/security"
+							data-action="Account - Account Security">Account Security</a></li>
+						<li><a
+							href="https://us.battle.net/account/management/claim-code.html"
+							data-action="Account - Redeem Codes">Redeem Codes</a></li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="support">
+						<a href="http://us.battle.net/support/" tabindex="100"
+							data-action="Support - Support">Support</a>
+					</h3>
+					<ul>
+						<li><a href="http://us.battle.net/support/"
+							data-action="Support - Support Articles">Support Articles</a></li>
+						<li><a
+							href="https://us.battle.net/account/parental-controls/index.html"
+							data-action="Support - Parental Controls">Parental Controls</a></li>
+						<li><a href="http://us.battle.net/security/"
+							data-action="Support - Protect Your Account">Protect Your
+								Account</a></li>
+						<li><a href="http://us.battle.net/security/help"
+							data-action="Support - Help! I got hacked!">Help! I got
+								hacked!</a></li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="jobs">
+						<a
+							href="http://jobs.blizzard.com/?utm_campaign=Blizzard_Jobs&amp;utm_source=Battle_net&amp;utm_medium=Footer">Work
+							At Blizzard</a>
+					</h3>
+					<ul>
+						<li><a
+							href="http://blizzard.com/company/careers/directory.html"
+							data-action="Jobs - Search for Jobs">Search for Jobs</a></li>
+						<li><a
+							href="https://blizzard.taleo.net/careersection/2/profile.ftl"
+							data-action="Jobs - Candidate Profile">Candidate Profile</a></li>
+						<li><a
+							href="http://blizzard.com/company/careers/university.html"
+							data-action="Jobs - University Relations">University
+								Relations</a></li>
+						<li><a
+							href="http://blizzard.com/company/careers/form/support.html"
+							data-action="Jobs - Job Site Support">Job Site Support</a></li>
+						<li><a href="http://blizzard.com/company/careers/faq.html"
+							data-action="Jobs - Jobs FAQ">Jobs FAQ</a></li>
+					</ul>
+				</div>
+				<span class="clear">
+					<!-- -->
+				</span>
+			</div>
+			<div class="lower-footer-wrapper">
+				<div class="lower-footer">
+					<div id="copyright">
+						<a href="javascript:;" tabindex="100" id="change-language"> <span>Americas
+								- English (US)</span>
+						</a> <span>Â©2014 Blizzard Entertainment, Inc. All rights
+							reserved</span> <a onclick="return Core.open(this);"
+							href="http://us.blizzard.com/company/about/termsofuse.html"
+							tabindex="100" data-action="Footer - Terms of Use">Terms of
+							Use</a> <a onclick="return Core.open(this);"
+							href="http://us.blizzard.com/company/legal/" tabindex="100"
+							data-action="Footer - Legal">Legal</a> <a
+							onclick="return Core.open(this);"
+							href="http://us.blizzard.com/company/about/privacy.html"
+							tabindex="100" data-action="Footer - Privacy Policy">Privacy
+							Policy</a> <a onclick="return Core.open(this);"
+							href="http://us.blizzard.com/company/about/infringementnotice.html"
+							tabindex="100" data-action="Footer - Copyright Infringement">Copyright
+							Infringement</a>
+					</div>
+					<div id="international"></div>
+					<div id="legal">
+						<div id="legal-ratings" class="us png-fix">
+							<a rel="nofollow" class="truste-link"
+								href="//privacy-policy.truste.com/click-with-confidence/ctv/en/us.battle.net/seal_m"
+								target="_blank"> <img class="legal-image"
+								src="/achievements-webapp/sc2/static/local-common/images/legal/us/truste.png?v=58-28"
+								alt="Validate TRUSTe privacy certification" />
+							</a>
+							<!-- legal:true us-en-us id:STARCRAFT_II_HEART_OF_THE_SWARM ratings:true -->
+							<div class="product-rating esrb-rating clearfix">
+								<a href="http://www.esrb.org/ratings/ratings_guide.jsp"
+									tabindex="1" rel="external" target="_blank"> <img
+									class="esrb-logo"
+									src="/achievements-webapp/sc2/static/images/legal/ratings/esrb/en/t.png?v=58-28"
+									alt="ESRB Content Rating: T (Teen)" title="" width="65"
+									height="97" />
+								</a> <span class="esrb-descriptor"><span
+									class="esrb-descriptor-label"
+									title="Depictions of blood or the mutilation of body parts.">Blood
+										and Gore</span></span> <span class="esrb-descriptor"><span
+									class="esrb-descriptor-label"
+									title="Mild to moderate use of profanity.">Language</span></span> <span
+									class="esrb-descriptor"><span
+									class="esrb-descriptor-label"
+									title="Mild provocative references or materials.">Suggestive
+										Themes</span></span> <span class="esrb-descriptor"><span
+									class="esrb-descriptor-label"
+									title="The consumption of alcoholic beverages.">Use of
+										Alcohol</span></span> <span class="esrb-descriptor"><span
+									class="esrb-descriptor-label"
+									title="The consumption of tobacco products.">Use of
+										Tobacco</span></span> <span class="esrb-descriptor"><span
+									class="esrb-descriptor-label"
+									title="Scenes involving aggressive conflict. May contain bloodless dismemberment.">Violence</span></span>
+								<span class="esrb-disclaimer">Online Interactions Not
+									Rated by the ESRB</span>
+							</div>
+						</div>
+						<div id="blizzard" class="png-fix">
+							<a href="http://us.blizzard.com/" tabindex="100"><img
+								src="/achievements-webapp/sc2/static/images/logos/blizzard.png?v=58-28" alt="" /></a>
+						</div>
+						<script type="text/javascript">
+							//<![CDATA[
+							Feedback.showForm = false;
+							if (window.location.protocol === 'http:') {
+								Feedback.showForm = true;
+							}
+							//]]>
+						</script>
+						<div class="common-feedback-buttons" style="display: none;">
+							<a id="open-feedback-form" href="javascript:void(0);"
+								class="feedback feedback-suggestion-open"><span
+								class="feedback-icon"></span>Send Website Feedback</a> <a
+								id="open-error-form" href="javascript:void(0);"
+								class="error feedback-error-open"><span
+								class="feedback-icon"></span>Report Website Error</a>
+						</div>
+						<script type="text/javascript">
+							//<![CDATA[
+							if (Feedback.showForm) {
+								$('.common-feedback-buttons').css('display',
+										'block');
+								Feedback.initialize();
+								Feedback.titleWebsiteSuggestion = 'Send Website Feedback';
+								Feedback.titleWebsiteFeedback = 'Report Website Error';
+								Feedback.pageReferring = 'http://us.battle.net/sc2/en/';
+								if (Feedback.pageReferring === '') {
+									Feedback.pageReferring = window.location.href;
+								}
+								Feedback.feedbackError = 'Error';
+								Feedback.introError = 'Found a problem with our sites? Let us know!';
+								Feedback.introFeedback = 'Send your website suggestions and ideas directly to Battle.net!';
+							}
+							//]]>
+						</script>
+						<span class="clear">
+							<!-- -->
+						</span>
+					</div>
+				</div>
+				<div id="marketing-trackers">
+					<div class="marketing-cover"></div>
+				</div>
+			</div>
+			<script type="text/javascript">
+				//<![CDATA[
+				$(function() {
+					var category = Core.project + ' - Footer Navigation';
+					Core.bindTrackEvent('#sitemap a', category);
+					Core.bindTrackEvent('#copyright a[data-action]', category);
+				});
+				//]]>
+			</script>
+		</div>
+		<div id="service">
+			<ul class="service-bar">
+				<li class="service-cell service-home"><a
+					href="http://us.battle.net/" tabindex="50" accessKey="1"
+					title="Battle.net Home" data-action="Battle.net Home"> </a>
+					<div id="bnet-app-tooltip" style="display: none">
+						<div class="tooltip-arrow"></div>
+						<div class="tooltip-wrapper">
+							<a href="javascript:;" class="close" rel="close"
+								data-label="Close"></a>
+							<div class="content">
+								<h3 class="sub-title">Launcher Update</h3>
+								<h2 class="title">Get the Desktop App for Battle.net Now</h2>
+								<ul>
+									<li>All your games in 1 place</li>
+									<li>Log in once</li>
+									<li>Automatic game updates</li>
+								</ul>
+							</div>
+							<span class="clear">
+								<!-- -->
+							</span> <a href="http://us.battle.net/app/" class="button">Learn
+								more</a> <a href="javascript:;" rel="close" data-label="Close">No
+								thanks</a>
+						</div>
+					</div> <script type="text/javascript">
+						//<![CDATA[
+						Core.showUntilClosed('#bnet-app-tooltip',
+								'bnet.app.tooltip', {
+									startDate : '2013/09/07',
+									endDate : '2013/11/07',
+									cookieParams : {
+										expires : 720
+									}
+								});
+						//]]>
+					</script></li>
+				<li class="service-cell service-welcome">Welcome, Peter | <a
+					href="?logout" tabindex="50" accesskey="2">log out</a>
+				</li>
+				<li class="service-cell service-shop"><a
+					href='https://us.battle.net/shop/' class="service-link"
+					data-action="Shop">Shop</a></li>
+				<li class="service-cell service-account"><a
+					href="https://us.battle.net/account/management/"
+					class="service-link" tabindex="50" accesskey="3"
+					data-action="Account">Account</a></li>
+				<li class="service-cell service-support service-support-enhanced">
+					<a href="#support" class="service-link service-link-dropdown"
+					tabindex="50" accesskey="4" id="support-link"
+					onclick="return false" style="cursor: progress" rel="javascript"
+					data-action="Support - Support">Support<span
+						class="no-support-tickets" id="support-ticket-count"></span></a>
+					<div class="support-menu" id="support-menu" style="display: none;">
+						<div class="support-primary">
+							<ul class="support-nav">
+								<li><a href="http://us.battle.net/support/" tabindex="55"
+									class="support-category" id="support-nav-kb"
+									data-action="Support - Knowledge Center"> <strong
+										class="support-caption">Knowledge Center</strong> Browse our
+										support articles
+								</a></li>
+								<li><a href="https://us.battle.net/support/ticket/status"
+									tabindex="55" class="support-category" id="support-nav-tickets"
+									data-action="Support - Your Support Tickets"> <strong
+										class="support-caption">Your Support Tickets</strong> View
+										your active support tickets.
+								</a>
+									<div class="ticket-summary" id="ticket-summary"
+										data-action="Support - Support Ticket Status Changed"></div></li>
+							</ul>
+							<span class="clear">
+								<!-- -->
+							</span>
+						</div>
+						<div class="support-secondary"></div>
+						<!--[if IE 6]> <iframe id="support-shim" src="javascript:false;" frameborder="0" scrolling="no" style="display: block; position: absolute; top: 0; left: 9px; width: 297px; height: 400px; z-index: -1;"></iframe>
+<script type="text/javascript">
+//<![CDATA[
+(function(){
+var doc = document;
+var shim = doc.getElementById('support-shim');
+shim.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0)';
+shim.style.display = 'block';
+})();
+//]]>
+</script>
+<![endif]-->
+					</div>
+				</li>
+				<li class="service-cell service-explore"><a href="#explore"
+					tabindex="50" accesskey="5" class="dropdown" id="explore-link"
+					onclick="return false" style="cursor: progress" rel="javascript"
+					data-action="Explore - Explore">Explore</a>
+					<div class="explore-menu" id="explore-menu" style="display: none;">
+						<div class="explore-primary">
+							<ul class="explore-nav">
+								<li><a href="http://us.battle.net/" tabindex="55"
+									data-action="Explore - Battle.net Home"> <strong
+										class="explore-caption">Battle.net Home</strong>
+								</a></li>
+								<li><a href="https://us.battle.net/shop/" tabindex="55"
+									data-action="Explore - Shop"> <strong
+										class="explore-caption">Shop</strong>
+								</a></li>
+								<li><a href="https://us.battle.net/account/management/"
+									tabindex="55" data-action="Explore - Account"> <strong
+										class="explore-caption">Account</strong>
+								</a></li>
+								<li><a href="http://us.battle.net/support/" tabindex="55"
+									data-action="Explore - Support"> <strong
+										class="explore-caption">Support</strong>
+								</a></li>
+							</ul>
+							<div class="explore-links">
+								<h2 class="explore-caption">More</h2>
+								<ul>
+									<li><a href="http://us.battle.net/what-is/" tabindex="55"
+										data-action="Explore - What is Battle.net?">What is
+											Battle.net?</a></li>
+									<li><a
+										href="https://us.battle.net/account/parental-controls/index.html"
+										tabindex="55" data-action="Explore - Parental Controls">Parental
+											Controls</a></li>
+									<li><a href="http://us.battle.net/security/" tabindex="55"
+										data-action="Explore - Account Security">Account Security</a></li>
+									<li><a
+										href="http://jobs.blizzard.com/?utm_campaign=Blizzard_Jobs&amp;utm_source=Battle_net&amp;utm_medium=Explore"
+										tabindex="55" data-action="Explore - Work At Blizzard">Work
+											At Blizzard</a></li>
+									<li><a
+										href="https://us.battle.net/account/support/password-reset.html"
+										tabindex="55" data-action="Explore - Canâ€™t log in?">Canâ€™t
+											log in?</a></li>
+									<li><a href="https://us.battle.net/account/download/"
+										tabindex="55" data-action="Explore - Game Client Downloads">Game
+											Client Downloads</a></li>
+									<li><a
+										href="https://us.battle.net/account/management/claim-code.html"
+										tabindex="55" data-action="Explore - Redeem Codes">Redeem
+											Codes</a></li>
+									<li><a href="http://us.battle.net/games/classic"
+										tabindex="55" data-action="Explore - Classic Games">Classic
+											Games</a></li>
+								</ul>
+							</div>
+							<span class="clear">
+								<!-- -->
+							</span>
+							<!--[if IE 6]> <iframe id="explore-shim" src="javascript:false;" frameborder="0" scrolling="no" style="display: block; position: absolute; top: 0; left: 9px; width: 409px; height: 400px; z-index: -1;"></iframe>
+<script type="text/javascript">
+//<![CDATA[
+(function(){
+var doc = document;
+var shim = doc.getElementById('explore-shim');
+shim.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0)';
+shim.style.display = 'block';
+})();
+//]]>
+</script>
+<![endif]-->
+						</div>
+						<ul class="explore-secondary">
+							<li class="explore-game explore-game-wow"><a
+								href="http://us.battle.net/wow/" tabindex="55"
+								data-action="Explore - wow"> <span
+									class="explore-game-inner"> <strong
+										class="explore-caption">World of WarcraftÂ®</strong>
+								</span>
+							</a></li>
+							<li class="explore-game explore-game-d3"><a
+								href="http://us.battle.net/d3/" tabindex="55"
+								data-action="Explore - d3"> <span class="explore-game-inner">
+										<strong class="explore-caption">DiabloÂ® III</strong>
+								</span>
+							</a></li>
+							<li class="explore-game explore-game-sc2"><a
+								href="http://us.battle.net/sc2/" tabindex="55"
+								data-action="Explore - sc2"> <span
+									class="explore-game-inner"> <strong
+										class="explore-caption">StarCraftÂ® II</strong>
+								</span>
+							</a></li>
+							<li class="explore-game explore-game-hs"><a
+								href="http://us.battle.net/hearthstone/" tabindex="55"
+								data-action="Explore - hs"> <span class="explore-game-inner">
+										<strong class="explore-caption">Hearthstoneâ„¢</strong>
+								</span>
+							</a></li>
+							<li class="explore-game explore-game-heroes"><a
+								href="http://www.heroesofthestorm.com/en-us" tabindex="55"
+								data-action="Explore - heroes"> <span
+									class="explore-game-inner"> <strong
+										class="explore-caption">Heroes of the Stormâ„¢</strong>
+								</span>
+							</a></li>
+						</ul>
+					</div></li>
+			</ul>
+			<div id="warnings-wrapper">
+				<!--[if lt IE 8]> <div id="browser-warning" class="warning warning-red">
+<div class="warning-inner2">
+You are using an outdated web browser.<br />
+<a href="http://us.blizzard.com/support/article/browserupdate">Upgrade</a> or <a href="http://www.google.com/chromeframe/?hl=en-US" id="chrome-frame-link">install Google Chrome Frame</a>.
+<a href="#close" class="warning-close" onclick="App.closeWarning('#browser-warning', 'browserWarning'); return false;"></a>
+</div>
+</div>
+<![endif]-->
+				<!--[if lt IE 8]> <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/third-party/CFInstall.min.js?v=58"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(function() {
+var age = 365 * 24 * 60 * 60 * 1000;
+var src = 'https://www.google.com/chromeframe/?hl=en-US';
+if ('http:' == document.location.protocol) {
+src = 'http://www.google.com/chromeframe/?hl=en-US';
+}
+document.cookie = "disableGCFCheck=0;path=/;max-age="+age;
+$('#chrome-frame-link').bind({
+'click': function() {
+App.closeWarning('#browser-warning');
+CFInstall.check({
+mode: 'overlay',
+url: src
+});
+return false;
+}
+});
+});
+//]]>
+</script>
+<![endif]-->
+				<noscript>
+					<div id="javascript-warning" class="warning warning-red">
+						<div class="warning-inner2">JavaScript must be enabled to
+							use this site.</div>
+					</div>
+				</noscript>
+			</div>
+			<script type="text/javascript">
+//<![CDATA[
+$(function() {
+var category = Core.project + ' - GNB';
+Core.bindTrackEvent('#service .service-home a', category);
+Core.bindTrackEvent('#service .service-account a', category);
+Core.bindTrackEvent('#service .service-shop a', category);
+Core.bindTrackEvent('#support-link', category);
+Core.bindTrackEvent('#support-nav-kb', category);
+Core.bindTrackEvent('#support-nav-tickets', category);
+Core.bindTrackEvent('#ticket-summary', category);
+Core.bindTrackEvent('#explore-link', category);
+Core.bindTrackEvent('.explore-nav li a', category);
+});
+//]]>
+</script>
+		</div>
+	</div>
+	<script>
+//<![CDATA[
+var xsToken = 'db9b92d9-6dc2-45c6-bd99-c1049eaf971c';
+var supportToken = 'A063393B9D86287E007A5A92C00AC4F283565CE6';
+var jsonSearchHandlerUrl = '//us.battle.net';
+var Msg = Msg || {};
+Msg.support = {
+ticketNew: 'Ticket {0} was created.',
+ticketStatus: 'Ticket {0}â€™s status changed to {1}.',
+ticketOpen: 'Open',
+ticketAnswered: 'Answered',
+ticketResolved: 'Resolved',
+ticketCanceled: 'Canceled',
+ticketArchived: 'Archived',
+ticketInfo: 'Need Info',
+ticketAll: 'View All Tickets'
+};
+Msg.cms = {
+requestError: 'Your request cannot be completed.',
+ignoreNot: 'Not ignoring this user',
+ignoreAlready: 'Already ignoring this user',
+stickyRequested: 'Sticky requested',
+stickyHasBeenRequested: 'You have already sent a sticky request for this topic.',
+postAdded: 'Post added to tracker',
+postRemoved: 'Post removed from tracker',
+userAdded: 'User added to tracker',
+userRemoved: 'User removed from tracker',
+validationError: 'A required field is incomplete',
+characterExceed: 'The post body exceeds XXXXXX characters.',
+searchFor: "Search for",
+searchTags: "Articles tagged:",
+characterAjaxError: "You may have become logged out. Please refresh the page and try again.",
+ilvl: "Level {0}",
+shortQuery: "Search requests must be at least three characters long.",
+editSuccess: "Success. Reload?",
+postDelete: "Are you sure you want to delete this post?",
+throttleError: "You must wait before you can post again."
+};
+Msg.bml= {
+bold: 'Bold',
+italics: 'Italics',
+underline: 'Underline',
+list: 'Unordered List',
+listItem: 'List Item',
+quote: 'Quote',
+quoteBy: 'Posted by {0}',
+unformat: 'Remove Formating',
+cleanup: 'Fix Linebreaks',
+code: 'Code Blocks',
+item: 'WoW Item',
+itemPrompt: 'Item ID:',
+url: 'URL',
+urlPrompt: 'URL Address:'
+};
+Msg.ui= {
+submit: 'Submit',
+cancel: 'Cancel',
+reset: 'Reset',
+viewInGallery: 'View in gallery',
+loading: 'Loadingâ€¦',
+unexpectedError: 'An error has occurred',
+fansiteFind: 'Find this onâ€¦',
+fansiteFindType: 'Find {0} onâ€¦',
+fansiteNone: 'No fansites available.',
+flashErrorHeader: 'Adobe Flash Player must be installed to see this content.',
+flashErrorText: 'Download Adobe Flash Player',
+flashErrorUrl: 'http://get.adobe.com/flashplayer/',
+save: 'Save'
+};
+Msg.grammar= {
+colon: '{0}:',
+first: 'First',
+last: 'Last',
+ellipsis: 'â€¦'
+};
+Msg.fansite= {
+achievement: 'achievement',
+character: 'character',
+faction: 'faction',
+'class': 'class',
+object: 'object',
+talentcalc: 'talents',
+skill: 'profession',
+quest: 'quest',
+spell: 'spell',
+event: 'event',
+title: 'title',
+arena: 'arena team',
+guild: 'guild',
+zone: 'zone',
+item: 'item',
+race: 'race',
+npc: 'NPC',
+pet: 'pet'
+};
+Msg.search= {
+noResults: 'There are no results to display.',
+kb: 'Support',
+post: 'Forums',
+article: 'Blog Articles',
+static: 'General Content',
+wowcharacter: 'Characters',
+wowitem: 'Items',
+wowguild: 'Guilds',
+wowarenateam: 'Arena Teams',
+url: 'Suggested Links',
+friend: 'Friends',
+product: 'Marketplace Products',
+other: 'Other'
+};
+//]]>
+</script>
+	<script type="text/javascript" src="/achievements-webapp/sc2/static/js/sc2.js?v=28"></script>
+	<script type="text/javascript">
+//<![CDATA[
+$(function(){
+Menu.initialize('/data/menu.json?v58');
+Search.initialize('/sc2/en/search/ta');
+});
+//]]>
+</script>
+	<script type="text/javascript"
+		src="/achievements-webapp/sc2/static/cms-overlay/js/build/cms.min.js?v=28"></script>
+	<script>
+//<![CDATA[
+(function() {
+var ga = document.createElement('script');
+var src = "https://ssl.google-analytics.com/ga.js";
+if ('http:' == document.location.protocol) {
+src = "http://www.google-analytics.com/ga.js";
+}
+ga.type = 'text/javascript';
+ga.setAttribute('async', 'true');
+ga.src = src;
+var s = document.getElementsByTagName('script');
+s = s[s.length-1];
+s.parentNode.insertBefore(ga, s.nextSibling);
+})();
+//]]>
+</script>
+</body>
+</html>

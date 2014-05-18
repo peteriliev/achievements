@@ -5,6 +5,16 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>AchivementsWeb</display-name>
 
+	<servlet>
+		<servlet-name>CreateARecord</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.CreateARecord</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CreateARecord</servlet-name>
+		<url-pattern>/CreateARecord</url-pattern>
+	</servlet-mapping>
+
 	<listener>
 		<listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
 	</listener>

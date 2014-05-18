@@ -1,0 +1,64 @@
+/* container */
+#lightbox-anchor { position:absolute; top:10%; left:0; z-index: 9005; width:100% }
+#lightbox-container { width:890px; height:641px; position:relative; display:none; margin:0 auto; background-color:#001B39 }
+#lightbox-container .ui-element { background:url(../images/layout/lightbox/ui.png) no-repeat }
+
+/* content holder */
+#lightbox-content { background-repeat:no-repeat; width:100%; height:100%; background-color:#001B39; z-index:9005; position:absolute }
+#lightbox-content.loading { background:#001B39 url(../images/loaders/thumbnail-loader.gif) no-repeat 50% 50% }
+
+/* close */
+#lightbox-container .lightbox-close { display:block; position:absolute; float:right; right:-26px; top:-18px; width:57px; height:51px; background-position: -106px -207px; z-index:9006 }
+#lightbox-container .lightbox-close:hover { background-position:-106px -258px }
+
+/* borders*/
+#lightbox-container .border { background:#0360a5 url(../images/layout/lightbox/frame.gif) no-repeat; position:absolute; float:left; z-index:9006 }
+#lightbox-container #lb-border-top { height:3px; top:-3px; left:4px; width:880px; background-position:-4px 0 }
+#lightbox-container #lb-border-right { width:4px; top:3px; right:-4px; background-position:0 100%; height:632px }
+#lightbox-container #lb-border-bottom { height:4px; bottom:-4px; left:6px;  background-position:100% -3px; width:878px }
+#lightbox-container #lb-border-left { width:3px; top:3px; left:-3px; background-position:-4px -7px; height:632px }
+
+/* corners */
+#lightbox-container .corner { position:absolute; background:url(../images/layout/lightbox/frame.gif); float:left; z-index:9006 }
+#lightbox-container .corner-top-left { background-position:-7px -7px; width:7px; height:7px; top:-3px; left:-3px }
+#lightbox-container .corner-bottom-left { background-position:-7px -16px; width:10px; height:10px; bottom:-4px; left:-3px }
+#lightbox-container .corner-top-right { background-position:-16px -7px; width:10px; height:9px; top:-3px; right:-4px }
+#lightbox-container .corner-bottom-right { background-position:-16px -16px; width:10px; height:10px; bottom:-4px; right:-4px }
+
+/* paging */
+#lightbox-container .control-wrapper { height:51px; position:absolute; float:left; width:100%; bottom:-35px; z-index:9006 }
+#lightbox-container .control-wrapper .lightbox-controls { width:281px; height:51px;  margin:0 auto; background-position:0 0 }
+#lightbox-container .control-wrapper a { display:block; height:50px; float:left; margin-top:1px }
+
+/* paging - previous */
+#lightbox-container .control-wrapper a.previous { width:111px; background-position:46px -51px }
+#lightbox-container .control-wrapper a.previous:hover { background-position:46px -101px }
+
+/* paging - gallery view */
+#lightbox-container .control-wrapper a.gallery-view { position:relative; top:-51px; left:107px; width:65px; background-position:-65px -51px }
+#lightbox-container .control-wrapper a.gallery-view:hover { background-position:-65px -101px }
+
+/* paging - next */
+#lightbox-container .control-wrapper a.next { margin-left:57px; width:110px; background-position:-130px -51px }
+#lightbox-container .control-wrapper a.next:hover { background-position:-130px -101px }
+
+/* no paging */
+#lightbox-container .control-wrapper.no-paging .lightbox-controls { background-position:0 -152px; width:191px }
+#lightbox-container .control-wrapper.no-paging a.previous,
+#lightbox-container .control-wrapper.no-paging a.next { display:none }
+#lightbox-container .control-wrapper.no-paging a.gallery-view { top:0px; left:57px; width:83px; height:46px; background-position:0 -203px }
+#lightbox-container .control-wrapper.no-paging a.gallery-view:hover { background-position:0 -249px }
+
+/* no gallery */
+#lightbox-container .control-wrapper.no-gallery a.gallery-view { display:none }
+#lightbox-container .control-wrapper.no-gallery .lightbox-controls { background-position:0 -315px; width:216px }
+#lightbox-container .control-wrapper.no-gallery a.previous { width:105px; background-position:41px -51px }
+#lightbox-container .control-wrapper.no-gallery a.previous:hover { background-position:41px -101px }
+#lightbox-container .control-wrapper.no-gallery a.next { width:105px; margin-left:5px }
+#lightbox-container .control-wrapper.no-gallery a.next:hover { }
+
+/* no controls */
+#lightbox-container .control-wrapper.no-gallery.no-paging { display:none }
+
+/* error loading content */
+#lightbox-container .lightbox-error { text-align:center; font-size:16px; background: #001B39 url(../images/error-page/warning.png) no-repeat 50% 20px; vertical-align:text-bottom; line-height:550px }

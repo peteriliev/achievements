@@ -1,62 +1,9 @@
-<%@page import="com.iliev.peter.user.User"%>
-<%@page import="java.util.List"%>
-<%@page import="com.iliev.peter.achieve.contracts.IAchievement"%>
-<%@page import="org.apache.shiro.SecurityUtils"%>
-<%@page import="org.apache.shiro.subject.Subject"%>
-<%@page import="java.util.UUID"%>
-<%@page import="com.iliev.peter.db.*"%>
-<%@page import="com.iliev.peter.achieve.*"%>
-<%@page import="java.util.function.Predicate"%>
-<%@page import="com.iliev.peter.db.exception.NotFoundException"%>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 <head xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#">
 <meta charset="UTF-8">
 <meta http-equiv="imagetoolbar" content="false" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-<%
-	Subject currentUser = SecurityUtils.getSubject();
-	final Predicate currentAdminP = new Queries.UserByLogin(currentUser.getPrincipal().toString());
-	
-	final User currentAdmin = Initializer.userMgr.readSingle(currentAdminP);
-
-	UUID catUUID = null;
-		try {
-			catUUID = UUID.fromString(request.getParameter("catUUID"));
-		} catch (Exception e) {
-			response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
-		}
-%>
-
-<%
-	String headerText = "";
-	try {
-		final Category selectedCat = Initializer.cateogryMgr.readSingle(new Queries.ObjectByUUID(catUUID));
-		headerText = selectedCat.getName();
-		
-	} catch (Exception exc) {
-
-	}
-	
-	List<User> allTargetUsers = null;
-	try {
-		allTargetUsers  = Initializer.userMgr.read(Queries.ALL_TARGET_USERS);
-	} catch (NotFoundException e) {
-		e.printStackTrace();
-	}
-%>
-
-<title>Постижения > Бъбълсчето > <%=headerText%></title>
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<script src="js/jquery-2.0.3.js"></script>
-<script src="js/main.js"></script>
-
+<title>Mar Sara Missions - Sunstriderr - StarCraft II</title>
 <link rel="icon" href="/achievements-webapp/sc2/static/images/icons/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="/achievements-webapp/sc2/static/images/icons/favicon.ico" type="image/x-icon" />
 <link title="StarCraft® II - News" href="/achievements-webapp/sc2/en/feed/news" type="application/atom+xml" rel="alternate" />
@@ -65,8 +12,16 @@
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/legal/ratings.css?v=58-28" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/sc2.css?v=28" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/profile/profile.css?v=28" />
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/profile/profile-ie6.css?v=28" />
+<![endif]-->
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/third-party.js?v=58"></script>
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/common-game-site.js?v=58"></script>
+<!--[if IE 6]> <script type="text/javascript">
+//<![CDATA[
+try { document.execCommand('BackgroundImageCache', false, true) } catch(e) {}
+//]]>
+</script>
+<![endif]-->
 <script type="text/javascript">
 //<![CDATA[
 var Core = Core || {},
@@ -108,9 +63,7 @@ _gaq.push(['_trackPageview']);
 <meta property="og:image" content="http://media.blizzard.com/battle.net/logos/og-blizzard.png" />
 <meta property="og:title" content="StarCraft II" />
 <meta property="og:description" content="Mar Sara Missions - Sunstriderr - StarCraft II" />
-
 </head>
-
 <body class="en-us " itemscope="itemscope" itemtype="http://schema.org/WebPage">
 <div class="wrapper">
 <div class="head">
@@ -197,7 +150,7 @@ class="icon-posts link-last"
 <ol class="ui-breadcrumb">
 <li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 <a href="/achievements-webapp/sc2/en/" rel="np" class="breadcrumb-arrow" itemprop="url">
-<span class="breadcrumb-text" itemprop="name">Постижения</span>
+<span class="breadcrumb-text" itemprop="name">StarCraft II</span>
 </a>
 </li>
 <li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
@@ -205,9 +158,19 @@ class="icon-posts link-last"
 <span class="breadcrumb-text" itemprop="name">Бебълсчето</span>
 </a>
 </li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">Achievements</span>
+</a>
+</li>
+<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211278" rel="np" class="breadcrumb-arrow" itemprop="url">
+<span class="breadcrumb-text" itemprop="name">Liberty Campaign</span>
+</a>
+</li>
 <li class="last" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 <a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211278" rel="np" itemprop="url">
-<span class="breadcrumb-text" itemprop="name"><%=headerText%></span>
+<span class="breadcrumb-text" itemprop="name">Mar Sara Missions</span>
 </a>
 </li>
 </ol>
@@ -274,17 +237,32 @@ class="icon-posts link-last"
 
         <div id="profile-left">
             <ul id="profile-menu">
-					<li>
-						<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/"><span class="back"></span>Обратно към <span>Профила</span></a></li>
-            	<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
-					CategoryNode selectedCat = null;
-					for (final CategoryNode cn : topLevel)  { %> 
-					<% if(cn.getUUID().equals(catUUID)) { selectedCat = cn;%>
-						<li class="active"><a href="#"><%=cn.getName()%></a></li>
-					<% } else { %>
-						<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>"><%=cn.getName()%></a></li>
-					<% } } %>
-			</ul>
+						<li>
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/">
+								
+									<span class="back"></span>
+									Back <span>Profile Summary</span>
+							</a>
+						</li>
+						<li>
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/">
+								
+									<span class="back"></span>
+									Back <span>Achievements</span>
+							</a>
+						</li>
+						<li class="active">
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211278">Хигиена</a></li>
+						<li class="">
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211279">Дисциплина</a></li>
+						<li class="">
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211280">Спорт</a></li>
+						<li class="">
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211281">Туризъм</a></li>
+						<li class="">
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211282">Английски</a></li>
+						<li class="">
+							<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211283">Математика</a></li></ul>
         </div>
 
         <div id="profile-right">
@@ -335,18 +313,33 @@ class="icon-posts link-last"
 
 
 
-		<div id="achievement-91475035553879" class="achievement achievement-large earned">
+		<div id="achievement-91475035553879"
+			class="achievement achievement-large earned">
 
 			<div class="inner">
-				<div class="meta png-fix"><span>15</span>5/18/2014</div>
+				<div class="meta png-fix">
+							<span>15</span>
+
+						5/18/2014
+				</div>
+
 				<div class="icon portrait-c ">
-					<span class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') -180px -90px no-repeat; width: 45px; height: 45px;"></span>
-					<span class="clear"><!-- --></span>
+
+
+	<span class="icon-frame "
+		style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') -180px -90px no-repeat; width: 45px; height: 45px;">
+
+	</span>
+	<span class="clear"><!-- --></span>
 				</div>
+
 				<div class="desc">
-					<span>Миене на зъбки</span><br />Малките бебълсчета трябва да си мият зъбките редовно.
+					<span>Миене на зъбки</span><br />
+					Малките бебълсчета трябва да си мият зъбките редовно.
 				</div>
-				<span class="clear"><!-- --></span>
+
+	<span class="clear"><!-- --></span>
+
 			</div>
 		</div>
 
@@ -924,9 +917,9 @@ cookieParams: { expires: 720 }
 </script>
 </li>
 <li class="service-cell service-welcome">
-	Welcome, <%=currentUser.getPrincipal()%>&nbsp;<a href="/achievements-webapp/Logout.jsp" tabindex="50" accesskey="2">log out</a>
+Welcome, Peter
+|  <a href="?logout" tabindex="50" accesskey="2">log out</a>
 </li>
-
 <li class="service-cell service-shop">
 <a href='https://us.battle.net/shop/' class="service-link" data-action="Shop">Shop</a>
 </li>
@@ -955,6 +948,18 @@ View your active support tickets.
 <span class="clear"><!-- --></span>
 </div>
 <div class="support-secondary"></div>
+<!--[if IE 6]> <iframe id="support-shim" src="javascript:false;" frameborder="0" scrolling="no" style="display: block; position: absolute; top: 0; left: 9px; width: 297px; height: 400px; z-index: -1;"></iframe>
+<script type="text/javascript">
+//<![CDATA[
+(function(){
+var doc = document;
+var shim = doc.getElementById('support-shim');
+shim.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0)';
+shim.style.display = 'block';
+})();
+//]]>
+</script>
+<![endif]-->
 </div>
 </li>
 <li class="service-cell service-explore">
@@ -997,6 +1002,18 @@ View your active support tickets.
 </ul>
 </div>
 <span class="clear"><!-- --></span>
+<!--[if IE 6]> <iframe id="explore-shim" src="javascript:false;" frameborder="0" scrolling="no" style="display: block; position: absolute; top: 0; left: 9px; width: 409px; height: 400px; z-index: -1;"></iframe>
+<script type="text/javascript">
+//<![CDATA[
+(function(){
+var doc = document;
+var shim = doc.getElementById('explore-shim');
+shim.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0)';
+shim.style.display = 'block';
+})();
+//]]>
+</script>
+<![endif]-->
 </div>
 <ul class="explore-secondary">
 <li class="explore-game explore-game-wow">
@@ -1238,32 +1255,3 @@ s.parentNode.insertBefore(ga, s.nextSibling);
 </script>
 </body>
 </html>
-
-<!-- OLD CONTENT -->
-
-<body>
-
-<input type="hidden" id="current_admin" value="<%=currentAdmin.getUUID()%>"/>
-
-<select id="target_user">
-	<% for (final User tu: allTargetUsers)
-       { %>
-       
-       <option value="<%=tu.getUUID()%>"> <%=tu.getLogin()%>
-       
-       <% }
-	%>
-
-</select>
-
-
-	
-
-	<%
-        final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
-		final List<IAchievement> allAchievements = Initializer.achievementMgr.read(catPredi);
-			
-		final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
-        final Predicate<ARecord> userPredicate = new Queries.ARecordByUserAndCat(usr.getUUID());
-        final List<IAchievement> userAchievements = Initializer.aRecordMgr.readByUser(userPredicate, allAchievements);
-	%>

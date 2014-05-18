@@ -3,12 +3,17 @@ com\iliev\peter\achieve\SubAchivement.class
 com\iliev\peter\db\Queries$ARecordByUserAndCat.class
 com\iliev\peter\db\Queries.class
 com\iliev\peter\db\contracts\ORMMgr.class
+com\iliev\peter\db\Queries$CatByParent.class
 com\iliev\peter\db\contracts\UserMgr.class
 com\iliev\peter\achieve\Category.class
 com\iliev\peter\achieve\contracts\IAchievement.class
+com\iliev\peter\achieve\CategoryBuilder.class
+com\iliev\peter\achieve\CategoryNode.class
+com\iliev\peter\achieve\ICategory.class
 com\iliev\peter\db\MockARecordManager.class
 com\iliev\peter\user\User.class
 com\iliev\peter\db\Queries$1.class
+com\iliev\peter\db\Queries$4.class
 com\iliev\peter\achieve\Achievement.class
 com\iliev\peter\achieve\RecordStatus.class
 com\iliev\peter\achieve\Type.class
@@ -20,6 +25,7 @@ com\iliev\peter\db\Queries$2.class
 com\iliev\peter\db\MockUserManager.class
 com\iliev\peter\db\Queries$UserByLogin.class
 com\iliev\peter\achieve\ARecord.class
+com\iliev\peter\db\Queries$3.class
 com\iliev\peter\db\Queries$ObjectByUUID.class
 com\iliev\peter\db\contracts\ARecordMgr.class
 com\iliev\peter\contracts\UUIDObject.class
