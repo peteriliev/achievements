@@ -35,39 +35,47 @@ public class Initializer {
 	
 	private static void init(final AchievementMgr aMgr, final CategoryMgr cMgr, final ARecordMgr aRecordMgr, final UserMgr userMgr) throws NotFoundException {
 
-		final Category blackCat = Category.newInstance(NO_PARENT, "Hyegine", "Hyegine description");
-		final Category whiteCat = Category.newInstance(NO_PARENT, "Discipline", "Disciplne description");
-		final Category redCat = Category.newInstance(NO_PARENT, "Athletics", "Athletics description");
+		final Category hyegineCat = Category.newInstance(NO_PARENT, "Hyegine", "Hyegine description");
+		final Category disciplineCat = Category.newInstance(NO_PARENT, "Discipline", "Disciplne description");
+		final Category athleticsCat = Category.newInstance(NO_PARENT, "Athletics", "Athletics description");
+		final Category tourismCat = Category.newInstance(NO_PARENT, "Tourism", "Tourism description");
+		final Category householdCat = Category.newInstance(NO_PARENT, "Household", "Household description");
+		final Category englishCat = Category.newInstance(NO_PARENT, "English", "English description");
+		final Category mathCat = Category.newInstance(NO_PARENT, "Math", "Math description");
 
-		final UUID blackUUID = cMgr.create(blackCat);
-		final UUID whiteUUID = cMgr.create(whiteCat);
-		final UUID redUUID = cMgr.create(redCat);
-		
-		final Category blackSubCat1 = Category.newInstance(blackUUID, "Black SCat1", "Black scat descr 1");
+		final UUID hyegineUUID = cMgr.create(hyegineCat);
+		final UUID disciplineUUID = cMgr.create(disciplineCat);
+		final UUID athleticsUUID = cMgr.create(athleticsCat);
+		final UUID tourismUUID = cMgr.create(tourismCat);
+		final UUID householdUUID = cMgr.create(householdCat);
+		final UUID englishUUID = cMgr.create(englishCat);
+		final UUID mathUUID = cMgr.create(mathCat);
+				
+		final Category blackSubCat1 = Category.newInstance(hyegineUUID, "Black SCat1", "Black scat descr 1");
 		cMgr.create(blackSubCat1);
-		final Category blackSubCat2 = Category.newInstance(blackUUID, "Black SCat2", "Black scat descr 2");
+		final Category blackSubCat2 = Category.newInstance(hyegineUUID, "Black SCat2", "Black scat descr 2");
 		cMgr.create(blackSubCat2);
-		final Category blackSubCat3 = Category.newInstance(blackUUID, "Black SCat3", "Black scat descr 3");
+		final Category blackSubCat3 = Category.newInstance(hyegineUUID, "Black SCat3", "Black scat descr 3");
 		cMgr.create(blackSubCat3);
 
-		final Category whiteSubCat1 = Category.newInstance(whiteUUID, "White SCat1", "White scat descr 1");
+		final Category whiteSubCat1 = Category.newInstance(disciplineUUID, "White SCat1", "White scat descr 1");
 		cMgr.create(whiteSubCat1);
-		final Category whiteSubCat2 = Category.newInstance(whiteUUID, "White SCat2", "White scat descr 2");
+		final Category whiteSubCat2 = Category.newInstance(disciplineUUID, "White SCat2", "White scat descr 2");
 		cMgr.create(whiteSubCat2);
-		final Category whiteSubCat3 = Category.newInstance(whiteUUID, "White SCat3", "White scat descr 3");
+		final Category whiteSubCat3 = Category.newInstance(disciplineUUID, "White SCat3", "White scat descr 3");
 		cMgr.create(whiteSubCat3);
-		final Category whiteSubCat4 = Category.newInstance(whiteUUID, "White SCat4", "White scat descr 4");
+		final Category whiteSubCat4 = Category.newInstance(disciplineUUID, "White SCat4", "White scat descr 4");
 		cMgr.create(whiteSubCat4);
 		
-		final Category redSubCat1 = Category.newInstance(redUUID, "Red SCat1", "Red scat descr 1");
+		final Category redSubCat1 = Category.newInstance(athleticsUUID, "Red SCat1", "Red scat descr 1");
 		cMgr.create(redSubCat1);
-		final Category redSubCat2 = Category.newInstance(redUUID, "Red SCat2", "Red scat descr 2");
+		final Category redSubCat2 = Category.newInstance(athleticsUUID, "Red SCat2", "Red scat descr 2");
 		final UUID redSubCat2UUID = cMgr.create(redSubCat2);
 		final Category redSubCat2PO = cMgr.readSingle(new Queries.ObjectByUUID(redSubCat2UUID));
 
-		final Category blackCatPO = cMgr.readSingle(new Queries.ObjectByUUID(blackUUID));
-		final Category whiteCatPO = cMgr.readSingle(new Queries.ObjectByUUID(whiteUUID));
-		final Category redCatPO = cMgr.readSingle(new Queries.ObjectByUUID(redUUID));
+		final Category blackCatPO = cMgr.readSingle(new Queries.ObjectByUUID(hyegineUUID));
+		final Category whiteCatPO = cMgr.readSingle(new Queries.ObjectByUUID(disciplineUUID));
+		final Category redCatPO = cMgr.readSingle(new Queries.ObjectByUUID(athleticsUUID));
 
 		final IAchievement bAchievementOne = Achievement.newInstance("Black Ach. One", "Black ach. one descr", Type.REGULAR, 10, blackCatPO);
 		final UUID bAchievementOneUUID = aMgr.create(bAchievementOne);

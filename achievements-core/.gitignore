@@ -8,5 +8,4 @@ target/
 *.jar
 *axis_tdjava.*
 .metadata*
-*.project
 *.log
