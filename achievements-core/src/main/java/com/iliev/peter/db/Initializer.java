@@ -35,9 +35,9 @@ public class Initializer {
 	
 	private static void init(final AchievementMgr aMgr, final CategoryMgr cMgr, final ARecordMgr aRecordMgr, final UserMgr userMgr) throws NotFoundException {
 
-		final Category blackCat = Category.newInstance(NO_PARENT, "Хигиена", "Black cat descr");
-		final Category whiteCat = Category.newInstance(NO_PARENT, "Дисциплина", "White cat descr");
-		final Category redCat = Category.newInstance(NO_PARENT, "Спорт", "Red cat descr");
+		final Category blackCat = Category.newInstance(NO_PARENT, "Hyegine", "Hyegine description");
+		final Category whiteCat = Category.newInstance(NO_PARENT, "Discipline", "Disciplne description");
+		final Category redCat = Category.newInstance(NO_PARENT, "Athletics", "Athletics description");
 
 		final UUID blackUUID = cMgr.create(blackCat);
 		final UUID whiteUUID = cMgr.create(whiteCat);
