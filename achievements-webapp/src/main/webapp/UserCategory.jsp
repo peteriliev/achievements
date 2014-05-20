@@ -50,7 +50,7 @@
 	}
 %>
 
-<title>Постижения > Бъбълсчето > <%=headerText%></title>
+<title>Постижения > Бебълсчето > <%=headerText%></title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -300,12 +300,13 @@ class="icon-posts link-last"
 		%>
 
 		<% for (final IAchievement achieve : userAchievements)  {%>
-				<div id="achievement-91475035553879" class="achievement achievement-large <%if (achieve instanceof ARecord) {%>earned<%}else{%>unearned<%}%>">
+				<% boolean isEarned = (achieve instanceof ARecord);%>
+				<div id="achievement-91475035553879" class="achievement achievement-large <%if (isEarned) { %>earned<% }else{ %>unearned<% }%>">
 
 					<div class="inner">
 						<div class="meta png-fix"><span><%=achieve.getPoints()%></span>5/18/2014</div>
-						<div class="icon portrait-c <%if (!(achieve instanceof ARecord)) {%>tile-locked<%}%>">
-							<span class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') <%if (achieve instanceof ARecord) {%>-180px -90px<%}else{%>-225px -90px<%}%> no-repeat; width: 45px; height: 45px;"></span>
+						<div class="icon portrait-c <%if (!isEarned) { %>tile-locked<% }%>">
+							<span class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') <%if (isEarned) { %>-180px -90px<% }else{ %>-225px -90px<% }%> no-repeat; width: 45px; height: 45px;"></span>
 							<span class="clear"><!-- --></span>
 						</div>
 						<div class="desc">

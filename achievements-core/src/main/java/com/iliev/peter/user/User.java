@@ -21,6 +21,12 @@ public class User implements UUIDObject {
 		return login;
 	}
 
+	public boolean isAdmin() {
+		// TODO:peteri
+		return "admin".equalsIgnoreCase(login);
+	}
+
+	@Override
 	public UUID getUUID() {
 		return uuid;
 	}

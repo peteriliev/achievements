@@ -8,20 +8,19 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import com.iliev.peter.user.User;
-import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.UserMgr;
 import com.iliev.peter.db.exception.NotFoundException;
 
 public class MockUserManager implements UserMgr {
 
-	private final Map<UUID, User> categoriesMap = new HashMap<>(64);
+	private final Map<UUID, User> usersMap = new HashMap<>(64);
 
 	@Override
 	public UUID create(User a) {
 		final UUID uuid = UUID.randomUUID();
 
-		categoriesMap.put(uuid, User.newInstance(uuid, a.getLogin()));
+		usersMap.put(uuid, User.newInstance(uuid, a.getLogin()));
 		return uuid;
 	}
 
@@ -29,9 +28,9 @@ public class MockUserManager implements UserMgr {
 	public List<User> read(final Predicate<User> predicate) throws NotFoundException {
 		final List<User> result = new ArrayList<>(64);
 
-		for (final User c : categoriesMap.values()) {
-			if (predicate.test(c)) {
-				result.add(c);
+		for (final User user : usersMap.values()) {
+			if (predicate.test(user)) {
+				result.add(user);
 			}
 		}
 
@@ -39,22 +38,22 @@ public class MockUserManager implements UserMgr {
 	}
 
 	@Override
-	public void update(final UUID uuid, final User a) throws NotFoundException {
-		if (!categoriesMap.containsKey(uuid)) {
+	public void update(final UUID uuid, final User user) throws NotFoundException {
+		if (!usersMap.containsKey(uuid)) {
 			throw new NotFoundException(uuid);
 		}
 
-		categoriesMap.remove(uuid);
-		categoriesMap.put(uuid, a);
+		usersMap.remove(uuid);
+		usersMap.put(uuid, user);
 	}
 
 	@Override
 	public void delete(UUID uuid) throws NotFoundException {
-		if (!categoriesMap.containsKey(uuid)) {
+		if (!usersMap.containsKey(uuid)) {
 			throw new NotFoundException(uuid);
 		}
 
-		categoriesMap.remove(uuid);
+		usersMap.remove(uuid);
 	}
 
 	@Override
@@ -63,9 +62,9 @@ public class MockUserManager implements UserMgr {
 			throw new IllegalArgumentException("NULL predicate");
 		}
 
-		for (final User cat : categoriesMap.values()) {
-			if (p.test(cat)) {
-				return cat;
+		for (final User usr : usersMap.values()) {
+			if (p.test(usr)) {
+				return usr;
 			}
 		}
 
