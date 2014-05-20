@@ -13,7 +13,7 @@ public class ARecord implements IAchievement, UUIDObject {
 	private final UUID achievementUUID;
 	private final IAchievement achievement;
 	private final Date dateEarned;
-	private final RecordStatus status;
+	private final ARecordStatus status;
 	private final User user;
 	private final User admin;
 	
@@ -25,7 +25,7 @@ public class ARecord implements IAchievement, UUIDObject {
 		this.achievement = a; // TODO:clone
 		this.user = user;
 		this.dateEarned = dateEarned;
-		this.status = RecordStatus.CLAIM;
+		this.status = ARecordStatus.CLAIM;
 		this.admin = admin;
 	}
 
@@ -72,7 +72,7 @@ public class ARecord implements IAchievement, UUIDObject {
 		return dateEarned;
 	}
 
-	public RecordStatus getStatus() {
+	public ARecordStatus getStatus() {
 		return status;
 	}
 
