@@ -21,6 +21,7 @@ com\iliev\peter\db\MockCategoryManager.class
 com\iliev\peter\db\Initializer.class
 com\iliev\peter\db\Queries$AchieveByCat.class
 com\iliev\peter\db\contracts\AchievementMgr.class
+com\iliev\peter\achieve\AchieveWrapper.class
 com\iliev\peter\db\Queries$2.class
 com\iliev\peter\achieve\ARecordStatus.class
 com\iliev\peter\db\MockUserManager.class

@@ -284,9 +284,10 @@
 
 			final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
         	final Predicate<ARecord> userPredicate = new Queries.ARecordByUserAndCat(usr.getUUID());
-        	final List<IAchievement> userAchievements = Initializer.aRecordMgr.readByUser(userPredicate, allAchievements);
-        	for (final IAchievement achieve : userAchievements)  {
-        		boolean isEarned = (achieve instanceof ARecord);
+        	final List<AchieveWrapper> userAchievements = Initializer.aRecordMgr.readByUser2(userPredicate, allAchievements);
+        	
+        	for (final AchieveWrapper achieve : userAchievements)  {
+        		boolean isEarned = ARecordStatus.APPROVED.equals(achieve.getStatus());
 		%>
 				<div id="achievement-91475035553879" class="achievement achievement-large <%if (isEarned) { %>earned<% }else{ %>unearned<% }%>">
 					<div class="inner">

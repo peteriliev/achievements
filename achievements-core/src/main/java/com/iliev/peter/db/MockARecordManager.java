@@ -1,13 +1,18 @@
 package com.iliev.peter.db;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.function.Predicate;
 
+import predicates.AvailActions;
+
 import com.iliev.peter.achieve.ARecord;
+import com.iliev.peter.achieve.AchieveWrapper;
+import com.iliev.peter.achieve.Action;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.ARecordMgr;
@@ -97,6 +102,35 @@ public class MockARecordManager implements ARecordMgr {
 				result.add(a);
 			}
 			// TODO:peteri
+		}
+
+		return result;
+	}
+
+	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> userPredicate, final List<IAchievement> allAchievements) {
+
+		// TODO:peteri - read from db join
+		final List<AchieveWrapper> result = new ArrayList<>(64);
+
+		final List<ARecord> userRecords = read(userPredicate);
+
+		for (final IAchievement a : allAchievements) {
+
+			ARecord matchingRec = null;
+
+			for (final ARecord ar : userRecords) {
+				if (ar.getAchievementUUID().equals(a.getUUID())) {
+					matchingRec = ar;
+					break;
+				}
+			}
+			
+			final AvailActions predi = new AvailActions();
+			final EnumSet<Action> actions = predi.apply(a.getType(), matchingRec != null ? matchingRec.getStatus() : null);
+			
+			final AchieveWrapper aw = AchieveWrapper.newInstance(a, matchingRec, actions);
+
+			result.add(aw);
 		}
 
 		return result;
