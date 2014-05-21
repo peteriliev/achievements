@@ -3,69 +3,48 @@ package com.iliev.peter.achieve;
 import java.util.Date;
 import java.util.UUID;
 
-import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
-import com.iliev.peter.user.User;
 
-public class ARecord implements IAchievement, UUIDObject {
+public class ARecord implements UUIDObject {
 
 	private final UUID uuid;
 	private final UUID achievementUUID;
-	private final IAchievement achievement;
 	private final Date dateEarned;
 	private final ARecordStatus status;
-	private final User user;
-	private final User admin;
-	
+	private final UUID userUUID;
+	private final UUID adminUUID;
+
 	private static final UUID NO_UUID = null;
 
-	private ARecord(final UUID uuid, final IAchievement a, final User user, final Date dateEarned, final User admin) {
+	private ARecord(final UUID uuid, final UUID aUUID, final UUID user, final Date dateEarned, final UUID admin, final ARecordStatus status) {
 		this.uuid = uuid;
-		this.achievementUUID = a.getUUID();
-		this.achievement = a; // TODO:clone
-		this.user = user;
+		this.achievementUUID = aUUID;
+		this.userUUID = user;
 		this.dateEarned = dateEarned;
-		this.status = ARecordStatus.CLAIM;
-		this.admin = admin;
+		this.status = status;
+		this.adminUUID = admin;
 	}
 
-	public static ARecord newPOInstance(final UUID uuid, final IAchievement a, final User user, final Date dateEarned, final User admin) {
-		if (null == uuid)
-		{
+	public static ARecord newPOInstance(final UUID uuid, final UUID a, final UUID user, final Date dateEarned, final UUID admin, final ARecordStatus status) {
+		if (null == uuid) {
 			throw new IllegalArgumentException("uuid is NULL");
 		}
-		
-		return new ARecord(uuid, a, user, dateEarned, admin);
+
+		return new ARecord(uuid, a, user, dateEarned, admin, status);
 	}
 
-	public static ARecord newDTOInstance(final IAchievement a, final User user, final Date dateEarned, final User admin)
-	{
-		return new ARecord(NO_UUID, a, user, dateEarned, admin);
-	}
+	public static ARecord newDTOInstance(final UUID achivementUUID, final UUID userUUID, final Date dateEarned, final UUID adminUUID, final ARecordStatus status) {
 
-	@Override
-	public String getName() {
-		return achievement.getName();
+		return new ARecord(NO_UUID, achivementUUID, userUUID, dateEarned, adminUUID, status);
 	}
 
 	@Override
-	public String getDescription() {
-		return achievement.getDescription();
+	public UUID getUUID() {
+		return uuid;
 	}
 
-	@Override
-	public Type getType() {
-		return achievement.getType();
-	}
-
-	@Override
-	public int getPoints() {
-		return achievement.getPoints();
-	}
-
-	@Override
-	public Category getCategory() {
-		return achievement.getCategory();
+	public UUID getAchievementUUID() {
+		return achievementUUID;
 	}
 
 	public Date getDateEarned() {
@@ -76,20 +55,11 @@ public class ARecord implements IAchievement, UUIDObject {
 		return status;
 	}
 
-	@Override
-	public UUID getUUID() {
-		return uuid;
+	public UUID getUserUUID() {
+		return userUUID;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
-	public UUID getAchievementUUID() {
-		return achievementUUID;
-	}
-
-	public User getAdmin() {
-		return admin;
+	public UUID getAdminUUID() {
+		return adminUUID;
 	}
 }

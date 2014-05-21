@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import com.iliev.peter.achieve.ARecord;
+import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.achieve.Achievement;
 import com.iliev.peter.achieve.Category;
 import com.iliev.peter.achieve.Type;
@@ -32,7 +33,7 @@ public class Initializer {
 	}
 
 	private static final UUID NO_PARENT = null;
-	
+
 	private static void init(final AchievementMgr aMgr, final CategoryMgr cMgr, final ARecordMgr aRecordMgr, final UserMgr userMgr) throws NotFoundException {
 
 		final Category hyegineCat = Category.newInstance(NO_PARENT, "Hyegine", "Hyegine description");
@@ -50,7 +51,7 @@ public class Initializer {
 		final UUID householdUUID = cMgr.create(householdCat);
 		final UUID englishUUID = cMgr.create(englishCat);
 		final UUID mathUUID = cMgr.create(mathCat);
-				
+
 		final Category blackSubCat1 = Category.newInstance(hyegineUUID, "Black SCat1", "Black scat descr 1");
 		cMgr.create(blackSubCat1);
 		final Category blackSubCat2 = Category.newInstance(hyegineUUID, "Black SCat2", "Black scat descr 2");
@@ -66,7 +67,7 @@ public class Initializer {
 		cMgr.create(whiteSubCat3);
 		final Category whiteSubCat4 = Category.newInstance(disciplineUUID, "White SCat4", "White scat descr 4");
 		cMgr.create(whiteSubCat4);
-		
+
 		final Category redSubCat1 = Category.newInstance(athleticsUUID, "Red SCat1", "Red scat descr 1");
 		cMgr.create(redSubCat1);
 		final Category redSubCat2 = Category.newInstance(athleticsUUID, "Red SCat2", "Red scat descr 2");
@@ -80,11 +81,10 @@ public class Initializer {
 		final IAchievement bAchievementOne = Achievement.newInstance("Black Ach. One", "Black ach. one descr", Type.REGULAR, 10, blackCatPO);
 		final UUID bAchievementOneUUID = aMgr.create(bAchievementOne);
 		final IAchievement bAchievementOnePO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementOneUUID));
-		
+
 		final IAchievement bAchievementTwo = Achievement.newInstance("Black Ach. Two", "Black ach. two descr", Type.REGULAR, 20, blackCatPO);
 		final UUID bAchievementTwoUUID = aMgr.create(bAchievementTwo);
 		final IAchievement bAchievementTwoPO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementTwoUUID));
-		
 
 		final IAchievement bAchievementThree = Achievement.newInstance("Black Ach. Three", "Black ach. three descr", Type.PROGRESS, 30, blackCatPO);
 		aMgr.create(bAchievementThree);
@@ -103,7 +103,7 @@ public class Initializer {
 		//
 		final IAchievement rAchievementOne = Achievement.newInstance("Red Ach. One", "Red ach. one descr", Type.REGULAR, 80, redCatPO);
 		aMgr.create(rAchievementOne);
-		
+
 		final IAchievement rSAchievementOne = Achievement.newInstance("Red S-Ach. One", "Red s-ach. one descr", Type.REGULAR, 90, redSubCat2PO);
 		aMgr.create(rSAchievementOne);
 		final IAchievement rSAchievementTwo = Achievement.newInstance("Red S-Ach. Two", "Red s-ach. two descr", Type.REGULAR, 100, redSubCat2PO);
@@ -111,22 +111,21 @@ public class Initializer {
 		final IAchievement rSAchievementThree = Achievement.newInstance("Red S-Ach. Thre", "Red s-ach. three descr", Type.REGULAR, 110, redSubCat2PO);
 		aMgr.create(rSAchievementThree);
 
-
 		final User userLonestarr = User.newInstance(null, "lonestarr");
 		final UUID lonestarrUUID = userMgr.create(userLonestarr);
 		final User userLonestarrPO = userMgr.readSingle(new Queries.ObjectByUUID(lonestarrUUID));
-	
+
 		final User userPeteri = User.newInstance(null, "peteri");
 		final UUID peteriUUID = userMgr.create(userPeteri);
 		final User userPeteriPO = userMgr.readSingle(new Queries.ObjectByUUID(peteriUUID));
-		
+
 		final User userAdmin = User.newInstance(null, "admin");
 		final UUID adminUUID = userMgr.create(userAdmin);
 		final User userAdminPO = userMgr.readSingle(new Queries.ObjectByUUID(adminUUID));
-		
-		final ARecord aRecBlackOne = ARecord.newDTOInstance(bAchievementOnePO, userLonestarrPO, new Date(), userAdminPO);
-		final ARecord aRecBlackTwo = ARecord.newDTOInstance(bAchievementTwoPO, userPeteriPO, new Date(), userAdminPO);
-		
+
+		final ARecord aRecBlackOne = ARecord.newDTOInstance(bAchievementOnePO.getUUID(), userLonestarrPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.APPROVED);
+		final ARecord aRecBlackTwo = ARecord.newDTOInstance(bAchievementTwoPO.getUUID(), userPeteriPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.APPROVED);
+
 		aRecordMgr.create(aRecBlackOne);
 		aRecordMgr.create(aRecBlackTwo);
 	}

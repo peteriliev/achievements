@@ -15,9 +15,7 @@ public class Achievement implements IAchievement, UUIDObject {
 
 	private final Category category;
 
-	private Achievement(final UUID uuid, final String name,
-			final String description, final Type type, final int points,
-			final Category category) {
+	private Achievement(final UUID uuid, final String name, final String description, final Type type, final int points, final Category category) {
 		this.uuid = uuid;
 		this.name = name;
 		this.description = description;
@@ -26,15 +24,11 @@ public class Achievement implements IAchievement, UUIDObject {
 		this.category = category;
 	}
 
-	public static Achievement newInstance(final UUID uuid, final String name,
-			final String description, final Type type, final int points,
-			final Category category) {
+	public static Achievement newInstance(final UUID uuid, final String name, final String description, final Type type, final int points, final Category category) {
 		return new Achievement(uuid, name, description, type, points, category);
 	}
 
-	public static Achievement newInstance(final String name,
-			final String description, final Type type, final int points,
-			final Category category) {
+	public static Achievement newInstance(final String name, final String description, final Type type, final int points, final Category category) {
 		return new Achievement(null, name, description, type, points, category);
 	}
 

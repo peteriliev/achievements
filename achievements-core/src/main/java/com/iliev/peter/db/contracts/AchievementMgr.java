@@ -27,4 +27,12 @@ public interface AchievementMgr extends ORMMgr<IAchievement> {
 
 	@Override
 	public void delete(final UUID uuid) throws NotFoundException;
+
+	public void claim(final UUID usrUUID, final UUID achievementUUID,
+			final String note);
+
+	public void reClaim(final UUID usrUUID, final UUID achievementUUID,
+			final String note);
+
+	public void reject(final UUID usrUUID, final String note);
 }

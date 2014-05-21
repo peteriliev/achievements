@@ -14,8 +14,7 @@ public class CategoryNode implements ICategory {
 		this.c = c;
 	}
 
-	public static CategoryNode newInstance(final ICategory w,
-			final List<Category> c) {
+	public static CategoryNode newInstance(final ICategory w, final List<Category> c) {
 		return new CategoryNode(w, c);
 	}
 

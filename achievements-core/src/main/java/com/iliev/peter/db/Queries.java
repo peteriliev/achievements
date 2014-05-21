@@ -84,7 +84,7 @@ public class Queries {
 				return false;
 			}
 
-			return this.userUUID.equals(aRecord.getUser().getUUID());
+			return this.userUUID.equals(aRecord.getUserUUID());
 		}
 	}
 

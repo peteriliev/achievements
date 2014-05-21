@@ -42,8 +42,7 @@ public class MockARecordManager implements ARecordMgr {
 	}
 
 	@Override
-	public ARecord readSingle(Predicate<UUIDObject> predicate)
-			throws NotFoundException {
+	public ARecord readSingle(Predicate<UUIDObject> predicate) throws NotFoundException {
 		if (null == predicate) {
 			throw new IllegalArgumentException("NULL predicate");
 		}
@@ -77,9 +76,7 @@ public class MockARecordManager implements ARecordMgr {
 	}
 
 	@Override
-	public List<IAchievement> readByUser(
-			final Predicate<ARecord> userPredicate,
-			final List<IAchievement> allAchievements) {
+	public List<IAchievement> readByUser(final Predicate<ARecord> userPredicate, final List<IAchievement> allAchievements) {
 
 		final List<IAchievement> result = new ArrayList<>(64);
 
@@ -98,15 +95,13 @@ public class MockARecordManager implements ARecordMgr {
 
 			if (null == matchingRec) {
 				result.add(a);
-			} else {
-				result.add(matchingRec);
 			}
-
+			// TODO:peteri
 		}
 
 		return result;
 	}
-	
+
 	@Override
 	public ARecord readSingle(final UUID uuid) throws NotFoundException {
 		final Predicate<UUIDObject> p = new Queries.ObjectByUUID(uuid);
