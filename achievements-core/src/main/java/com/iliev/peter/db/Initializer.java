@@ -12,6 +12,7 @@ import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.db.contracts.ARecordMgr;
 import com.iliev.peter.db.contracts.AchievementMgr;
 import com.iliev.peter.db.contracts.CategoryMgr;
+import com.iliev.peter.db.contracts.LogMgr;
 import com.iliev.peter.db.contracts.UserMgr;
 import com.iliev.peter.db.exception.NotFoundException;
 import com.iliev.peter.user.User;
@@ -22,6 +23,7 @@ public class Initializer {
 	public static final CategoryMgr cateogryMgr = new MockCategoryManager();
 	public static final ARecordMgr aRecordMgr = new MockARecordManager();
 	public static final UserMgr userMgr = new MockUserManager();
+	public static final LogMgr logMgr = new MockLogManager();
 
 	static {
 		try {

@@ -10,9 +10,14 @@
 		<servlet-class>com.iliev.peter.servlet.CreateARecord</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>ClaimAchievement</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.ClaimAchievement</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
-		<servlet-name>CreateARecord</servlet-name>
-		<url-pattern>/CreateARecord</url-pattern>
+		<servlet-name>ClaimAchievement</servlet-name>
+		<url-pattern>/ClaimAchievement</url-pattern>
 	</servlet-mapping>
 
 	<listener>

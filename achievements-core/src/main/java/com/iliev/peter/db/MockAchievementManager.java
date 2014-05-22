@@ -88,18 +88,16 @@ public class MockAchievementManager implements AchievementMgr {
 		return readSingle(p);
 	}
 
-	private ARecordMgr aRecMgr = new MockARecordManager();
-	// TODO:peteri
-	private LogMgr logMgr = null;
 	private final UUID NO_ADMIN = null;
 
 	@Override
 	public void claim(final UUID usrUUID, final UUID achievementUUID, final String note) {
 		// TODO:peteri
-		final Date dateEarned = null;
+		final Date dateEarned = new Date();
 		final ARecord rec = ARecord.newDTOInstance(achievementUUID, usrUUID, dateEarned, NO_ADMIN, ARecordStatus.CLAIM);
+		Initializer.aRecordMgr.create(rec);
 		final Log log = Log.newInstance(rec.getUUID(), dateEarned, NO_ADMIN, usrUUID, ARecordStatus.CLAIM, note);
-		logMgr.create(log);
+		Initializer.logMgr.create(log);
 	}
 
 	@Override

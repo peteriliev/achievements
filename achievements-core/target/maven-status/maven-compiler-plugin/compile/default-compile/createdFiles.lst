@@ -2,6 +2,7 @@ com\iliev\peter\db\MockAchievementManager.class
 com\iliev\peter\achieve\SubAchivement.class
 com\iliev\peter\db\Queries$ARecordByUserAndCat.class
 com\iliev\peter\db\Queries.class
+com\iliev\peter\db\MockLogManager.class
 com\iliev\peter\db\contracts\ORMMgr.class
 com\iliev\peter\db\Queries$CatByParent.class
 com\iliev\peter\db\contracts\UserMgr.class

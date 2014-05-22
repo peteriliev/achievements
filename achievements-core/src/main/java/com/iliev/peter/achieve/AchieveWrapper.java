@@ -1,6 +1,7 @@
 package com.iliev.peter.achieve;
 
 import java.util.EnumSet;
+import java.util.UUID;
 
 import com.iliev.peter.achieve.contracts.IAchievement;
 
@@ -33,5 +34,10 @@ public class AchieveWrapper {
 
 	public ARecordStatus getStatus() {
 		return record == null ? ARecordStatus.NULL : record.getStatus();
+	}
+	
+	public UUID getAchievementUUID()
+	{
+		return achieve.getUUID();
 	}
 }

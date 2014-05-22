@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iliev.peter.db.Initializer;
 
-public class CreateARecord extends javax.servlet.http.HttpServlet {
+public class ClaimAchievement extends javax.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,15 +25,14 @@ public class CreateARecord extends javax.servlet.http.HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		final String selectedTargetUser = req.getParameter("selectedTargetUser");
-		final String currentAdminUser = req.getParameter("currentAdminUser");
-		final String auuid = req.getParameter("auuid");
-		final String note = "Hard-coded note";
+		final String achievement_uuid = req.getParameter("achievement_uuid");
+		final String user_uuid = req.getParameter("user_uuid");
+		final String note = req.getParameter("note");
 
 		try {
-			Initializer.achievementMgr.claim(UUID.fromString(selectedTargetUser), UUID.fromString(auuid), note);
+			Initializer.achievementMgr.claim(UUID.fromString(user_uuid), UUID.fromString(achievement_uuid), note);
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getStackTrace().toString());
 		}
 	}
 }
