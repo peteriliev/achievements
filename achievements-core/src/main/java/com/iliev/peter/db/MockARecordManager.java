@@ -107,14 +107,14 @@ public class MockARecordManager implements ARecordMgr {
 		return result;
 	}
 
-	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> userPredicate, final List<IAchievement> allAchievements) {
+	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> userPredicate, final List<IAchievement> currentCatAchievements) {
 
 		// TODO:peteri - read from db join
 		final List<AchieveWrapper> result = new ArrayList<>(64);
 
 		final List<ARecord> userRecords = read(userPredicate);
 
-		for (final IAchievement a : allAchievements) {
+		for (final IAchievement a : currentCatAchievements) {
 
 			ARecord matchingRec = null;
 

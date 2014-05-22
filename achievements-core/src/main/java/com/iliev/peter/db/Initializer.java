@@ -52,11 +52,11 @@ public class Initializer {
 		final UUID englishUUID = cMgr.create(englishCat);
 		final UUID mathUUID = cMgr.create(mathCat);
 
-		final Category blackSubCat1 = Category.newInstance(hyegineUUID, "Black SCat1", "Black scat descr 1");
-		cMgr.create(blackSubCat1);
-		final Category blackSubCat2 = Category.newInstance(hyegineUUID, "Black SCat2", "Black scat descr 2");
+		final Category hyegineSubCat1 = Category.newInstance(hyegineUUID, "Hyegine SCat1", "Hyegine SCat descr 1");
+		cMgr.create(hyegineSubCat1);
+		final Category blackSubCat2 = Category.newInstance(hyegineUUID, "Hyegine SCat2", "Hyegine SCat descr 2");
 		cMgr.create(blackSubCat2);
-		final Category blackSubCat3 = Category.newInstance(hyegineUUID, "Black SCat3", "Black scat descr 3");
+		final Category blackSubCat3 = Category.newInstance(hyegineUUID, "Hyegine SCat3", "Hyegine SCat descr 3");
 		cMgr.create(blackSubCat3);
 
 		final Category whiteSubCat1 = Category.newInstance(disciplineUUID, "White SCat1", "White scat descr 1");
@@ -78,22 +78,22 @@ public class Initializer {
 		final Category whiteCatPO = cMgr.readSingle(new Queries.ObjectByUUID(disciplineUUID));
 		final Category redCatPO = cMgr.readSingle(new Queries.ObjectByUUID(athleticsUUID));
 
-		final IAchievement bAchievementOne = Achievement.newInstance("Black Ach. One", "Black ach. one descr", Type.REGULAR, 10, blackCatPO);
+		final IAchievement bAchievementOne = Achievement.newInstance("Hyegine Ach. One", "Hyegine Ach. one descr", Type.REGULAR, 10, blackCatPO);
 		final UUID bAchievementOneUUID = aMgr.create(bAchievementOne);
 		final IAchievement bAchievementOnePO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementOneUUID));
 
-		final IAchievement bAchievementTwo = Achievement.newInstance("Black Ach. Two", "Black ach. two descr", Type.REGULAR, 20, blackCatPO);
+		final IAchievement bAchievementTwo = Achievement.newInstance("Hyegine Ach. Two", "Hyegine Ach. two descr", Type.REGULAR, 20, blackCatPO);
 		final UUID bAchievementTwoUUID = aMgr.create(bAchievementTwo);
 		final IAchievement bAchievementTwoPO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementTwoUUID));
 
-		final IAchievement bAchievementThree = Achievement.newInstance("Black Ach. Three", "Black ach. three descr", Type.PROGRESS, 30, blackCatPO);
+		final IAchievement bAchievementThree = Achievement.newInstance("Hyegine Ach. Three", "Hyegine Ach. three descr", Type.PROGRESS, 30, blackCatPO);
 		aMgr.create(bAchievementThree);
-		final IAchievement bAchievementFour = Achievement.newInstance("Black Ach. Four", "Black ach. four descr", Type.PROGRESS, 40, blackCatPO);
+		final IAchievement bAchievementFour = Achievement.newInstance("Hyegine Ach. Four", "Hyegine Ach. four descr", Type.PROGRESS, 40, blackCatPO);
 		aMgr.create(bAchievementFour);
 
-		final IAchievement bAchievementFive = Achievement.newInstance("Black Ach. Five", "Black ach. five descr", Type.COMPOSITE, 50, blackCatPO);
+		final IAchievement bAchievementFive = Achievement.newInstance("Hyegine Ach. Five", "Hyegine Ach. five descr", Type.COMPOSITE, 50, blackCatPO);
 		aMgr.create(bAchievementFive);
-		final IAchievement bAchievementSix = Achievement.newInstance("Black Ach. Six", "Black ach. six descr", Type.COMPOSITE, 60, blackCatPO);
+		final IAchievement bAchievementSix = Achievement.newInstance("Hyegine Ach. Six", "Hyegine Ach. six descr", Type.COMPOSITE, 60, blackCatPO);
 		aMgr.create(bAchievementSix);
 
 		//

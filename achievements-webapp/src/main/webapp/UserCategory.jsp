@@ -57,6 +57,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/local-common/css/common-game-site.css?v=58" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/legal/ratings.css?v=58-28" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/sc2.css?v=28" />
+<link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/myStyle.css?v=28" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/profile/profile.css?v=28" />
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/third-party.js?v=58"></script>
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/common-game-site.js?v=58"></script>
@@ -280,11 +281,11 @@
 		
 		<%
         	final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
-			final List<IAchievement> allAchievements = Initializer.achievementMgr.read(catPredi);
+			final List<IAchievement> currentCatAchievements = Initializer.achievementMgr.read(catPredi);
 
 			final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
         	final Predicate<ARecord> userPredicate = new Queries.ARecordByUserAndCat(usr.getUUID());
-        	final List<AchieveWrapper> userAchievements = Initializer.aRecordMgr.readByUser2(userPredicate, allAchievements);
+        	final List<AchieveWrapper> userAchievements = Initializer.aRecordMgr.readByUser2(userPredicate, currentCatAchievements);
         	
         	for (final AchieveWrapper achieve : userAchievements)  {
         		boolean isEarned = ARecordStatus.APPROVED.equals(achieve.getStatus());
@@ -298,6 +299,8 @@
 						</div>
 						<div class="desc">
 							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
+							<ul class="achievemenu"><li><a href="#">Claim</a></li><li><a href="#">Reject</a></li><li><a href="#">Approve</a></li></ul>
+							
 						</div>
 						<span class="clear"><!-- --></span>
 					</div>
