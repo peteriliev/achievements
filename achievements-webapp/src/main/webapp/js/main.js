@@ -1,127 +1,94 @@
-/**
- * 
- */
-
 $( document ).ready(function() {
-	
-	$(".btn_complete").click(function() {
-        var selectedTargetUser = $('#target_user').find(":selected").val();
-        var currentAdminUser = $('#current_admin').val();
-        var auuid = $(this).attr("auuid");
-        
-        var request = $.ajax({
-          url: "CreateARecord",
-          type: "POST",
-          data: { selectedTargetUser:selectedTargetUser, currentAdminUser:currentAdminUser, auuid:auuid },
-          dataType: "html"
-        });
-         
-        request.done(function( msg ) {
-          alert("done");
-        });
-         
-        request.fail(function( jqXHR, textStatus ) {
-          alert( "Request failed: " + textStatus );
-        });
-		
-	});
-	
-	$(".btn_claim").click(function() {
+
+	$('.btn_claim').click(function() {
         var achievement_uuid = $(this).attr('achievement_uuid');
-        var user_uuid = $(this).attr("user_uuid");
+        var user_uuid = $(this).attr('user_uuid');
         
         var request = $.ajax({
-          url: "ClaimAchievement",
-          type: "POST",
-          data: { achievement_uuid:achievement_uuid, user_uuid:user_uuid, note:'hard coded note: claim' },
-          dataType: "html"
+          url: 'ClaimAchievement',
+          type: 'POST',
+          data: { 
+          	achievement_uuid	: achievement_uuid,
+          	user_uuid			: user_uuid,
+          	note				: 'hard coded note: claim' },
+          dataType: 'html'
         });
          
-        request.done(function( msg ) {
+        request.done(function(msg) {
         	console.info('Claim achievement: success - ' + msg);
         });
          
-        request.fail(function( jqXHR, textStatus ) {
+        request.fail(function(jqXHR, textStatus) {
         	console.info('Claim achievement: fail - ' + textStatus);
         });
-		
 	});
 	
-	$(".btn_reclaim").click(function() {
-		alert('btn_reclaim');
-        var selectedTargetUser = $('#target_user').find(":selected").val();
-        var currentAdminUser = $('#current_admin').val();
-        var auuid = $(this).attr("auuid");
-        //alert("selectedTargetUser = " + selectedTargetUser);
-        //alert("currentAdminUser = " + currentAdminUser);
-        //alert("auuid = " + auuid);
+	$('.btn_reclaim').click(function() {
+        var achievement_uuid = $(this).attr('achievement_uuid');
+        var user_uuid = $(this).attr('user_uuid');
         
         var request = $.ajax({
-          url: "CreateARecord",
-          type: "POST",
-          data: { selectedTargetUser:selectedTargetUser, currentAdminUser:currentAdminUser, auuid:auuid },
-          dataType: "html"
+          url: 'ReclaimAchievement',
+          type: 'POST',
+          data: {
+          	achievement_uuid	: achievement_uuid,
+          	user_uuid			: user_uuid,
+          	note				: 'hard coded note: reclaim' },
+          dataType: 'html'
         });
          
         request.done(function( msg ) {
-          alert("done");
+        	console.info('Reclaim achievement: success - ' + msg);
         });
          
         request.fail(function( jqXHR, textStatus ) {
-          alert( "Request failed: " + textStatus );
+        	console.info('Reclaim achievement: fail - ' + textStatus);
         });
-		
 	});
 	
-	$(".btn_reject").click(function() {
-		alert('btn_reject');
-        var selectedTargetUser = $('#target_user').find(":selected").val();
-        var currentAdminUser = $('#current_admin').val();
-        var auuid = $(this).attr("auuid");
-        //alert("selectedTargetUser = " + selectedTargetUser);
-        //alert("currentAdminUser = " + currentAdminUser);
-        //alert("auuid = " + auuid);
+	$('.btn_reject').click(function() {
+        var achievement_uuid = $(this).attr('achievement_uuid');
+        var user_uuid = $(this).attr('user_uuid');
         
         var request = $.ajax({
-          url: "CreateARecord",
-          type: "POST",
-          data: { selectedTargetUser:selectedTargetUser, currentAdminUser:currentAdminUser, auuid:auuid },
-          dataType: "html"
+          url: 'RejectAchievement',
+          type: 'POST',
+          data: {
+          	achievement_uuid	: achievement_uuid,
+          	user_uuid			: user_uuid,
+          	note				: 'hard coded note: reject' },
+          dataType: 'html'
         });
          
-        request.done(function( msg ) {
-          alert("done");
+        request.done(function(msg) {
+        	console.info('Reject achievement: success - ' + msg);
         });
          
-        request.fail(function( jqXHR, textStatus ) {
-          alert( "Request failed: " + textStatus );
+        request.fail(function(jqXHR, textStatus) {
+        	console.info('Reject achievement: fail - ' + textStatus);
         });
-		
 	});
 	
-	$(".btn_approve").click(function() {
-		alert('btn_approve');
-        var selectedTargetUser = $('#target_user').find(":selected").val();
-        var currentAdminUser = $('#current_admin').val();
-        var auuid = $(this).attr("auuid");
-        //alert("selectedTargetUser = " + selectedTargetUser);
-        //alert("currentAdminUser = " + currentAdminUser);
-        //alert("auuid = " + auuid);
+	$('.btn_approve').click(function() {
+        var achievement_uuid = $(this).attr('achievement_uuid');
+        var user_uuid = $(this).attr('user_uuid');
         
         var request = $.ajax({
-          url: "CreateARecord",
-          type: "POST",
-          data: { selectedTargetUser:selectedTargetUser, currentAdminUser:currentAdminUser, auuid:auuid },
-          dataType: "html"
+          url: 'ApproveAchievement',
+          type: 'POST',
+          data: {
+          	achievement_uuid	: achievement_uuid,
+          	user_uuid			: user_uuid,
+          	note				: 'hard coded note: approve' },
+          dataType: 'html'
         });
          
-        request.done(function( msg ) {
-          alert("done");
+        request.done(function(msg) {
+        	console.info('Approve achievement: success - ' + msg);
         });
          
-        request.fail(function( jqXHR, textStatus ) {
-          alert( "Request failed: " + textStatus );
+        request.fail(function(jqXHR, textStatus) {
+        	console.info('Approve achievement: fail - ' + textStatus);
         });
-		
 	});
 });

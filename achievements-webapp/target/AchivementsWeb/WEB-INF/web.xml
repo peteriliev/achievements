@@ -6,18 +6,43 @@
 	<display-name>AchivementsWeb</display-name>
 
 	<servlet>
-		<servlet-name>CreateARecord</servlet-name>
-		<servlet-class>com.iliev.peter.servlet.CreateARecord</servlet-class>
+		<servlet-name>ClaimAchievement</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.ClaimAchievement</servlet-class>
 	</servlet>
 
 	<servlet>
-		<servlet-name>ClaimAchievement</servlet-name>
-		<servlet-class>com.iliev.peter.servlet.ClaimAchievement</servlet-class>
+		<servlet-name>ReclaimAchievement</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.ReclaimAchievement</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RejectAchievement</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.RejectAchievement</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ApproveAchievement</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.ApproveAchievement</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>ClaimAchievement</servlet-name>
 		<url-pattern>/ClaimAchievement</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ReclaimAchievement</servlet-name>
+		<url-pattern>/ReclaimAchievement</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>RejectAchievement</servlet-name>
+		<url-pattern>/RejectAchievement</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ApproveAchievement</servlet-name>
+		<url-pattern>/ApproveAchievement</url-pattern>
 	</servlet-mapping>
 
 	<listener>

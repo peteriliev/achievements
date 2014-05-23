@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.iliev.peter.db.Initializer;
 
-public class ClaimAchievement extends javax.servlet.http.HttpServlet {
+public class ApproveAchievement extends javax.servlet.http.HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
