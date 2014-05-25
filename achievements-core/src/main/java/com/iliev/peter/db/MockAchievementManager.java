@@ -14,9 +14,7 @@ import com.iliev.peter.achieve.Achievement;
 import com.iliev.peter.achieve.Log;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
-import com.iliev.peter.db.contracts.ARecordMgr;
 import com.iliev.peter.db.contracts.AchievementMgr;
-import com.iliev.peter.db.contracts.LogMgr;
 import com.iliev.peter.db.exception.NotFoundException;
 
 public class MockAchievementManager implements AchievementMgr {
@@ -92,7 +90,9 @@ public class MockAchievementManager implements AchievementMgr {
 
 	@Override
 	public void claim(final UUID usrUUID, final UUID achievementUUID, final String note) {
-		// TODO:peteri
+		// TODO:peteri - move to record manager
+
+		// TODO:peteri - improve current date
 		final Date dateEarned = new Date();
 		final ARecord rec = ARecord.newDTOInstance(achievementUUID, usrUUID, dateEarned, NO_ADMIN, ARecordStatus.CLAIM);
 		Initializer.aRecordMgr.create(rec);
@@ -101,10 +101,32 @@ public class MockAchievementManager implements AchievementMgr {
 	}
 
 	@Override
-	public void reClaim(final UUID usrUUID, final UUID achievementUUID, final String note) {
+	public void reClaim(final UUID recordUUID, final String note) throws NotFoundException {
+
+		internal(recordUUID, NO_ADMIN, note, ARecordStatus.RECLAIM);
 	}
 
 	@Override
-	public void reject(UUID usrUUID, String note) {
+	public void reject(final UUID recordUUID, final UUID adminUUID, final String note) throws NotFoundException {
+		internal(recordUUID, adminUUID, note, ARecordStatus.REJECTED);
+	}
+
+	@Override
+	public void approve(final UUID recordUUID, final UUID adminUUID, final String note) throws NotFoundException {
+		internal(recordUUID, adminUUID, note, ARecordStatus.APPROVED);
+	}
+
+	private void internal(final UUID recordUUID, final UUID adminUUID, final String note, final ARecordStatus status) throws NotFoundException {
+
+		// TODO:peteri - improve current date
+		final Date dateEarned = new Date();
+
+		final ARecord rec = Initializer.aRecordMgr.readSingle(recordUUID);
+
+		final ARecord tmp = ARecord.newDTOInstance(rec.getAchievementUUID(), rec.getUserUUID(), rec.getDateEarned(), rec.getAdminUUID(), status);
+		Initializer.aRecordMgr.update(rec.getUUID(), tmp);
+
+		final Log log = Log.newInstance(rec.getUUID(), dateEarned, adminUUID, tmp.getUserUUID(), status, note);
+		Initializer.logMgr.create(log);
 	}
 }

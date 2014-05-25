@@ -8,7 +8,6 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import com.iliev.peter.achieve.Category;
-import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.CategoryMgr;
 import com.iliev.peter.db.exception.NotFoundException;
@@ -21,14 +20,12 @@ public class MockCategoryManager implements CategoryMgr {
 	public UUID create(Category a) {
 		final UUID uuid = UUID.randomUUID();
 
-		categoriesMap.put(uuid,
-				Category.newInstance(uuid, a.getParentUUID(), a.getName(), a.getDescription()));
+		categoriesMap.put(uuid, Category.newInstance(uuid, a.getParentUUID(), a.getName(), a.getDescription()));
 		return uuid;
 	}
 
 	@Override
-	public List<Category> read(final Predicate<Category> predicate)
-			throws NotFoundException {
+	public List<Category> read(final Predicate<Category> predicate) throws NotFoundException {
 		final List<Category> result = new ArrayList<>(64);
 
 		for (final Category c : categoriesMap.values()) {
@@ -41,8 +38,7 @@ public class MockCategoryManager implements CategoryMgr {
 	}
 
 	@Override
-	public void update(final UUID uuid, final Category a)
-			throws NotFoundException {
+	public void update(final UUID uuid, final Category a) throws NotFoundException {
 		if (!categoriesMap.containsKey(uuid)) {
 			throw new NotFoundException(uuid);
 		}
@@ -61,8 +57,7 @@ public class MockCategoryManager implements CategoryMgr {
 	}
 
 	@Override
-	public Category readSingle(Predicate<UUIDObject> predicate)
-			throws NotFoundException {
+	public Category readSingle(Predicate<UUIDObject> predicate) throws NotFoundException {
 		if (null == predicate) {
 			throw new IllegalArgumentException("NULL predicate");
 		}
@@ -75,7 +70,7 @@ public class MockCategoryManager implements CategoryMgr {
 
 		throw new NotFoundException(predicate);
 	}
-	
+
 	@Override
 	public Category readSingle(final UUID uuid) throws NotFoundException {
 		final Predicate<UUIDObject> p = new Queries.ObjectByUUID(uuid);

@@ -134,9 +134,7 @@ public class Queries {
 			return c.getParentUUID() == null;
 		}
 	};
-	
-	
-	
+
 	public static final Predicate<User> ALL_TARGET_USERS = new Predicate<User>() {
 
 		@Override
@@ -145,8 +143,38 @@ public class Queries {
 			final Predicate<User> p1 = new Queries.UserByLogin("peteri");
 			final Predicate<User> p2 = new Queries.UserByLogin("lonestarr");
 			final Predicate<User> composite = p1.or(p2);
-			
+
 			return composite.test(c);
 		}
 	};
+
+	public static class REC_BY_USR_AND_ACHIEVE implements Predicate<ARecord> {
+		private final UUID user_uuid;
+		private final UUID achieve_uuid;
+
+		private REC_BY_USR_AND_ACHIEVE(final UUID usrUUID, final UUID achieveUUID) {
+			this.user_uuid = usrUUID;
+			this.achieve_uuid = achieveUUID;
+		}
+
+		public static Predicate<ARecord> newInstance(final UUID usrUUID, final UUID achieveUUID) {
+			if (null == usrUUID) {
+				throw new IllegalArgumentException("Invalid usrUUID: NULL");
+			}
+			if (null == achieveUUID) {
+				throw new IllegalArgumentException("Invalid achieveUUID: NULL");
+			}
+
+			return new REC_BY_USR_AND_ACHIEVE(usrUUID, achieveUUID);
+		}
+
+		@Override
+		public boolean test(final ARecord rec) {
+			if (null == rec) {
+				return false;
+			}
+
+			return this.user_uuid.equals(rec.getUserUUID()) && this.achieve_uuid.equals(rec.getAchievementUUID());
+		}
+	}
 }

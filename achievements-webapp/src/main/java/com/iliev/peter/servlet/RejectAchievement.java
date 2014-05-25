@@ -15,12 +15,12 @@ public class RejectAchievement extends javax.servlet.http.HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		final String achievement_uuid = req.getParameter("achievement_uuid");
-		final String user_uuid = req.getParameter("user_uuid");
+		final String record_uuid = req.getParameter("record_uuid");
+		final String admin_uuid = req.getParameter("admin_uuid");
 		final String note = req.getParameter("note");
 
 		try {
-			Initializer.achievementMgr.claim(UUID.fromString(user_uuid), UUID.fromString(achievement_uuid), note);
+			Initializer.achievementMgr.reject(UUID.fromString(record_uuid), UUID.fromString(admin_uuid), note);
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace().toString());
 		}

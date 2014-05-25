@@ -19,19 +19,17 @@ public interface ARecordMgr extends ORMMgr<ARecord> {
 	public List<ARecord> read(final Predicate<ARecord> predicate);
 
 	@Override
-	public ARecord readSingle(final Predicate<UUIDObject> predicate)
-			throws NotFoundException;
+	public ARecord readSingle(final Predicate<UUIDObject> predicate) throws NotFoundException;
 
 	@Override
-	public void update(final UUID uuid, final ARecord a)
-			throws NotFoundException;
+	public void update(final UUID uuid, final ARecord a) throws NotFoundException;
 
 	@Override
 	public void delete(final UUID uuid) throws NotFoundException;
 
-	public List<IAchievement> readByUser(final Predicate<ARecord> predicate,
-			final List<IAchievement> allAchievements);
+	public List<IAchievement> readByUser(final Predicate<ARecord> predicate, final List<IAchievement> allAchievements);
 
-	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> predicate,
-			final List<IAchievement> allAchievements);
+	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> predicate, final List<IAchievement> allAchievements);
+
+	public List<ARecord> genericRead(final Predicate<ARecord> predicate);
 }

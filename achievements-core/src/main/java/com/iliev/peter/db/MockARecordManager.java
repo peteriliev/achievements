@@ -124,10 +124,10 @@ public class MockARecordManager implements ARecordMgr {
 					break;
 				}
 			}
-			
+
 			final AvailActions predi = new AvailActions();
 			final EnumSet<Action> actions = predi.apply(a.getType(), matchingRec != null ? matchingRec.getStatus() : null);
-			
+
 			final AchieveWrapper aw = AchieveWrapper.newInstance(a, matchingRec, actions);
 
 			result.add(aw);
@@ -140,5 +140,23 @@ public class MockARecordManager implements ARecordMgr {
 	public ARecord readSingle(final UUID uuid) throws NotFoundException {
 		final Predicate<UUIDObject> p = new Queries.ObjectByUUID(uuid);
 		return readSingle(p);
+	}
+
+	@Override
+	public List<ARecord> genericRead(final Predicate<ARecord> predicate) {
+		if (null == predicate) {
+			throw new IllegalArgumentException("Illegal Predicate<ARecord>: NULL");
+		}
+
+		final List<ARecord> result = new ArrayList<>();
+
+		for (final ARecord rec : recordsMap.values()) {
+			if (predicate.test(rec)) {
+				// TODO:peteri - clone or not ?
+				result.add(rec);
+			}
+		}
+
+		return result;
 	}
 }

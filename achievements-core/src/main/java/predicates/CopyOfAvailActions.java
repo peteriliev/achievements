@@ -7,7 +7,7 @@ import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.achieve.Action;
 import com.iliev.peter.achieve.Type;
 
-public class AvailActions
+public class CopyOfAvailActions
 		implements
 		BiFunction<com.iliev.peter.achieve.Type, ARecordStatus, EnumSet<Action>> {
 

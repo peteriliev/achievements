@@ -11,28 +11,25 @@ import com.iliev.peter.db.exception.NotFoundException;
 public interface AchievementMgr extends ORMMgr<IAchievement> {
 
 	@Override
-	public UUID create(final IAchievement a);
+	public UUID create(IAchievement a);
 
 	@Override
-	public List<IAchievement> read(final Predicate<IAchievement> predicate)
-			throws NotFoundException;
+	public List<IAchievement> read(Predicate<IAchievement> predicate) throws NotFoundException;
 
 	@Override
-	public IAchievement readSingle(final Predicate<UUIDObject> predicate)
-			throws NotFoundException;
+	public IAchievement readSingle(Predicate<UUIDObject> predicate) throws NotFoundException;
 
 	@Override
-	public void update(final UUID uuid, final IAchievement a)
-			throws NotFoundException;
+	public void update(UUID uuid, IAchievement a) throws NotFoundException;
 
 	@Override
-	public void delete(final UUID uuid) throws NotFoundException;
+	public void delete(UUID uuid) throws NotFoundException;
 
-	public void claim(final UUID usrUUID, final UUID achievementUUID,
-			final String note);
+	public void claim(UUID usrUUID, UUID achievementUUID, String note) throws NotFoundException;
 
-	public void reClaim(final UUID usrUUID, final UUID achievementUUID,
-			final String note);
+	public void reClaim(UUID recordUUID, String note) throws NotFoundException;
 
-	public void reject(final UUID usrUUID, final String note);
+	public void reject(UUID recordUUID, UUID adminUUID, String note) throws NotFoundException;
+
+	public void approve(UUID recordUUID, UUID adminUUID, String note) throws NotFoundException;
 }

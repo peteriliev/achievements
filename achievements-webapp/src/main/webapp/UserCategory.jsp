@@ -301,9 +301,9 @@
 							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
 							<ul class="achievemenu">
 								<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
-								<li><a class="btn_reclaim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
-								<li><a class="btn_reject" achievement_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
-								<li><a class="btn_approve" achievement_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li></ul>
+								<li><a class="btn_reclaim" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+								<li><a class="btn_reject" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
+								<li><a class="btn_approve" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li></ul>
 							
 						</div>
 						<span class="clear"><!-- --></span>

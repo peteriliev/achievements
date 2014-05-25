@@ -35,9 +35,12 @@ public class AchieveWrapper {
 	public ARecordStatus getStatus() {
 		return record == null ? ARecordStatus.NULL : record.getStatus();
 	}
-	
-	public UUID getAchievementUUID()
-	{
+
+	public UUID getAchievementUUID() {
 		return achieve.getUUID();
+	}
+
+	public UUID getRecordUUID() {
+		return record.getUUID();
 	}
 }
