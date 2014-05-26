@@ -6,6 +6,11 @@
 	<display-name>AchivementsWeb</display-name>
 
 	<servlet>
+		<servlet-name>GetAvailableActions</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.GetAvailableActions</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>ClaimAchievement</servlet-name>
 		<servlet-class>com.iliev.peter.servlet.ClaimAchievement</servlet-class>
 	</servlet>
@@ -24,6 +29,11 @@
 		<servlet-name>ApproveAchievement</servlet-name>
 		<servlet-class>com.iliev.peter.servlet.ApproveAchievement</servlet-class>
 	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetAvailableActions</servlet-name>
+		<url-pattern>/GetAvailableActions</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>ClaimAchievement</servlet-name>

@@ -1,11 +1,11 @@
-.achievemenu li
+.action_menu li
 {
 	display: inline;
 	list-style-type: none;
 	padding-right: 5px;
 }
 
-.achievemenu li a
+.action_menu li a
 {
 	cursor: hand;
 }

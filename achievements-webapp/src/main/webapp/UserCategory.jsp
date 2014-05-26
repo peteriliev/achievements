@@ -305,7 +305,7 @@
 							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin, achieve.getActions()); %>
 							<%=myActions.toString()%>
 							
-							<ul class="achievemenu">
+							<ul class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>">
 								<%if (myActions.contains(Action.USR_CLAIM)) { %>							
 								<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
 								<%}%>
@@ -373,6 +373,23 @@
 </li>
 <li class="service-cell service-welcome">
 	Welcome, <%=currentUser.getPrincipal()%>&nbsp;<a href="/achievements-webapp/Logout.jsp" tabindex="50" accesskey="2">log out</a>
+</li>
+<li>
+	<select id="target_user">
+	<%	List<User> allTargetUsers = null;
+		try {
+			allTargetUsers = Initializer.userMgr.read(Queries.ALL_TARGET_USERS);
+		} catch (NotFoundException e) {
+			e.printStackTrace();
+		} 
+		for (final User tu: allTargetUsers)
+		{ %>
+
+       <option value="<%=tu.getUUID()%>"> <%=tu.getLogin()%>
+
+       <%}%>
+
+</select>
 </li>
 
 <li class="service-cell service-shop">
