@@ -7,19 +7,22 @@ import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.achieve.Action;
 import com.iliev.peter.achieve.Type;
 
-public class AvailActions
-		implements
-		BiFunction<com.iliev.peter.achieve.Type, ARecordStatus, EnumSet<Action>> {
+public class AvailActions implements BiFunction<Type, ARecordStatus, EnumSet<Action>> {
+
+	private AvailActions() {
+
+	}
+
+	public static final BiFunction<Type, ARecordStatus, EnumSet<Action>> INSTANCE = new AvailActions();
 
 	@Override
 	public EnumSet<Action> apply(final Type achiementType, final ARecordStatus status) {
-		
-		if (!Type.REGULAR.equals(achiementType))
-		{
+
+		if (!Type.REGULAR.equals(achiementType)) {
 			// TODO:peteri - handle progress <code>Achievements</code>
 			return EnumSet.noneOf(Action.class);
 		}
-		
+
 		if (ARecordStatus.NULL.equals(status)) {
 			return EnumSet.of(Action.USR_CLAIM);
 		}

@@ -302,10 +302,10 @@
 						<div class="desc">
 							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
 							
-							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin, achieve.getActions()); %>
+							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR, achieve.getActions()); %>
 							<%=myActions.toString()%>
 							
-							<ul class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>">
+							<ul class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
 								<%if (myActions.contains(Action.USR_CLAIM)) { %>							
 								<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
 								<%}%>
@@ -420,5 +420,6 @@
 <script type="text/javascript" src="/achievements-webapp/sc2/static/js/sc2.js?v=28"></script>
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/utility/dropdown.js?v=58"></script>
 <input type="hidden" id="current_admin" value="<%=currentAdmin.getUUID()%>"/>
+<input type="hidden" id="current_user_type" value="<%=currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR%>"/>
 </body>
 </html>

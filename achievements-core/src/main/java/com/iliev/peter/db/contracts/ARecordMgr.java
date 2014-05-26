@@ -32,4 +32,6 @@ public interface ARecordMgr extends ORMMgr<ARecord> {
 	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> predicate, final List<IAchievement> allAchievements);
 
 	public List<ARecord> genericRead(final Predicate<ARecord> predicate);
+
+	public ARecord genericReadSingle(final Predicate<ARecord> predicate);
 }

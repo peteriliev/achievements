@@ -20,6 +20,7 @@ import com.iliev.peter.db.exception.NotFoundException;
 
 public class MockARecordManager implements ARecordMgr {
 
+	private static final int SINGLE_RECORD = 0;
 	private final Map<UUID, ARecord> recordsMap = new HashMap<>(64);
 
 	@Override
@@ -125,8 +126,7 @@ public class MockARecordManager implements ARecordMgr {
 				}
 			}
 
-			final AvailActions predi = new AvailActions();
-			final EnumSet<Action> actions = predi.apply(a.getType(), matchingRec != null ? matchingRec.getStatus() : null);
+			final EnumSet<Action> actions = AvailActions.INSTANCE.apply(a.getType(), matchingRec != null ? matchingRec.getStatus() : null);
 
 			final AchieveWrapper aw = AchieveWrapper.newInstance(a, matchingRec, actions);
 
@@ -158,5 +158,19 @@ public class MockARecordManager implements ARecordMgr {
 		}
 
 		return result;
+	}
+	
+	@Override
+	public ARecord genericReadSingle(Predicate<ARecord> predicate) {
+		final List<ARecord> list = genericRead(predicate);
+		assert null != list;
+		
+		if (list.size() == 0)
+		{
+			// TODO:peteri
+			return null;
+		}
+		
+		return list.get(SINGLE_RECORD);
 	}
 }

@@ -101,6 +101,7 @@ $(document).ready(function() {
 function renderActions() {
 	var target_user = $('#target_user').val();
 	var current_admin = $('#current_admin').attr('value');
+	var current_user_type = $('#current_user_type').attr('value');
 	
 	console.info('tu = ' + target_user);
 	console.info('ca = ' + current_admin);
@@ -111,9 +112,12 @@ function renderActions() {
 			url : 'GetAvailableActions',
 			type : 'POST',
 			data : {
-				target_user : target_user,
-				current_admin : current_admin,
-				achievement_uuid : $(this).attr('achievement_uuid')
+				target_user			: target_user,
+				current_admin		: current_admin,
+				current_user_type	: current_user_type,
+				achievement_uuid	: $(this).attr('achievement_uuid'),
+				achievement_type	: $(this).attr('achievement_type'),
+				record_status		: $(this).attr('record_status')
 			},
 			dataType : 'html'
 		});

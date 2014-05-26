@@ -40,6 +40,10 @@ public class AchieveWrapper {
 		return achieve.getUUID();
 	}
 
+	public Type getAchievementType() {
+		return achieve.getType();
+	}
+
 	public UUID getRecordUUID() {
 		if (null != record) {
 			return record.getUUID();
