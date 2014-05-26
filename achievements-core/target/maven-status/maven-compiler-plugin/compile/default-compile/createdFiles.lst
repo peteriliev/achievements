@@ -10,7 +10,6 @@ com\iliev\peter\db\contracts\UserMgr.class
 com\iliev\peter\achieve\Category.class
 com\iliev\peter\achieve\contracts\IAchievement.class
 com\iliev\peter\achieve\CategoryBuilder.class
-predicates\CopyOfAvailActions.class
 com\iliev\peter\achieve\CategoryNode.class
 com\iliev\peter\achieve\ICategory.class
 com\iliev\peter\db\MockARecordManager.class

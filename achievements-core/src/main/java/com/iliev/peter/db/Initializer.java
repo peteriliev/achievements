@@ -88,14 +88,14 @@ public class Initializer {
 		final UUID bAchievementTwoUUID = aMgr.create(bAchievementTwo);
 		final IAchievement bAchievementTwoPO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementTwoUUID));
 
-		final IAchievement bAchievementThree = Achievement.newInstance("Hyegine Ach. Three", "Hyegine Ach. three descr", Type.PROGRESS, 30, blackCatPO);
+		final IAchievement bAchievementThree = Achievement.newInstance("Hyegine Ach. Three", "Hyegine Ach. three descr", Type.REGULAR, 30, blackCatPO);
 		aMgr.create(bAchievementThree);
-		final IAchievement bAchievementFour = Achievement.newInstance("Hyegine Ach. Four", "Hyegine Ach. four descr", Type.PROGRESS, 40, blackCatPO);
+		final IAchievement bAchievementFour = Achievement.newInstance("Hyegine Ach. Four", "Hyegine Ach. four descr", Type.REGULAR, 40, blackCatPO);
 		aMgr.create(bAchievementFour);
 
-		final IAchievement bAchievementFive = Achievement.newInstance("Hyegine Ach. Five", "Hyegine Ach. five descr", Type.COMPOSITE, 50, blackCatPO);
+		final IAchievement bAchievementFive = Achievement.newInstance("Hyegine Ach. Five", "Hyegine Ach. five descr", Type.REGULAR, 50, blackCatPO);
 		aMgr.create(bAchievementFive);
-		final IAchievement bAchievementSix = Achievement.newInstance("Hyegine Ach. Six", "Hyegine Ach. six descr", Type.COMPOSITE, 60, blackCatPO);
+		final IAchievement bAchievementSix = Achievement.newInstance("Hyegine Ach. Six", "Hyegine Ach. six descr", Type.REGULAR, 60, blackCatPO);
 		aMgr.create(bAchievementSix);
 
 		//

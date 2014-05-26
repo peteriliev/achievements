@@ -41,6 +41,13 @@ public class AchieveWrapper {
 	}
 
 	public UUID getRecordUUID() {
-		return record.getUUID();
+		if (null != record) {
+			return record.getUUID();
+		}
+		return null;
+	}
+
+	public EnumSet<Action> getActions() {
+		return actions;
 	}
 }

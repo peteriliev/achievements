@@ -1,6 +1,8 @@
 <%@page import="com.iliev.peter.user.User"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.EnumSet"%>
 <%@page import="com.iliev.peter.achieve.contracts.IAchievement"%>
+<%@page import="predicates.AvailActionsByUsrType"%>
 <%@page import="org.apache.shiro.SecurityUtils"%>
 <%@page import="org.apache.shiro.subject.Subject"%>
 <%@page import="java.util.UUID"%>
@@ -299,12 +301,26 @@
 						</div>
 						<div class="desc">
 							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
-							<ul class="achievemenu">
-								<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
-								<li><a class="btn_reclaim" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
-								<li><a class="btn_reject" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
-								<li><a class="btn_approve" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li></ul>
 							
+							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin, achieve.getActions()); %>
+							<%=myActions.toString()%>
+							
+							<ul class="achievemenu">
+								<%if (myActions.contains(Action.USR_CLAIM)) { %>							
+								<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+								<%}%>
+								
+								<%if (myActions.contains(Action.USR_RECLAIM)) { %>
+								<li><a class="btn_reclaim" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+								<%}%>
+								
+								<%if (myActions.contains(Action.ADMIN_REJECT)) { %>
+								<li><a class="btn_reject" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
+								<%}%>
+								
+								<%if (myActions.contains(Action.ADMIN_APPROVE)) { %>
+								<li><a class="btn_approve" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li></ul>
+								<%}%>
 						</div>
 						<span class="clear"><!-- --></span>
 					</div>
