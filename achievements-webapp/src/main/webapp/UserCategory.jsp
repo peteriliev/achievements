@@ -80,7 +80,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/local-common/css/common-game-site.css?v=58" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/legal/ratings.css?v=58-28" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/sc2.css?v=28" />
-<link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/myStyle.css?v=28" />
+<link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/myStyle.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/achievements-webapp/sc2/static/css/profile/profile.css?v=28" />
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/third-party.js?v=58"></script>
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/common-game-site.js?v=58"></script>
@@ -252,7 +252,7 @@
 					<% if(cn.getUUID().equals(catUUID)) { selectedCat = cn;%>
 						<li class="active"><a href="#"><%=cn.getName()%></a></li>
 					<% } else { %>
-						<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>"><%=cn.getName()%></a></li>
+						<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=request.getParameter("targetUsrUUID")%>"><%=cn.getName()%></a></li>
 					<% } } %>
 			</ul>
         </div>
@@ -303,12 +303,6 @@
 		<div id="achievements-wrapper">
 		
 		<%
-        	// final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
-			// final List<IAchievement> currentCatAchievements = Initializer.achievementMgr.read(catPredi);
-
-			// final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
-        	// final Predicate<ARecord> userPredicate = new Queries.ARecordByUser(usr.getUUID());
-        	
         	final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
         	
         	final List<AchieveWrapper> userAchievements = Initializer.achievementMgr.getMyAchievements(catUUID, myUserUUID);
@@ -327,7 +321,6 @@
 							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
 							
 							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR, achieve.getActions()); %>
-							<%=myActions.toString()%>
 							
 							<ul class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
 								<%if (myActions.contains(Action.USR_CLAIM)) { %>							
@@ -339,11 +332,11 @@
 								<%}%>
 								
 								<%if (myActions.contains(Action.ADMIN_REJECT)) { %>
-								<li><a class="btn_reject" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
+								<li><a class="btn_reject" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
 								<%}%>
 								
 								<%if (myActions.contains(Action.ADMIN_APPROVE)) { %>
-								<li><a class="btn_approve" record_uuid="<%=achieve.getAchievementUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li></ul>
+								<li><a class="btn_approve" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li></ul>
 								<%}%>
 						</div>
 						<span class="clear"><!-- --></span>

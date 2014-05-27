@@ -58,15 +58,15 @@ $(document).ready(function() {
 	});
 
 	$('.btn_reject').click(function() {
-		var achievement_uuid = $(this).attr('achievement_uuid');
-		var user_uuid = $(this).attr('user_uuid');
+		var record_uuid = $(this).attr('record_uuid');
+		var admin_uuid = $('#current_admin').attr('value');
 
 		var request = $.ajax({
 			url : 'RejectAchievement',
 			type : 'POST',
 			data : {
-				achievement_uuid : achievement_uuid,
-				user_uuid : user_uuid,
+				record_uuid : record_uuid,
+				admin_uuid : admin_uuid,
 				note : 'hard coded note: reject'
 			},
 			dataType : 'html'
@@ -82,15 +82,15 @@ $(document).ready(function() {
 	});
 
 	$('.btn_approve').click(function() {
-		var achievement_uuid = $(this).attr('achievement_uuid');
-		var user_uuid = $(this).attr('user_uuid');
+		var record_uuid = $(this).attr('record_uuid');
+		var admin_uuid = $('#current_admin').attr('value');
 
 		var request = $.ajax({
 			url : 'ApproveAchievement',
 			type : 'POST',
 			data : {
-				achievement_uuid : achievement_uuid,
-				user_uuid : user_uuid,
+				record_uuid : record_uuid,
+				admin_uuid : admin_uuid,
 				note : 'hard coded note: approve'
 			},
 			dataType : 'html'

@@ -11,8 +11,10 @@ import java.util.function.Predicate;
 import predicates.AvailActions;
 
 import com.iliev.peter.achieve.ARecord;
+import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.achieve.AchieveWrapper;
 import com.iliev.peter.achieve.Action;
+import com.iliev.peter.achieve.RecordStatus;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.ARecordMgr;
@@ -26,9 +28,11 @@ public class MockARecordManager implements ARecordMgr {
 	@Override
 	public UUID create(ARecord a) {
 		final UUID uuid = UUID.randomUUID();
+		
+		final ARecord a2 = ARecord.newPOInstance(uuid, a.getAchievementUUID(), a.getUserUUID(), a.getDateEarned(), a.getAdminUUID(), a.getStatus());
 
 		// TODO: clone
-		recordsMap.put(uuid, a);
+		recordsMap.put(uuid, a2);
 		return uuid;
 	}
 
@@ -126,7 +130,7 @@ public class MockARecordManager implements ARecordMgr {
 				}
 			}
 
-			final EnumSet<Action> actions = AvailActions.INSTANCE.apply(a.getType(), matchingRec != null ? matchingRec.getStatus() : null);
+			final EnumSet<Action> actions = AvailActions.INSTANCE.apply(a.getType(), matchingRec != null ? matchingRec.getStatus() : ARecordStatus.NULL);
 
 			final AchieveWrapper aw = AchieveWrapper.newInstance(a, matchingRec, actions);
 

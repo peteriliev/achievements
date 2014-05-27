@@ -124,15 +124,15 @@ public class MockAchievementManager implements AchievementMgr {
 
 		final ARecord rec = Initializer.aRecordMgr.readSingle(recordUUID);
 
-		final ARecord tmp = ARecord.newDTOInstance(rec.getAchievementUUID(), rec.getUserUUID(), rec.getDateEarned(), rec.getAdminUUID(), status);
+		final ARecord tmp = ARecord.newPOInstance(recordUUID, rec.getAchievementUUID(), rec.getUserUUID(), dateEarned, rec.getAdminUUID(), status);
 		Initializer.aRecordMgr.update(rec.getUUID(), tmp);
 
-		final Log log = Log.newInstance(rec.getUUID(), dateEarned, adminUUID, tmp.getUserUUID(), status, note);
+		final Log log = Log.newInstance(recordUUID, dateEarned, adminUUID, tmp.getUserUUID(), status, note);
 		Initializer.logMgr.create(log);
 	}
 
 	@Override
-	public List<AchieveWrapper> getMyAchievements(UUID catUUID, UUID targetUsrUUID) throws NotFoundException {
+	public List<AchieveWrapper> getMyAchievements(final UUID catUUID, final UUID targetUsrUUID) throws NotFoundException {
 
 		final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
 		final List<IAchievement> currentCatAchievements = Initializer.achievementMgr.read(catPredi);
