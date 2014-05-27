@@ -70,11 +70,11 @@ public class Queries {
 		}
 	}
 
-	public static class ARecordByUserAndCat implements Predicate<ARecord> {
+	public static class ARecordByUser implements Predicate<ARecord> {
 
 		private final UUID userUUID;
 
-		public ARecordByUserAndCat(final UUID userUUID) {
+		public ARecordByUser(final UUID userUUID) {
 			this.userUUID = userUUID;
 		}
 

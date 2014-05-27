@@ -7,6 +7,7 @@
 <%@page import="org.apache.shiro.subject.Subject"%>
 <%@page import="java.util.UUID"%>
 <%@page import="com.iliev.peter.db.*"%>
+<%@page import="com.iliev.peter.contracts.UUIDObject"%>
 <%@page import="com.iliev.peter.achieve.*"%>
 <%@page import="java.util.function.Predicate"%>
 <%@page import="com.iliev.peter.db.exception.NotFoundException"%>
@@ -22,15 +23,35 @@
 
 <%
 	Subject currentUser = SecurityUtils.getSubject();
-	final Predicate currentAdminP = new Queries.UserByLogin(currentUser.getPrincipal().toString());
+	final Predicate currentUserPrincipal = new Queries.UserByLogin(currentUser.getPrincipal().toString());
+	final User currentAdmin = Initializer.userMgr.readSingle(currentUserPrincipal);
 	
-	final User currentAdmin = Initializer.userMgr.readSingle(currentAdminP);
+	List<User> allTargetUsers = null;
+	try {
+		allTargetUsers = Initializer.userMgr.read(Queries.ALL_TARGET_USERS);
+	} catch (NotFoundException e) {
+		e.printStackTrace();
+	}
 
 	UUID catUUID = null;
+	try {
+		catUUID = UUID.fromString(request.getParameter("catUUID"));
+		
+	} catch (Exception e) {
+		response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
+	}
+
+	UUID targetUsrUUID = null;
 		try {
-			catUUID = UUID.fromString(request.getParameter("catUUID"));
+			targetUsrUUID = UUID.fromString(request.getParameter("targetUsrUUID"));
+			if (null == targetUsrUUID && currentAdmin.isAdmin() && allTargetUsers.size() > 0)
+			{
+				targetUsrUUID = allTargetUsers.get(0).getUUID();
+			}
+
 		} catch (Exception e) {
-			response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
+			// TODO:peteri
+			//response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
 		}
 %>
 
@@ -282,12 +303,15 @@
 		<div id="achievements-wrapper">
 		
 		<%
-        	final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
-			final List<IAchievement> currentCatAchievements = Initializer.achievementMgr.read(catPredi);
+        	// final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
+			// final List<IAchievement> currentCatAchievements = Initializer.achievementMgr.read(catPredi);
 
-			final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
-        	final Predicate<ARecord> userPredicate = new Queries.ARecordByUserAndCat(usr.getUUID());
-        	final List<AchieveWrapper> userAchievements = Initializer.aRecordMgr.readByUser2(userPredicate, currentCatAchievements);
+			// final User usr = Initializer.userMgr.read(new Queries.UserByLogin(currentUser.getPrincipal().toString())).get(0);
+        	// final Predicate<ARecord> userPredicate = new Queries.ARecordByUser(usr.getUUID());
+        	
+        	final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
+        	
+        	final List<AchieveWrapper> userAchievements = Initializer.achievementMgr.getMyAchievements(catUUID, myUserUUID);
         	
         	for (final AchieveWrapper achieve : userAchievements)  {
         		boolean isEarned = ARecordStatus.APPROVED.equals(achieve.getStatus());
@@ -374,24 +398,17 @@
 <li class="service-cell service-welcome">
 	Welcome, <%=currentUser.getPrincipal()%>&nbsp;<a href="/achievements-webapp/Logout.jsp" tabindex="50" accesskey="2">log out</a>
 </li>
-<li>
-	<select id="target_user">
-	<%	List<User> allTargetUsers = null;
-		try {
-			allTargetUsers = Initializer.userMgr.read(Queries.ALL_TARGET_USERS);
-		} catch (NotFoundException e) {
-			e.printStackTrace();
-		} 
-		for (final User tu: allTargetUsers)
-		{ %>
 
-       <option value="<%=tu.getUUID()%>"> <%=tu.getLogin()%>
-
-       <%}%>
-
-</select>
-</li>
-
+<% if (currentAdmin.isAdmin()) { %>
+	<li>
+		<select id="target_user">
+		<%	for (final User tu: allTargetUsers)
+			{ %>
+				<option value="<%=tu.getUUID()%>" <%if (tu.getUUID().equals(targetUsrUUID)) { %>selected="selected"<%}%> > <%=tu.getLogin()%>
+			<%}%>
+		</select>
+	</li>
+<%}%>
 <li class="service-cell service-shop">
 <a href='https://us.battle.net/shop/' class="service-link" data-action="Shop">Shop</a>
 </li>
@@ -419,7 +436,9 @@
 </div>
 <script type="text/javascript" src="/achievements-webapp/sc2/static/js/sc2.js?v=28"></script>
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/utility/dropdown.js?v=58"></script>
+
 <input type="hidden" id="current_admin" value="<%=currentAdmin.getUUID()%>"/>
+<input type="hidden" id="current_cat" value="<%=catUUID%>"/>
 <input type="hidden" id="current_user_type" value="<%=currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR%>"/>
 </body>
 </html>

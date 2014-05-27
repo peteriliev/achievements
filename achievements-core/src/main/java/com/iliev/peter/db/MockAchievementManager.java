@@ -10,6 +10,7 @@ import java.util.function.Predicate;
 
 import com.iliev.peter.achieve.ARecord;
 import com.iliev.peter.achieve.ARecordStatus;
+import com.iliev.peter.achieve.AchieveWrapper;
 import com.iliev.peter.achieve.Achievement;
 import com.iliev.peter.achieve.Log;
 import com.iliev.peter.achieve.contracts.IAchievement;
@@ -128,5 +129,17 @@ public class MockAchievementManager implements AchievementMgr {
 
 		final Log log = Log.newInstance(rec.getUUID(), dateEarned, adminUUID, tmp.getUserUUID(), status, note);
 		Initializer.logMgr.create(log);
+	}
+
+	@Override
+	public List<AchieveWrapper> getMyAchievements(UUID catUUID, UUID targetUsrUUID) throws NotFoundException {
+
+		final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
+		final List<IAchievement> currentCatAchievements = Initializer.achievementMgr.read(catPredi);
+
+		final Predicate<ARecord> userPredicate = new Queries.ARecordByUser(targetUsrUUID);
+		final List<AchieveWrapper> userAchievements = Initializer.aRecordMgr.readByUser2(userPredicate, currentCatAchievements);
+
+		return userAchievements;
 	}
 }

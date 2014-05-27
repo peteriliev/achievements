@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Predicate;
 
+import com.iliev.peter.achieve.AchieveWrapper;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.exception.NotFoundException;
@@ -32,4 +33,6 @@ public interface AchievementMgr extends ORMMgr<IAchievement> {
 	public void reject(UUID recordUUID, UUID adminUUID, String note) throws NotFoundException;
 
 	public void approve(UUID recordUUID, UUID adminUUID, String note) throws NotFoundException;
+
+	public List<AchieveWrapper> getMyAchievements(UUID catUUID, UUID targetUsrUUID) throws NotFoundException;
 }

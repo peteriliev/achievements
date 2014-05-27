@@ -1,5 +1,13 @@
 $(document).ready(function() {
 	renderActions();
+	
+	$('#target_user').change(function() {
+		console.info('ddl change');
+		var target_usr_uuid = $(this).find(":selected").val()
+		var cat_uuid = $('#current_cat').attr('value');
+		var url = '/achievements-webapp/UserCategory.jsp?catUUID=' + cat_uuid + '&targetUsrUUID=' + target_usr_uuid;
+		$(location).attr('href',url);
+	});
 
 	$('.btn_claim').click(function() {
 		var achievement_uuid = $(this).attr('achievement_uuid');

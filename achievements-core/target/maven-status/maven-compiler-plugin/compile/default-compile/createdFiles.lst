@@ -1,6 +1,5 @@
 com\iliev\peter\db\MockAchievementManager.class
 com\iliev\peter\achieve\SubAchivement.class
-com\iliev\peter\db\Queries$ARecordByUserAndCat.class
 com\iliev\peter\db\Queries.class
 com\iliev\peter\db\MockLogManager.class
 com\iliev\peter\db\contracts\ORMMgr.class
@@ -18,6 +17,7 @@ com\iliev\peter\db\Queries$1.class
 com\iliev\peter\db\Queries$4.class
 predicates\AvailActionsByUsrType.class
 com\iliev\peter\achieve\Achievement.class
+com\iliev\peter\db\Queries$ARecordByUser.class
 com\iliev\peter\db\Queries$REC_BY_USR_AND_ACHIEVE.class
 com\iliev\peter\achieve\RecordStatus.class
 com\iliev\peter\achieve\Type.class
