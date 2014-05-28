@@ -29,7 +29,7 @@ public class ApproveAchievement extends javax.servlet.http.HttpServlet {
 			json.put("record_status", String.valueOf(ARecordStatus.APPROVED));
 
 			resp.setContentType("application/json");
-			resp.getWriter().write(json.toString());
+			resp.getWriter().print(json);
 
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace().toString());

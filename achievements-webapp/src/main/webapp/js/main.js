@@ -95,12 +95,12 @@ $(document).ready(function() {
 				admin_uuid : admin_uuid,
 				note : 'hard coded note: approve'
 			},
-			dataType : 'html'
+			dataType : 'json'
 		});
 
 		request.done(function(msg) {
 			console.info('msg = ' + msg);
-			updateButtonState(achievement_type, record_status);
+			updateButtonState(achievement_type, msg.record_status);
 			console.info('Approve achievement: success - ' + msg);
 		});
 

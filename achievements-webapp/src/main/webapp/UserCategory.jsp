@@ -43,13 +43,17 @@
 
 	UUID targetUsrUUID = null;
 		try {
-			targetUsrUUID = UUID.fromString(request.getParameter("targetUsrUUID"));
+			if (null == targetUsrUUID && null != request.getParameter("targetUsrUUID"))
+			{
+				targetUsrUUID = UUID.fromString(request.getParameter("targetUsrUUID"));
+			}
 			if (null == targetUsrUUID && currentAdmin.isAdmin() && allTargetUsers.size() > 0)
 			{
 				targetUsrUUID = allTargetUsers.get(0).getUUID();
 			}
 
 		} catch (Exception e) {
+			int x = 100;
 			// TODO:peteri
 			//response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
 		}
@@ -321,7 +325,6 @@
 							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
 							
 							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR, achieve.getActions()); %>
-							
 							<ul class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
 								<%if (myActions.contains(Action.USR_CLAIM)) { %>							
 									<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
