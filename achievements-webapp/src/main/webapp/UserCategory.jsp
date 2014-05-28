@@ -256,7 +256,7 @@
 					<% if(cn.getUUID().equals(catUUID)) { selectedCat = cn;%>
 						<li class="active"><a href="#"><%=cn.getName()%></a></li>
 					<% } else { %>
-						<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=request.getParameter("targetUsrUUID")%>"><%=cn.getName()%></a></li>
+						<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=targetUsrUUID%>"><%=cn.getName()%></a></li>
 					<% } } %>
 			</ul>
         </div>
@@ -314,18 +314,18 @@
         	for (final AchieveWrapper achieve : userAchievements)  {
         		boolean isEarned = ARecordStatus.APPROVED.equals(achieve.getStatus());
 		%>
-				<div id="achievement-91475035553879" class="achievement achievement-large <%if (isEarned) { %>earned<% }else{ %>unearned<% }%>">
+				<div id="achievement-<%=achieve.getAchievementUUID()%>" class="achievement achievement-large <%if (isEarned) { %>earned<% }else{ %>unearned<% }%>">
 					<div class="inner">
 						<div class="meta png-fix"><span><%=achieve.getPoints()%></span>5/18/2014</div>
-						<div class="icon portrait-c <%if (!isEarned) { %>tile-locked<% }%>">
-							<span class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') <%if (isEarned) { %>-180px -90px<% }else{ %>-225px -90px<% }%> no-repeat; width: 45px; height: 45px;"></span>
+						<div id="achievement-icon-portrait-<%=achieve.getAchievementUUID()%>" class="icon portrait-c <%if (!isEarned) { %>tile-locked<% }%>">
+							<span id="achievement-icon-frame-<%=achieve.getAchievementUUID()%>" class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') <%if (isEarned) { %>-180px -90px<% }else{ %>-225px -90px<% }%> no-repeat; width: 45px; height: 45px;"></span>
 							<span class="clear"><!-- --></span>
 						</div>
 						<div class="desc">
 							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
 							
 							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR, achieve.getActions()); %>
-							<ul class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
+							<ul id="achievement-action-menu-<%=achieve.getAchievementUUID()%>" class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
 								<%if (myActions.contains(Action.USR_CLAIM)) { %>							
 									<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
 								<%}%>
