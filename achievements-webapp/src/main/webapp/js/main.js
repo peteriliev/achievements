@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	renderActions();
+	//renderActions();
 	
 	$('#target_user').change(function() {
 		console.info('ddl change');
@@ -84,6 +84,8 @@ $(document).ready(function() {
 	$('.btn_approve').click(function() {
 		var record_uuid = $(this).attr('record_uuid');
 		var admin_uuid = $('#current_admin').attr('value');
+		var achievement_uuid = $(this).attr('achievement_uuid');
+		var achievement_type = $(this).attr('achievement_type');
 
 		var request = $.ajax({
 			url : 'ApproveAchievement',
@@ -97,6 +99,8 @@ $(document).ready(function() {
 		});
 
 		request.done(function(msg) {
+			console.info('msg = ' + msg);
+			updateButtonState(achievement_type, record_status);
 			console.info('Approve achievement: success - ' + msg);
 		});
 
@@ -105,6 +109,32 @@ $(document).ready(function() {
 		});
 	});
 });
+
+function updateButtonState(achievement_type, record_status) {
+	console.info('achievement_type = ' + achievement_type);
+	console.info('record_status = ' + record_status);
+	
+	var current_user_type = $('#current_user_type').attr('value');
+	
+	var request = $.ajax({
+		url : 'GetAvailableActions',
+		type : 'POST',
+		data : {
+			current_user_type	: current_user_type,
+			achievement_type	: achievement_type,
+			record_status		: record_status
+		},
+		dataType : 'html'
+	});
+
+	request.done(function(data) {
+		console.info('Render actions: success - ' + data);
+	});
+
+	request.fail(function(jqXHR, textStatus) {
+		console.info('Render actions: fail - ' + textStatus);
+	});
+}
 
 function renderActions() {
 	var target_user = $('#target_user').val();

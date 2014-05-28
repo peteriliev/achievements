@@ -28,17 +28,17 @@ public class GetAvailableActions extends javax.servlet.http.HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		final String target_user = req.getParameter("target_user");
+/*		final String target_user = req.getParameter("target_user");
 		final String current_admin = req.getParameter("current_admin");
 		final String achievement_uuid = req.getParameter("achievement_uuid");
-		final String achievement_type = req.getParameter("achievement_type");
+*/		final String achievement_type = req.getParameter("achievement_type");
 		final String record_status = req.getParameter("record_status");
 		final String current_user_type = req.getParameter("current_user_type");
 		
-		final UUID usrUUID = UUID.fromString(target_user);
+/*		final UUID usrUUID = UUID.fromString(target_user);
 		final UUID admUUID = UUID.fromString(current_admin);
 		final UUID achUUID = UUID.fromString(achievement_uuid);
-		final Type aType = Type.valueOf(achievement_type);
+*/		final Type aType = Type.valueOf(achievement_type);
 		final ARecordStatus rStatus = ARecordStatus.valueOf(record_status);
 		final UserType uType = UserType.valueOf(current_user_type);
 		
