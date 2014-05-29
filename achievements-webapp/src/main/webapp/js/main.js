@@ -2,15 +2,14 @@ $(document)
 		.ready(
 				function() {
 					// renderActions();
+					setAchievementStates();
 
 					$('#target_user')
 							.change(
 									function() {
 										console.info('ddl change');
-										var target_usr_uuid = $(this).find(
-												":selected").val()
-										var cat_uuid = $('#current_cat').attr(
-												'value');
+										var target_usr_uuid = $(this).find(':selected').val()
+										var cat_uuid = $('#current_cat').attr('value');
 										var url = '/achievements-webapp/UserCategory.jsp?catUUID='
 												+ cat_uuid
 												+ '&targetUsrUUID='
@@ -21,10 +20,9 @@ $(document)
 					$('.btn_claim')
 							.click(
 									function() {
-										var achievement_uuid = $(this).attr(
-												'achievement_uuid');
-										var user_uuid = $(this).attr(
-												'user_uuid');
+										var achievement_uuid = $(this).attr('achievement_uuid');
+										var user_uuid = $(this).attr('user_uuid');
+										var achievement_type = $(this).attr('achievement_type');
 
 										var request = $
 												.ajax({
@@ -35,32 +33,24 @@ $(document)
 														user_uuid : user_uuid,
 														note : 'hard coded note: claim'
 													},
-													dataType : 'html'
+													dataType : 'json'
 												});
 
-										request
-												.done(function(msg) {
-													console
-															.info('Claim achievement: success - '
-																	+ msg);
+										request.done(function(msg) {
+													updateButtonState(achievement_type, msg.record_status, achievement_uuid);
+													console.info('Claim achievement: success - ' + msg);
 												});
 
-										request
-												.fail(function(jqXHR,
-														textStatus) {
-													console
-															.info('Claim achievement: fail - '
-																	+ textStatus);
+										request.fail(function(jqXHR, textStatus) {
+													console.info('Claim achievement: fail - ' + textStatus);
 												});
 									});
 
 					$('.btn_reclaim')
 							.click(
 									function() {
-										var achievement_uuid = $(this).attr(
-												'achievement_uuid');
-										var user_uuid = $(this).attr(
-												'user_uuid');
+										var achievement_uuid = $(this).attr('achievement_uuid');
+										var user_uuid = $(this).attr('user_uuid');
 
 										var request = $
 												.ajax({
@@ -71,32 +61,23 @@ $(document)
 														user_uuid : user_uuid,
 														note : 'hard coded note: reclaim'
 													},
-													dataType : 'html'
+													dataType : 'json'
 												});
 
-										request
-												.done(function(msg) {
-													console
-															.info('Reclaim achievement: success - '
-																	+ msg);
+										request.done(function(msg) {
+													console.info('Reclaim achievement: success - ' + msg);
 												});
 
-										request
-												.fail(function(jqXHR,
-														textStatus) {
-													console
-															.info('Reclaim achievement: fail - '
-																	+ textStatus);
+										request.fail(function(jqXHR, textStatus) {
+													console.info('Reclaim achievement: fail - ' + textStatus);
 												});
 									});
 
 					$('.btn_reject')
 							.click(
 									function() {
-										var record_uuid = $(this).attr(
-												'record_uuid');
-										var admin_uuid = $('#current_admin')
-												.attr('value');
+										var record_uuid = $(this).attr('record_uuid');
+										var admin_uuid = $('#current_admin').attr('value');
 
 										var request = $
 												.ajax({
@@ -107,36 +88,24 @@ $(document)
 														admin_uuid : admin_uuid,
 														note : 'hard coded note: reject'
 													},
-													dataType : 'html'
+													dataType : 'json'
 												});
 
-										request
-												.done(function(msg) {
-													console
-															.info('Reject achievement: success - '
-																	+ msg);
+										request.done(function(msg) {
+													console.info('Reject achievement: success - ' + msg);
 												});
 
-										request
-												.fail(function(jqXHR,
-														textStatus) {
-													console
-															.info('Reject achievement: fail - '
-																	+ textStatus);
+										request.fail(function(jqXHR, textStatus) {
+													console.info('Reject achievement: fail - ' + textStatus);
 												});
 									});
 
-					$('.btn_approve')
-							.click(
+					$('.btn_approve').click(
 									function() {
-										var record_uuid = $(this).attr(
-												'record_uuid');
-										var admin_uuid = $('#current_admin')
-												.attr('value');
-										var achievement_uuid = $(this).attr(
-												'achievement_uuid');
-										var achievement_type = $(this).attr(
-												'achievement_type');
+										var record_uuid = $(this).attr('record_uuid');
+										var admin_uuid = $('#current_admin').attr('value');
+										var achievement_uuid = $(this).attr('achievement_uuid');
+										var achievement_type = $(this).attr('achievement_type');
 
 										var request = $
 												.ajax({
@@ -150,25 +119,13 @@ $(document)
 													dataType : 'json'
 												});
 
-										request
-												.done(function(msg) {
-													console
-															.info('msg = '
-																	+ msg);
-													updateButtonState(
-															achievement_type,
-															msg.record_status, achievement_uuid);
-													console
-															.info('Approve achievement: success - '
-																	+ msg);
+										request.done(function(msg) {
+													updateButtonState(achievement_type, msg.record_status, achievement_uuid);
+													console.info('Approve achievement: success - '+ msg);
 												});
 
-										request
-												.fail(function(jqXHR,
-														textStatus) {
-													console
-															.info('Approve achievement: fail - '
-																	+ textStatus);
+										request.fail(function(jqXHR, textStatus) {
+													console.info('Approve achievement: fail - '+ textStatus);
 												});
 									});
 				});
@@ -187,7 +144,7 @@ function updateButtonState(achievement_type, record_status, achievement_uuid) {
 			achievement_type : achievement_type,
 			record_status : record_status
 		},
-		dataType : 'html'
+		dataType : 'json'
 	});
 
 	request.done(function(data) {
@@ -197,18 +154,23 @@ function updateButtonState(achievement_type, record_status, achievement_uuid) {
 		$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_reclaim').css('display', 'none');
 		$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_approve').css('display', 'none');
 		$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_reject').css('display', 'none');
-		
+
 		$.each(data, function(i, item) {
 			if ('USR_CLAIM' == item) {
+				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_claim').css('display', 'block');
 
 			} else if ('USR_RECLAIM' == item) {
+				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_reclaim').css('display', 'block');
 
 			} else if ('ADM_APPROVE' == item) {
+				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_approve').css('display', 'block');
 
 			} else if ('ADM_REJECT' == item) {
+				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_reject').css('display', 'block');
 
 			}
 		});
+
 		console.info('Render actions: success - ' + data);
 	});
 
@@ -218,12 +180,36 @@ function updateButtonState(achievement_type, record_status, achievement_uuid) {
 }
 
 function setAchievementState(record_status, achievement_uuid) {
-	if ('APPROVED' == record_status)
-	{
+	if ('APPROVED' == record_status) {
 		$('#achievement-' + achievement_uuid).removeClass("unearned").addClass("earned");
 		$('#achievement-icon-portrait-' + achievement_uuid).removeClass("tile-locked");
 		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-180px -90px');
+		$('#achievement-status-' + achievement_uuid).text('Approved');
+
+	} else if ('CLAIM' == record_status) {
+		$('#achievement-' + achievement_uuid).removeClass("earned").addClass("unearned");
+		$('#achievement-icon-portrait-' + achievement_uuid).addClass("tile-locked");
+		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-225px -90px');
+		$('#achievement-status-' + achievement_uuid).text('(Awaiting approval)');
+
+	} else if ('REJECTED'){
+	} else if ('RECLAIM'){
+	} else if ('NULL'){
 	}
+}
+
+function setAchievementStates() {
+	$('.achievement-block').each(function() {
+		var achievement_type = $(this).attr('achievement_type');
+		var record_status = $(this).attr('record_status');
+		var achievement_uuid = $(this).attr('achievement_uuid');
+		
+		console.info('achievement_type' + achievement_type);
+		console.info('record_status' + record_status);
+		console.info('achievement_uuid' + achievement_uuid);
+
+		updateButtonState(achievement_type, record_status, achievement_uuid);
+	});
 }
 
 function renderActions() {
@@ -240,12 +226,12 @@ function renderActions() {
 			url : 'GetAvailableActions',
 			type : 'POST',
 			data : {
-				target_user : target_user,
-				current_admin : current_admin,
-				current_user_type : current_user_type,
-				achievement_uuid : $(this).attr('achievement_uuid'),
-				achievement_type : $(this).attr('achievement_type'),
-				record_status : $(this).attr('record_status')
+				target_user			: target_user,
+				current_admin		: current_admin,
+				current_user_type	: current_user_type,
+				achievement_uuid	: $(this).attr('achievement_uuid'),
+				achievement_type	: $(this).attr('achievement_type'),
+				record_status		: $(this).attr('record_status')
 			},
 			dataType : 'html'
 		});

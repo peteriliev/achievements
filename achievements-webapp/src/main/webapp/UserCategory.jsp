@@ -246,25 +246,24 @@
             <h3>30</h3>
         </div>
 
-        <div id="profile-left">
-            <ul id="profile-menu">
-					<li>
-						<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/"><span class="back"></span>Обратно към <span>Профила</span></a></li>
-            	<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
-					CategoryNode selectedCat = null;
-					for (final CategoryNode cn : topLevel)  { %> 
-					<% if(cn.getUUID().equals(catUUID)) { selectedCat = cn;%>
-						<li class="active"><a href="#"><%=cn.getName()%></a></li>
-					<% } else { %>
-						<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=targetUsrUUID%>"><%=cn.getName()%></a></li>
-					<% } } %>
-			</ul>
-        </div>
+     <div id="profile-left">
+         <ul id="profile-menu">
+		<li>
+			<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/"><span class="back"></span>Обратно към <span>Профила</span></a></li>
+         	<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
+				CategoryNode selectedCat = null;
+				for (final CategoryNode cn : topLevel)  { %> 
+				<% if(cn.getUUID().equals(catUUID)) { selectedCat = cn;%>
+					<li class="active"><a href="#"><%=cn.getName()%></a></li>
+				<% } else { %>
+					<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=targetUsrUUID%>"><%=cn.getName()%></a></li>
+				<% } } %>
+		</ul>
+	</div>
 
-        <div id="profile-right">
+	<div id="profile-right">
 
-		<div id="achievement-filters" class="data-filters">
-
+	<div id="achievement-filters" class="data-filters">
 
 	<div class="profile-progress">
 		<div class="progress-wrapper">
@@ -273,13 +272,13 @@
 			<span>30 / 125</span>
 	</div>
 
-			<div class="ui-dropdown" id="type-filter">
-				<select>
-					<option value="all">All</option>
-					<option value="earned">Earned</option>
-					<option value="unearned">Unearned</option>
-				</select>
-			</div>
+	<div class="ui-dropdown" id="type-filter">
+		<select>
+			<option value="all">All</option>
+			<option value="earned">Earned</option>
+			<option value="unearned">Unearned</option>
+		</select>
+	</div>
 
 	<span class="clear"><!-- --></span>
 
@@ -312,35 +311,35 @@
         	final List<AchieveWrapper> userAchievements = Initializer.achievementMgr.getMyAchievements(catUUID, myUserUUID);
         	
         	for (final AchieveWrapper achieve : userAchievements)  {
-        		boolean isEarned = ARecordStatus.APPROVED.equals(achieve.getStatus());
 		%>
-				<div id="achievement-<%=achieve.getAchievementUUID()%>" class="achievement achievement-large <%if (isEarned) { %>earned<% }else{ %>unearned<% }%>">
+				<div id="achievement-<%=achieve.getAchievementUUID()%>" class="achievement-block achievement achievement-large unearned" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
 					<div class="inner">
 						<div class="meta png-fix"><span><%=achieve.getPoints()%></span>5/18/2014</div>
-						<div id="achievement-icon-portrait-<%=achieve.getAchievementUUID()%>" class="icon portrait-c <%if (!isEarned) { %>tile-locked<% }%>">
-							<span id="achievement-icon-frame-<%=achieve.getAchievementUUID()%>" class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') <%if (isEarned) { %>-180px -90px<% }else{ %>-225px -90px<% }%> no-repeat; width: 45px; height: 45px;"></span>
+						<div id="achievement-icon-portrait-<%=achieve.getAchievementUUID()%>" class="icon portrait-c tile-locked">
+							<span id="achievement-icon-frame-<%=achieve.getAchievementUUID()%>" class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') -225px -90px no-repeat; width: 45px; height: 45px;"></span>
 							<span class="clear"><!-- --></span>
 						</div>
 						<div class="desc">
-							<span><%=achieve.getName()%></span><br /><%=achieve.getDescription()%>
+							<span><%=achieve.getName()%>&nbsp;<span id="achievement-status-<%=achieve.getAchievementUUID()%>">&nbsp;</span><br /><%=achieve.getDescription()%>
 							
 							<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR, achieve.getActions()); %>
 							<ul id="achievement-action-menu-<%=achieve.getAchievementUUID()%>" class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
 								<%if (myActions.contains(Action.USR_CLAIM)) { %>							
-									<li><a class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+									<li><a style="display:none" class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
 								<%}%>
 								
 								<%if (myActions.contains(Action.USR_RECLAIM)) { %>
-									<li><a class="btn_reclaim" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+									<li><a style="display:none" class="btn_reclaim" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
 								<%}%>
 								
 								<%if (myActions.contains(Action.ADMIN_REJECT)) { %>
-									<li><a class="btn_reject" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
+									<li><a style="display:none" class="btn_reject" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
 								<%}%>
 								
 								<%if (myActions.contains(Action.ADMIN_APPROVE)) { %>
-									<li><a class="btn_approve" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li></ul>
+									<li><a style="display:none" class="btn_approve" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li>
 								<%}%>
+							</ul>
 						</div>
 						<span class="clear"><!-- --></span>
 					</div>
@@ -353,9 +352,7 @@
 <span class="clear"><!-- --></span>
 </div>
 </div>
-<div class="body-trail">
-<span class="clear"><!-- --></span>
-</div>
+	<div class="body-trail"><span class="clear"><!-- --></span></div>
 </div>
 <div class="foot" id="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 <div class="lower-footer-wrapper">
@@ -370,11 +367,9 @@
 <a onclick="return Core.open(this);" href="http://us.blizzard.com/company/about/privacy.html" tabindex="100" data-action="Footer - Privacy Policy">Privacy Policy</a>
 <a onclick="return Core.open(this);" href="http://us.blizzard.com/company/about/infringementnotice.html" tabindex="100" data-action="Footer - Copyright Infringement">Copyright Infringement</a>
 </div>
-<div id="international"></div>
+	<div id="international"></div>
 </div>
-<div id="marketing-trackers">
-<div class="marketing-cover"></div>
-</div>
+	<div id="marketing-trackers"><div class="marketing-cover"></div></div>
 </div>
 </div>
 <div id="service">

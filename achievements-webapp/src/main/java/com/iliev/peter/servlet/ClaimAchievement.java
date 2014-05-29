@@ -7,6 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
+import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.db.Initializer;
 
 public class ClaimAchievement extends javax.servlet.http.HttpServlet {
@@ -21,6 +24,12 @@ public class ClaimAchievement extends javax.servlet.http.HttpServlet {
 
 		try {
 			Initializer.achievementMgr.claim(UUID.fromString(user_uuid), UUID.fromString(achievement_uuid), note);
+
+			JSONObject json = new JSONObject();
+			json.put("record_status", String.valueOf(ARecordStatus.CLAIM));
+			resp.setContentType("application/json");
+			resp.getWriter().print(json);
+
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace().toString());
 		}
