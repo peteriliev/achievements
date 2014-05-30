@@ -14,7 +14,6 @@ import com.iliev.peter.achieve.ARecord;
 import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.achieve.AchieveWrapper;
 import com.iliev.peter.achieve.Action;
-import com.iliev.peter.achieve.RecordStatus;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.ARecordMgr;

@@ -96,9 +96,9 @@ public class MockAchievementManager implements AchievementMgr {
 		// TODO:peteri - improve current date
 		final Date dateEarned = new Date();
 		final ARecord rec = ARecord.newDTOInstance(achievementUUID, usrUUID, dateEarned, NO_ADMIN, ARecordStatus.CLAIM);
-		Initializer.aRecordMgr.create(rec);
+		TempDB.aRecordMgr.create(rec);
 		final Log log = Log.newInstance(rec.getUUID(), dateEarned, NO_ADMIN, usrUUID, ARecordStatus.CLAIM, note);
-		Initializer.logMgr.create(log);
+		TempDB.logMgr.create(log);
 	}
 
 	@Override
@@ -122,23 +122,23 @@ public class MockAchievementManager implements AchievementMgr {
 		// TODO:peteri - improve current date
 		final Date dateEarned = new Date();
 
-		final ARecord rec = Initializer.aRecordMgr.readSingle(recordUUID);
+		final ARecord rec = TempDB.aRecordMgr.readSingle(recordUUID);
 
 		final ARecord tmp = ARecord.newPOInstance(recordUUID, rec.getAchievementUUID(), rec.getUserUUID(), dateEarned, rec.getAdminUUID(), status);
-		Initializer.aRecordMgr.update(rec.getUUID(), tmp);
+		TempDB.aRecordMgr.update(rec.getUUID(), tmp);
 
 		final Log log = Log.newInstance(recordUUID, dateEarned, adminUUID, tmp.getUserUUID(), status, note);
-		Initializer.logMgr.create(log);
+		TempDB.logMgr.create(log);
 	}
 
 	@Override
 	public List<AchieveWrapper> getMyAchievements(final UUID catUUID, final UUID targetUsrUUID) throws NotFoundException {
 
 		final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
-		final List<IAchievement> currentCatAchievements = Initializer.achievementMgr.read(catPredi);
+		final List<IAchievement> currentCatAchievements = TempDB.achievementMgr.read(catPredi);
 
 		final Predicate<ARecord> userPredicate = new Queries.ARecordByUser(targetUsrUUID);
-		final List<AchieveWrapper> userAchievements = Initializer.aRecordMgr.readByUser2(userPredicate, currentCatAchievements);
+		final List<AchieveWrapper> userAchievements = TempDB.aRecordMgr.readByUser2(userPredicate, currentCatAchievements);
 
 		return userAchievements;
 	}

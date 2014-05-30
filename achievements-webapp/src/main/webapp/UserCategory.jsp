@@ -24,11 +24,11 @@
 <%
 	Subject currentUser = SecurityUtils.getSubject();
 	final Predicate currentUserPrincipal = new Queries.UserByLogin(currentUser.getPrincipal().toString());
-	final User currentAdmin = Initializer.userMgr.readSingle(currentUserPrincipal);
+	final User currentAdmin = TempDB.userMgr.readSingle(currentUserPrincipal);
 	
 	List<User> allTargetUsers = null;
 	try {
-		allTargetUsers = Initializer.userMgr.read(Queries.ALL_TARGET_USERS);
+		allTargetUsers = TempDB.userMgr.read(Queries.ALL_TARGET_USERS);
 	} catch (NotFoundException e) {
 		e.printStackTrace();
 	}
@@ -43,26 +43,26 @@
 
 	UUID targetUsrUUID = null;
 		try {
-			if (null == targetUsrUUID && null != request.getParameter("targetUsrUUID"))
-			{
-				targetUsrUUID = UUID.fromString(request.getParameter("targetUsrUUID"));
-			}
-			if (null == targetUsrUUID && currentAdmin.isAdmin() && allTargetUsers.size() > 0)
-			{
-				targetUsrUUID = allTargetUsers.get(0).getUUID();
-			}
+	if (null == targetUsrUUID && null != request.getParameter("targetUsrUUID"))
+	{
+		targetUsrUUID = UUID.fromString(request.getParameter("targetUsrUUID"));
+	}
+	if (null == targetUsrUUID && currentAdmin.isAdmin() && allTargetUsers.size() > 0)
+	{
+		targetUsrUUID = allTargetUsers.get(0).getUUID();
+	}
 
 		} catch (Exception e) {
-			int x = 100;
-			// TODO:peteri
-			//response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
+	int x = 100;
+	// TODO:peteri
+	//response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
 		}
 %>
 
 <%
 	String headerText = "";
 	try {
-		final Category selectedCat = Initializer.cateogryMgr.readSingle(new Queries.ObjectByUUID(catUUID));
+		final Category selectedCat = TempDB.cateogryMgr.readSingle(new Queries.ObjectByUUID(catUUID));
 		headerText = selectedCat.getName();
 		
 	} catch (Exception exc) {
@@ -250,14 +250,22 @@
          <ul id="profile-menu">
 		<li>
 			<a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/"><span class="back"></span>Обратно към <span>Профила</span></a></li>
-         	<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
-				CategoryNode selectedCat = null;
-				for (final CategoryNode cn : topLevel)  { %> 
-				<% if(cn.getUUID().equals(catUUID)) { selectedCat = cn;%>
+         	<%
+         		final List<CategoryNode> topLevel = CategoryBuilder.build();
+         	         			CategoryNode selectedCat = null;
+         	         			for (final CategoryNode cn : topLevel)  {
+         	%> 
+				<%
+ 					if(cn.getUUID().equals(catUUID)) { selectedCat = cn;
+ 				%>
 					<li class="active"><a href="#"><%=cn.getName()%></a></li>
-				<% } else { %>
+				<%
+					} else {
+				%>
 					<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=targetUsrUUID%>"><%=cn.getName()%></a></li>
-				<% } } %>
+				<%
+					} }
+				%>
 		</ul>
 	</div>
 
@@ -306,12 +314,12 @@
 		<div id="achievements-wrapper">
 		
 		<%
-        	final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
-        	
-        	final List<AchieveWrapper> userAchievements = Initializer.achievementMgr.getMyAchievements(catUUID, myUserUUID);
-        	
-        	for (final AchieveWrapper achieve : userAchievements)  {
-		%>
+					final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
+						        	
+						        	final List<AchieveWrapper> userAchievements = TempDB.achievementMgr.getMyAchievements(catUUID, myUserUUID);
+						        	
+						        	for (final AchieveWrapper achieve : userAchievements)  {
+				%>
 				<div id="achievement-<%=achieve.getAchievementUUID()%>" class="achievement-block achievement achievement-large unearned" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
 					<div class="inner">
 						<div class="meta png-fix"><span><%=achieve.getPoints()%></span>5/18/2014</div>

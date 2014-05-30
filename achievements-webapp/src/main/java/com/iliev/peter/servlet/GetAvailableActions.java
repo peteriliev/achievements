@@ -1,5 +1,7 @@
 package com.iliev.peter.servlet;
 
+import static com.iliev.peter.servlet.Params.*;
+
 import java.io.IOException;
 import java.util.EnumSet;
 
@@ -8,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import predicates.AvailActions;
 import predicates.AvailActionsByUsrType;
@@ -25,22 +26,22 @@ public class GetAvailableActions extends javax.servlet.http.HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		final String achievement_type = req.getParameter("achievement_type");
-		final String record_status = req.getParameter("record_status");
-		final String current_user_type = req.getParameter("current_user_type");
+		final String achievement_type = req.getParameter(ACHIEVEMENT_TYPE);
+		final String record_status = req.getParameter(RECORD_STATUS);
+		final String user_type = req.getParameter(USER_TYPE);
 
 		final Type aType = Type.valueOf(achievement_type);
 		final ARecordStatus rStatus = ARecordStatus.valueOf(record_status);
-		final UserType uType = UserType.valueOf(current_user_type);
+		final UserType uType = UserType.valueOf(user_type);
 
-		final EnumSet<Action> act1 = AvailActions.INSTANCE.apply(aType, rStatus);
-		final EnumSet<Action> act2 = AvailActionsByUsrType.INSTANCE.apply(uType, act1);
+		final EnumSet<Action> actions1 = AvailActions.INSTANCE.apply(aType, rStatus);
+		final EnumSet<Action> actions2 = AvailActionsByUsrType.INSTANCE.apply(uType, actions1);
 
 		try {
 			JSONArray arrayObj = new JSONArray();
 
-			for (final Action act : act2) {
-				arrayObj.put(String.valueOf(act));
+			for (final Action action : actions2) {
+				arrayObj.put(String.valueOf(action));
 			}
 
 			resp.setContentType("application/json");

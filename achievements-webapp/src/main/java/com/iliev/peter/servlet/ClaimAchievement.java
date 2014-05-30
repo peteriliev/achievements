@@ -1,5 +1,7 @@
 package com.iliev.peter.servlet;
 
+import static com.iliev.peter.servlet.Params.*;
+
 import java.io.IOException;
 import java.util.UUID;
 
@@ -7,10 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
 import com.iliev.peter.achieve.ARecordStatus;
-import com.iliev.peter.db.Initializer;
+import com.iliev.peter.db.TempDB;
 
 public class ClaimAchievement extends javax.servlet.http.HttpServlet {
 
@@ -18,17 +18,14 @@ public class ClaimAchievement extends javax.servlet.http.HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		final String achievement_uuid = req.getParameter("achievement_uuid");
-		final String user_uuid = req.getParameter("user_uuid");
-		final String note = req.getParameter("note");
+		final UUID achievementUUID = Util.getUUIDParam(req, ACHIEVEMENT_UUID);
+		final UUID userUUID = Util.getUUIDParam(req, USER_UUID);
+		final String note = req.getParameter(NOTE);
 
 		try {
-			Initializer.achievementMgr.claim(UUID.fromString(user_uuid), UUID.fromString(achievement_uuid), note);
+			TempDB.achievementMgr.claim(userUUID, achievementUUID, note);
 
-			JSONObject json = new JSONObject();
-			json.put("record_status", String.valueOf(ARecordStatus.CLAIM));
-			resp.setContentType("application/json");
-			resp.getWriter().print(json);
+			Util.setJSONStatus(resp, ARecordStatus.CLAIM);
 
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace().toString());
