@@ -1,3 +1,11 @@
+Run jetty server:
+mvn jetty:run
+
+
+Access local dev site: 
+http://localhost:8080/achievements-webapp/Login.jsp
+
+
 Debugging with the Maven Jetty Plugin in Eclipse
 
 Step 1
