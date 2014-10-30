@@ -23,6 +23,7 @@ com\iliev\peter\db\Queries$REC_BY_USR_AND_ACHIEVE.class
 com\iliev\peter\achieve\RecordStatus.class
 com\iliev\peter\achieve\Type.class
 com\iliev\peter\db\MockCategoryManager.class
+com\iliev\peter\db\Initializer.class
 com\iliev\peter\db\Queries$AchieveByCat.class
 com\iliev\peter\achieve\UserType.class
 com\iliev\peter\db\contracts\AchievementMgr.class
