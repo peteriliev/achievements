@@ -49,16 +49,18 @@ $(document)
 					$('.btn_reclaim')
 							.click(
 									function() {
-										var achievement_uuid = $(this).attr('achievement_uuid');
-										var user_uuid = $(this).attr('user_uuid');
+										var record_uuid = $(this).attr('record_uuid');
+										//var achievement_uuid = $(this).attr('achievement_uuid');
+										//var user_uuid = $(this).attr('user_uuid');
 
 										var request = $
 												.ajax({
 													url : 'ReclaimAchievement',
 													type : 'POST',
 													data : {
-														achievement_uuid : achievement_uuid,
-														user_uuid : user_uuid,
+														//achievement_uuid : achievement_uuid,
+														//user_uuid : user_uuid,
+														record_uuid : record_uuid,
 														note : 'hard coded note: reclaim'
 													},
 													dataType : 'json'
