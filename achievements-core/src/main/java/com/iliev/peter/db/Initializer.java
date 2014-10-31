@@ -89,9 +89,12 @@ public class Initializer {
 		final IAchievement bAchievementTwoPO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementTwoUUID));
 
 		final IAchievement bAchievementThree = Achievement.newInstance("Hyegine Ach. Three", "Hyegine Ach. three descr", Type.REGULAR, 30, blackCatPO);
-		aMgr.create(bAchievementThree);
+		final UUID bAchievementThreeUUID = aMgr.create(bAchievementThree);
+		final IAchievement bAchievementThreePO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementThreeUUID));
+
 		final IAchievement bAchievementFour = Achievement.newInstance("Hyegine Ach. Four", "Hyegine Ach. four descr", Type.REGULAR, 40, blackCatPO);
-		aMgr.create(bAchievementFour);
+		final UUID bAchievementFourUUID = aMgr.create(bAchievementFour);
+		final IAchievement bAchievementFourPO = aMgr.readSingle(new Queries.ObjectByUUID(bAchievementFourUUID));
 
 		final IAchievement bAchievementFive = Achievement.newInstance("Hyegine Ach. Five", "Hyegine Ach. five descr", Type.REGULAR, 50, blackCatPO);
 		aMgr.create(bAchievementFive);
@@ -126,9 +129,17 @@ public class Initializer {
 		final User userAdminPO = userMgr.readSingle(new Queries.ObjectByUUID(adminUUID));
 
 		final ARecord aRecBlackOne = ARecord.newDTOInstance(bAchievementOnePO.getUUID(), userLonestarrPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.APPROVED);
-		final ARecord aRecBlackTwo = ARecord.newDTOInstance(bAchievementTwoPO.getUUID(), userPeteriPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.APPROVED);
+		final ARecord aRecBlackTwo = ARecord.newDTOInstance(bAchievementTwoPO.getUUID(), userLonestarrPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.REJECTED);
+		final ARecord aRecBlackThree = ARecord.newDTOInstance(bAchievementThreePO.getUUID(), userLonestarrPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.CLAIM);
+		final ARecord aRecBlackFour = ARecord.newDTOInstance(bAchievementFourPO.getUUID(), userLonestarrPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.RECLAIM);
+
+		final ARecord aRecBlackTwoPI = ARecord.newDTOInstance(bAchievementTwoPO.getUUID(), userPeteriPO.getUUID(), new Date(), userAdminPO.getUUID(), ARecordStatus.APPROVED);
 
 		aRecordMgr.create(aRecBlackOne);
 		aRecordMgr.create(aRecBlackTwo);
+		aRecordMgr.create(aRecBlackThree);
+		aRecordMgr.create(aRecBlackFour);
+
+		aRecordMgr.create(aRecBlackTwoPI);
 	}
 }
