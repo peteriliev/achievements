@@ -1,7 +1,7 @@
 $(document)
 		.ready(
 				function() {
-					// renderActions();
+					renderActions();
 					setAchievementStates();
 
 					$('#target_user')
@@ -131,6 +131,7 @@ $(document)
 				});
 
 function updateButtonState(achievement_type, record_status, achievement_uuid) {
+
 	console.info('achievement_type = ' + achievement_type);
 	console.info('record_status = ' + record_status);
 
@@ -155,17 +156,19 @@ function updateButtonState(achievement_type, record_status, achievement_uuid) {
 		$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_approve').css('display', 'none');
 		$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_reject').css('display', 'none');
 
+		// TODO:peteri - magic string
 		$.each(data, function(i, item) {
+			
 			if ('USR_CLAIM' == item) {
 				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_claim').css('display', 'block');
 
 			} else if ('USR_RECLAIM' == item) {
 				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_reclaim').css('display', 'block');
 
-			} else if ('ADM_APPROVE' == item) {
+			} else if ('ADMIN_APPROVE' == item) {
 				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_approve').css('display', 'block');
 
-			} else if ('ADM_REJECT' == item) {
+			} else if ('ADMIN_REJECT' == item) {
 				$('#achievement-action-menu-' + achievement_uuid + ' > li > a.btn_reject').css('display', 'block');
 
 			}
