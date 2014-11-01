@@ -35,7 +35,7 @@
 						<%}%>
 
 						<%if (myActions.contains(Action.USR_RECLAIM)) { %>
-						<li><a style="display: none" class="btn_reclaim" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+						<li><a style="display: none" class="btn_reclaim" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
 						<%}%>
 
 						<%if (myActions.contains(Action.ADMIN_REJECT)) { %>
@@ -43,8 +43,7 @@
 						<%}%>
 
 						<%if (myActions.contains(Action.ADMIN_APPROVE)) { %>
-						<li><a style="display: none" class="btn_approve" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>"
-							admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li>
+						<li><a style="display: none" class="btn_approve" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li>
 						<%}%>
 					</ul>
 			</div>

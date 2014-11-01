@@ -136,9 +136,6 @@ $(document)
 
 function updateButtonState(achievement_type, record_status, achievement_uuid) {
 
-	console.info('achievement_type = ' + achievement_type);
-	console.info('record_status = ' + record_status);
-
 	var user_type = $('#current_user_type').attr('value');
 
 	var request = $.ajax({
@@ -226,10 +223,6 @@ function setAchievementStates() {
 		var record_status = $(this).attr('record_status');
 		var achievement_uuid = $(this).attr('achievement_uuid');
 		
-		console.info('achievement_type' + achievement_type);
-		console.info('record_status' + record_status);
-		console.info('achievement_uuid' + achievement_uuid);
-
 		updateButtonState(achievement_type, record_status, achievement_uuid);
 	});
 }

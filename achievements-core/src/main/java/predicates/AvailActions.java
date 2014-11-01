@@ -27,11 +27,15 @@ public class AvailActions implements BiFunction<Type, ARecordStatus, EnumSet<Act
 			return EnumSet.of(Action.USR_CLAIM);
 		}
 
+		if (ARecordStatus.CLAIM.equals(status)) {
+			return EnumSet.of(Action.ADMIN_APPROVE, Action.ADMIN_REJECT);
+		}
+
 		if (ARecordStatus.REJECTED.equals(status)) {
 			return EnumSet.of(Action.USR_RECLAIM);
 		}
 
-		if (ARecordStatus.CLAIM.equals(status)) {
+		if (ARecordStatus.RECLAIM.equals(status)) {
 			return EnumSet.of(Action.ADMIN_APPROVE, Action.ADMIN_REJECT);
 		}
 
