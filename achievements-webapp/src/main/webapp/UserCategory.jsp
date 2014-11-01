@@ -1,3 +1,5 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us">
 
 <%@page import="com.iliev.peter.user.User"%>
@@ -13,8 +15,6 @@
 <%@page import="com.iliev.peter.achieve.*"%>
 <%@page import="java.util.function.Predicate"%>
 <%@page import="com.iliev.peter.db.exception.NotFoundException"%>
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
 	Subject currentUser = SecurityUtils.getSubject();

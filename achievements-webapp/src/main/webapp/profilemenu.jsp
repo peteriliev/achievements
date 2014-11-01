@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
 <ul id="profile-menu">
 	<li><a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/"><span class="back"></span>Обратно към <span>Профила</span></a></li>

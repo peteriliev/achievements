@@ -1,3 +1,4 @@
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
 <div id="portrait" onclick="Core.goTo('/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/');">
 
