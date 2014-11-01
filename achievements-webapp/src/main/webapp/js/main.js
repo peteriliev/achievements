@@ -1,7 +1,6 @@
 $(document)
 		.ready(
 				function() {
-					renderActions();
 					setAchievementStates();
 
 					$('#target_user')
@@ -50,16 +49,14 @@ $(document)
 							.click(
 									function() {
 										var record_uuid = $(this).attr('record_uuid');
-										//var achievement_uuid = $(this).attr('achievement_uuid');
-										//var user_uuid = $(this).attr('user_uuid');
+										var achievement_uuid = $(this).attr('achievement_uuid');
+										var achievement_type = $(this).attr('achievement_type');
 
 										var request = $
 												.ajax({
 													url : 'ReclaimAchievement',
 													type : 'POST',
 													data : {
-														//achievement_uuid : achievement_uuid,
-														//user_uuid : user_uuid,
 														record_uuid : record_uuid,
 														note : 'hard coded note: reclaim'
 													},
@@ -67,6 +64,7 @@ $(document)
 												});
 
 										request.done(function(msg) {
+													updateButtonState(achievement_type, msg.record_status, achievement_uuid);
 													console.info('Reclaim achievement: success - ' + msg);
 												});
 
@@ -80,6 +78,9 @@ $(document)
 									function() {
 										var record_uuid = $(this).attr('record_uuid');
 										var admin_uuid = $('#current_admin').attr('value');
+										var achievement_uuid = $(this).attr('achievement_uuid');
+										var achievement_type = $(this).attr('achievement_type');
+
 
 										var request = $
 												.ajax({
@@ -95,6 +96,7 @@ $(document)
 
 										request.done(function(msg) {
 													console.info('Reject achievement: success - ' + msg);
+													updateButtonState(achievement_type, msg.record_status, achievement_uuid);
 												});
 
 										request.fail(function(jqXHR, textStatus) {
@@ -189,17 +191,32 @@ function setAchievementState(record_status, achievement_uuid) {
 		$('#achievement-' + achievement_uuid).removeClass("unearned").addClass("earned");
 		$('#achievement-icon-portrait-' + achievement_uuid).removeClass("tile-locked");
 		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-180px -90px');
-		$('#achievement-status-' + achievement_uuid).text('Approved');
+		$('#achievement-status-' + achievement_uuid).text('--APPROVED--');
 
 	} else if ('CLAIM' == record_status) {
 		$('#achievement-' + achievement_uuid).removeClass("earned").addClass("unearned");
 		$('#achievement-icon-portrait-' + achievement_uuid).addClass("tile-locked");
 		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-225px -90px');
-		$('#achievement-status-' + achievement_uuid).text('(Awaiting approval)');
+		$('#achievement-status-' + achievement_uuid).text('--CLAIM--');
 
-	} else if ('REJECTED'){
-	} else if ('RECLAIM'){
-	} else if ('NULL'){
+	} else if ('REJECTED' == record_status){
+		$('#achievement-' + achievement_uuid).removeClass("earned").addClass("unearned");
+		$('#achievement-icon-portrait-' + achievement_uuid).addClass("tile-locked");
+		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-225px -90px');
+		$('#achievement-status-' + achievement_uuid).text('--REJECTED--');
+
+		
+	} else if ('RECLAIM' == record_status){
+		$('#achievement-' + achievement_uuid).removeClass("unearned").addClass("earned");
+		$('#achievement-icon-portrait-' + achievement_uuid).removeClass("tile-locked");
+		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-180px -90px');
+		$('#achievement-status-' + achievement_uuid).text('--RECLAIM--');
+
+	} else if ('NULL' == record_status){
+		$('#achievement-' + achievement_uuid).removeClass("unearned").addClass("earned");
+		$('#achievement-icon-portrait-' + achievement_uuid).removeClass("tile-locked");
+		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-180px -90px');
+		$('#achievement-status-' + achievement_uuid).text('--NULL--');
 	}
 }
 
@@ -216,39 +233,3 @@ function setAchievementStates() {
 		updateButtonState(achievement_type, record_status, achievement_uuid);
 	});
 }
-
-function renderActions() {
-	var target_user = $('#target_user').val();
-	var current_admin = $('#current_admin').attr('value');
-	var user_type = $('#current_user_type').attr('value');
-
-	console.info('tu = ' + target_user);
-	console.info('ca = ' + current_admin);
-
-	$('.action_menu').each(function() {
-
-		var request = $.ajax({
-			url : 'GetAvailableActions',
-			type : 'POST',
-			data : {
-				target_user			: target_user,
-				current_admin		: current_admin,
-				user_type			: user_type,
-				achievement_uuid	: $(this).attr('achievement_uuid'),
-				achievement_type	: $(this).attr('achievement_type'),
-				record_status		: $(this).attr('record_status')
-			},
-			dataType : 'html'
-		});
-
-		request.done(function(data) {
-			console.info('Render actions: success - ' + data);
-		});
-
-		request.fail(function(jqXHR, textStatus) {
-			console.info('Render actions: fail - ' + textStatus);
-		});
-
-		console.info($(this).attr('achievement_uuid'));
-	});
-};
