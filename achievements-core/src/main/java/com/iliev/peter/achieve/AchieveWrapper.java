@@ -17,6 +17,11 @@ public class AchieveWrapper {
 	}
 
 	public static AchieveWrapper newInstance(final IAchievement a, final ARecord rec, final EnumSet<com.iliev.peter.achieve.Action> actions) {
+		// TODO:peteri - validate args
+		if (null == a)
+		{
+			throw new IllegalArgumentException("Illegal achievement: NULL");
+		}
 		return new AchieveWrapper(a, rec, actions);
 	}
 

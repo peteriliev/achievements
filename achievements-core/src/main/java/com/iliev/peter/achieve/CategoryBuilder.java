@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
-import com.iliev.peter.db.TempDB;
 import com.iliev.peter.db.Queries;
+import com.iliev.peter.db.TempDB;
+import com.iliev.peter.db.compare.CatComparer;
 import com.iliev.peter.db.contracts.CategoryMgr;
 import com.iliev.peter.db.exception.NotFoundException;
 
@@ -26,6 +27,8 @@ public class CategoryBuilder {
 
 			result.add(tln);
 		}
+
+		result.sort(CatComparer.INSTANCE);
 
 		return result;
 	}

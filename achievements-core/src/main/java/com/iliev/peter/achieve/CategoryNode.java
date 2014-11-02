@@ -9,12 +9,17 @@ public class CategoryNode implements ICategory {
 	private final List<Category> c;
 
 	private CategoryNode(final ICategory w, final List<Category> c) {
-		// TODO:clone
+		// TODO:peteri - clone
 		this.w = w;
 		this.c = c;
 	}
 
 	public static CategoryNode newInstance(final ICategory w, final List<Category> c) {
+		// TODO:peteri - validate arguments
+		if (null == w) {
+			throw new IllegalArgumentException("Illegal ICategory: NULL");
+		}
+
 		return new CategoryNode(w, c);
 	}
 

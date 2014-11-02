@@ -2,16 +2,15 @@
 <div id="achievements-wrapper">
 
 	<%
-					final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
+		final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
+		final List<AchieveWrapper> userAchievements = TempDB.achievementMgr.getMyAchievements(catUUID, myUserUUID);
 						        	
-						        	final List<AchieveWrapper> userAchievements = TempDB.achievementMgr.getMyAchievements(catUUID, myUserUUID);
-						        	
-						        	for (final AchieveWrapper achieve : userAchievements)  {
-				%>
+		for (final AchieveWrapper achieve : userAchievements)  {
+	%>
 	<div id="achievement-<%=achieve.getAchievementUUID()%>" class="achievement-block achievement achievement-large unearned" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>"
 		record_status="<%=achieve.getStatus()%>">
 		
-		<!-- TODO:remove -->
+		<!-- TODO:peteri - remove -->
 		<ul style="color: orange">
 			<li>status = <%=achieve.getStatus()%></li>
 		</ul>
