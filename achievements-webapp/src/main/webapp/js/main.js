@@ -204,15 +204,15 @@ function setAchievementState(record_status, achievement_uuid) {
 
 		
 	} else if ('RECLAIM' == record_status){
-		$('#achievement-' + achievement_uuid).removeClass("unearned").addClass("earned");
-		$('#achievement-icon-portrait-' + achievement_uuid).removeClass("tile-locked");
-		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-180px -90px');
+		$('#achievement-' + achievement_uuid).removeClass("earned").addClass("unearned");
+		$('#achievement-icon-portrait-' + achievement_uuid).addClass("tile-locked");
+		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-225px -90px');
 		$('#achievement-status-' + achievement_uuid).text('--RECLAIM--');
 
 	} else if ('NULL' == record_status){
-		$('#achievement-' + achievement_uuid).removeClass("unearned").addClass("earned");
-		$('#achievement-icon-portrait-' + achievement_uuid).removeClass("tile-locked");
-		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-180px -90px');
+		$('#achievement-' + achievement_uuid).removeClass("earned").addClass("unearned");
+		$('#achievement-icon-portrait-' + achievement_uuid).addClass("tile-locked");
+		$('#achievement-icon-frame-' + achievement_uuid).css('background-position', '-225px -90px');
 		$('#achievement-status-' + achievement_uuid).text('--NULL--');
 	}
 }
