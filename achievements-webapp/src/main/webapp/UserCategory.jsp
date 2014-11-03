@@ -109,5 +109,7 @@
 	<input type="hidden" id="current_cat" value="<%=catUUID%>" />
 	<input type="hidden" id="current_user_type" value="<%=currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR%>" />
 
+	<script src="js/jquery.cookie.js"></script>
+
 </body>
 </html>

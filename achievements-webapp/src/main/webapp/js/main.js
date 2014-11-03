@@ -2,6 +2,7 @@ $(document)
 		.ready(
 				function() {
 					setAchievementStates();
+					restoreTargetUser();
 
 					$('#target_user')
 							.change(
@@ -13,6 +14,8 @@ $(document)
 												+ cat_uuid
 												+ '&targetUsrUUID='
 												+ target_usr_uuid;
+										
+										$.cookie('cookie_targetUsrUUID', target_usr_uuid, {expires:100, path :'/'});
 										$(location).attr('href', url);
 									});
 
@@ -225,4 +228,30 @@ function setAchievementStates() {
 		
 		updateButtonState(achievement_type, record_status, achievement_uuid);
 	});
+}
+
+function restoreTargetUser() {
+	var myTarget = urlParam('targetUsrUUID');
+	if (myTarget) {
+		window.console.info('URL override');
+		return;
+	}
+	
+	var cookieVal = $.cookie('cookie_targetUsrUUID');
+	if (!cookieVal) {
+		window.console.info('No cookie');
+		return;
+	}
+	
+	window.console.info('Try to select' + cookieVal);
+	$('#target_user').val(cookieVal);
+}
+
+function urlParam (name){
+    var results = new RegExp('[\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    if (results == null)
+    {
+    	return null;
+    }
+    return results[1] || 0;
 }
