@@ -15,7 +15,7 @@
 	<%
 		} else {
 	%>
-	<li class=""><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=targetUsrUUID%>"><%=cn.getName()%></a></li>
+	<li class=""><a href="/achievements-webapp/ShowUserCategory?catUUID=<%=cn.getUUID()%>&targetUsrUUID=<%=targetUsrUUID%>"><%=cn.getName()%></a></li>
 	<%
 		}
 		}

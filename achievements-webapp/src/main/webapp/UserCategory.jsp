@@ -13,6 +13,7 @@
 <%@page import="com.iliev.peter.db.*"%>
 <%@page import="com.iliev.peter.contracts.UUIDObject"%>
 <%@page import="com.iliev.peter.achieve.*"%>
+<%@page import="com.iliev.peter.servlet.PageMetadata"%>
 <%@page import="java.util.function.Predicate"%>
 <%@page import="com.iliev.peter.db.exception.NotFoundException"%>
 
@@ -20,22 +21,18 @@
 	Subject currentUser = SecurityUtils.getSubject();
 	final Predicate currentUserPrincipal = new Queries.UserByLogin(currentUser.getPrincipal().toString());
 	final User currentAdmin = TempDB.userMgr.readSingle(currentUserPrincipal);
-
 	List<User> allTargetUsers = null;
 	try {
 		allTargetUsers = TempDB.userMgr.read(Queries.ALL_TARGET_USERS);
 	} catch (NotFoundException e) {
 		e.printStackTrace();
 	}
-
 	UUID catUUID = null;
 	try {
 		catUUID = UUID.fromString(request.getParameter("catUUID"));
-
 	} catch (Exception e) {
 		response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
 	}
-
 	UUID targetUsrUUID = null;
 	try {
 		if (null == targetUsrUUID && null != request.getParameter("targetUsrUUID")) {
@@ -46,25 +43,20 @@
 		}
 	} catch (Exception e) {
 	}
-
-	String headerText = "";
-	try {
-		final Category selectedCat = TempDB.cateogryMgr.readSingle(new Queries.ObjectByUUID(catUUID));
-		headerText = selectedCat.getName();
-
-	} catch (Exception exc) {
-
-	}
 %>
+
+<jsp:useBean id="pageMetadata" class="com.iliev.peter.servlet.PageMetadata" scope="request" />
 
 <%@ include file="includes.jsp"%>
 
-<body class="en-us " itemscope="itemscope" itemtype="http://schema.org/WebPage">
+<body class="en-us " itemscope="itemscope"
+	itemtype="http://schema.org/WebPage">
 	<div class="wrapper">
 
 		<%@ include file="meganav.jsp"%>
 
-		<div class="body" itemscope="itemscope" itemtype="http://schema.org/WebPageElement">
+		<div class="body" itemscope="itemscope"
+			itemtype="http://schema.org/WebPageElement">
 			<div class="body-top">
 				<div class="body-bot">
 
@@ -102,12 +94,16 @@
 
 	</div>
 
-	<script type="text/javascript" src="/achievements-webapp/sc2/static/js/sc2.js?v=28"></script>
-	<script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/utility/dropdown.js?v=58"></script>
+	<script type="text/javascript"
+		src="/achievements-webapp/sc2/static/js/sc2.js?v=28"></script>
+	<script type="text/javascript"
+		src="/achievements-webapp/sc2/static/local-common/js/utility/dropdown.js?v=58"></script>
 
-	<input type="hidden" id="current_admin" value="<%=currentAdmin.getUUID()%>" />
+	<input type="hidden" id="current_admin"
+		value="<%=currentAdmin.getUUID()%>" />
 	<input type="hidden" id="current_cat" value="<%=catUUID%>" />
-	<input type="hidden" id="current_user_type" value="<%=currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR%>" />
+	<input type="hidden" id="current_user_type"
+		value="<%=currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR%>" />
 
 	<script src="js/jquery.cookie.js"></script>
 

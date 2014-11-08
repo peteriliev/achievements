@@ -59,8 +59,10 @@
 		<li itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"><a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/" rel="np" class="breadcrumb-arrow" itemprop="url"> <span class="breadcrumb-text"
 				itemprop="name">Бебълсчето</span>
 		</a></li>
-		<li class="last" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"><a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211278" rel="np" itemprop="url"> <span
-				class="breadcrumb-text" itemprop="name"><%=headerText%></span>
+		<li class="last" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement"><a href="/achievements-webapp/sc2/en/profile/5716947/1/Sunstriderr/achievements/category/3211278" rel="np" itemprop="url">
+				<span class="breadcrumb-text" itemprop="name">
+					<jsp:getProperty name="pageMetadata" property="title" />
+				</span>
 		</a></li>
 	</ol>
 </div>

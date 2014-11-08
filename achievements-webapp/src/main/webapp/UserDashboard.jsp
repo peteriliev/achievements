@@ -25,10 +25,10 @@
 	<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
 		
 		for (final CategoryNode cn : topLevel)  { %> 
-		<li><a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=cn.getUUID()%>"><%=cn.getName()%></a></li>
+		<li><a href="/achievements-webapp/ShowUserCategory?catUUID=<%=cn.getUUID()%>"><%=cn.getName()%></a></li>
 		
 		<% final List<Category> children = cn.getChildren();
 			for (final Category child : children) { %>
-					<li>+<a href="/achievements-webapp/UserCategory.jsp?catUUID=<%=child.getUUID()%>"><%=child.getName()%></a></li><%}}%></ul>
+					<li>+<a href="/achievements-webapp/ShowUserCategory?catUUID=<%=child.getUUID()%>"><%=child.getName()%></a></li><%}}%></ul>
 </body>
 </html>

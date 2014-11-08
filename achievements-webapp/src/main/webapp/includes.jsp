@@ -22,6 +22,6 @@
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/third-party.js?v=58"></script>
 <script type="text/javascript" src="/achievements-webapp/sc2/static/local-common/js/common-game-site.js?v=58"></script>
 
-<title>Постижения > Бебълсчето > <%=headerText%></title>
+<title>Постижения > Бебълсчето > <jsp:getProperty name="pageMetadata" property="title" /></title>
 
 </head>
