@@ -1,54 +1,45 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="achievements-wrapper">
 
-	<%
-		final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
-		final List<AchieveWrapper> userAchievements = TempDB.achievementMgr.getMyAchievements(catUUID, myUserUUID);
-						        	
-		for (final AchieveWrapper achieve : userAchievements)  {
-	%>
-	<div id="achievement-<%=achieve.getAchievementUUID()%>" class="achievement-block achievement achievement-large unearned" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>"
-		record_status="<%=achieve.getStatus()%>">
+<c:forEach var="achieve" items="${userAchievements}" >
+	<div id="achievement-${achieve.achievementUUID}" class="achievement-block achievement achievement-large unearned" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}"
+		record_status="${achieve.status}">
 		
 		<!-- TODO:peteri - remove -->
 		<ul style="color: orange">
-			<li>status = <%=achieve.getStatus()%></li>
+			<li>status = ${achieve.status}</li>
 		</ul>
 		
 		<div class="inner">
 			<div class="meta png-fix">
-				<span><%=achieve.getPoints()%></span>5/18/2014
+				<span>${achieve.points}</span>5/18/2014
 			</div>
-			<div id="achievement-icon-portrait-<%=achieve.getAchievementUUID()%>" class="icon portrait-c tile-locked">
-				<span id="achievement-icon-frame-<%=achieve.getAchievementUUID()%>" class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') -225px -90px no-repeat; width: 45px; height: 45px;"></span> <span
+			<div id="achievement-icon-portrait-${achieve.achievementUUID}" class="icon portrait-c tile-locked">
+				<span id="achievement-icon-frame-${achieve.achievementUUID}" class="icon-frame " style="background: url('/achievements-webapp/sc2/achievements/8-45.jpg') -225px -90px no-repeat; width: 45px; height: 45px;"></span> <span
 					class="clear"> <!-- -->
 				</span>
 			</div>
 			<div class="desc">
-				<span><%=achieve.getName()%>&nbsp;<span style='color:white' id="achievement-status-<%=achieve.getAchievementUUID()%>">&nbsp;</span><br /><%=achieve.getDescription()%>
+				<span>${achieve.name}&nbsp;<span style='color:white' id="achievement-status-${achieve.achievementUUID}">&nbsp;</span><br />${achieve.description}
+	
+				<h2>${achieve.actions}</h2>
 				
-				<%final EnumSet<Action> myActions = AvailActionsByUsrType.INSTANCE.apply(currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR, achieve.getActions()); %>
-					<ul id="achievement-action-menu-<%=achieve.getAchievementUUID()%>" class="action_menu" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_status="<%=achieve.getStatus()%>">
-						<%if (myActions.contains(Action.USR_CLAIM)) { %>
-						<li><a style="display: none" class="btn_claim" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
-						<%}%>
-
-						<%if (myActions.contains(Action.USR_RECLAIM)) { %>
-						<li><a style="display: none" class="btn_reclaim" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
-						<%}%>
-
-						<%if (myActions.contains(Action.ADMIN_REJECT)) { %>
-						<li><a style="display: none" class="btn_reject" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
-						<%}%>
-
-						<%if (myActions.contains(Action.ADMIN_APPROVE)) { %>
-						<li><a style="display: none" class="btn_approve" achievement_uuid="<%=achieve.getAchievementUUID()%>" achievement_type="<%=achieve.getAchievementType()%>" record_uuid="<%=achieve.getRecordUUID()%>" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li>
-						<%}%>
-					</ul>
+				<ul id="achievement-action-menu-${achieve.achievementUUID}" class="action_menu" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}" record_status="${achieve.status}">
+					<c:forEach var="action" items="${achieve.actions}" >
+						<h3>my act = ${action}</h3>
+						<c:if test="${action eq 'USR_CLAIM' }" >
+							<li><a style="display: none" class="btn_claim" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+						</c:if>
+					</c:forEach>
+				
+				</ul>
+				
+				
 			</div>
 			<span class="clear"> <!-- -->
 			</span>
 		</div>
 	</div>
-	<% } %>
+</c:forEach>
 </div>

@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 
+import com.iliev.peter.achieve.AchieveWrapper;
 import com.iliev.peter.achieve.Category;
+import com.iliev.peter.achieve.UserType;
 import com.iliev.peter.db.Queries;
 import com.iliev.peter.db.TempDB;
 import com.iliev.peter.db.exception.NotFoundException;
@@ -67,12 +69,22 @@ public class ShowUserCategory extends javax.servlet.http.HttpServlet {
 			final Category selectedCat = TempDB.cateogryMgr.readSingle(new Queries.ObjectByUUID(catUUID));
 			headerText = selectedCat.getName();
 			pageMetadata.setTitle(headerText);
+			req.setAttribute("pageMetadata", pageMetadata);
 
 		} catch (Exception exc) {
 
 		}
 
-		req.setAttribute("pageMetadata", pageMetadata);
+		final UUID myUserUUID = null == targetUsrUUID ? currentAdmin.getUUID() : targetUsrUUID;
+		try {
+			final List<AchieveWrapper> userAchievements = TempDB.achievementMgr.getMyAchievements(catUUID, myUserUUID, currentAdmin.isAdmin() ? UserType.ADMIN : UserType.REGULAR);
+			req.setAttribute("userAchievements", userAchievements);
+		} catch (NotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
 
 		RequestDispatcher view = req.getRequestDispatcher("/UserCategory.jsp");
 		view.forward(req, resp);

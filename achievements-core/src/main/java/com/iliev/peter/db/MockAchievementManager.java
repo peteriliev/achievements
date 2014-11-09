@@ -13,6 +13,7 @@ import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.achieve.AchieveWrapper;
 import com.iliev.peter.achieve.Achievement;
 import com.iliev.peter.achieve.Log;
+import com.iliev.peter.achieve.UserType;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.compare.AchieveComparer;
@@ -133,13 +134,13 @@ public class MockAchievementManager implements AchievementMgr {
 	}
 
 	@Override
-	public List<AchieveWrapper> getMyAchievements(final UUID catUUID, final UUID targetUsrUUID) throws NotFoundException {
+	public List<AchieveWrapper> getMyAchievements(final UUID catUUID, final UUID targetUsrUUID, final UserType type) throws NotFoundException {
 
 		final Predicate<IAchievement> catPredi = new Queries.AchieveByCat(catUUID);
 		final List<IAchievement> currentCatAchievements = TempDB.achievementMgr.read(catPredi);
 
 		final Predicate<ARecord> userPredicate = new Queries.ARecordByUser(targetUsrUUID);
-		final List<AchieveWrapper> userAchievements = TempDB.aRecordMgr.readByUser2(userPredicate, currentCatAchievements);
+		final List<AchieveWrapper> userAchievements = TempDB.aRecordMgr.readByUser2(userPredicate, currentCatAchievements, type);
 
 		userAchievements.sort(AchieveComparer.INSTANCE);
 

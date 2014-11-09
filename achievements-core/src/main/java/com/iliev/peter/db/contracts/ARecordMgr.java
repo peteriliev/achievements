@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 
 import com.iliev.peter.achieve.ARecord;
 import com.iliev.peter.achieve.AchieveWrapper;
+import com.iliev.peter.achieve.UserType;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.exception.NotFoundException;
@@ -29,7 +30,7 @@ public interface ARecordMgr extends ORMMgr<ARecord> {
 
 	public List<IAchievement> readByUser(final Predicate<ARecord> predicate, final List<IAchievement> allAchievements);
 
-	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> predicate, final List<IAchievement> allAchievements);
+	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> predicate, final List<IAchievement> allAchievements, final UserType type);
 
 	public List<ARecord> genericRead(final Predicate<ARecord> predicate);
 

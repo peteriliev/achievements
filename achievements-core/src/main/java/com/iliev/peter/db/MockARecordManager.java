@@ -9,11 +9,13 @@ import java.util.UUID;
 import java.util.function.Predicate;
 
 import predicates.AvailActions;
+import predicates.AvailActionsByUsrType;
 
 import com.iliev.peter.achieve.ARecord;
 import com.iliev.peter.achieve.ARecordStatus;
 import com.iliev.peter.achieve.AchieveWrapper;
 import com.iliev.peter.achieve.Action;
+import com.iliev.peter.achieve.UserType;
 import com.iliev.peter.achieve.contracts.IAchievement;
 import com.iliev.peter.contracts.UUIDObject;
 import com.iliev.peter.db.contracts.ARecordMgr;
@@ -111,7 +113,7 @@ public class MockARecordManager implements ARecordMgr {
 		return result;
 	}
 
-	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> userPredicate, final List<IAchievement> currentCatAchievements) {
+	public List<AchieveWrapper> readByUser2(final Predicate<ARecord> userPredicate, final List<IAchievement> currentCatAchievements, final UserType type) {
 
 		// TODO:peteri - read from db join
 		final List<AchieveWrapper> result = new ArrayList<>(64);
@@ -130,8 +132,10 @@ public class MockARecordManager implements ARecordMgr {
 			}
 
 			final EnumSet<Action> actions = AvailActions.INSTANCE.apply(a.getType(), matchingRec != null ? matchingRec.getStatus() : ARecordStatus.NULL);
+			
+			final EnumSet<Action> actions2 = AvailActionsByUsrType.INSTANCE.apply(type, actions);
 
-			final AchieveWrapper aw = AchieveWrapper.newInstance(a, matchingRec, actions);
+			final AchieveWrapper aw = AchieveWrapper.newInstance(a, matchingRec, actions2);
 
 			result.add(aw);
 		}
