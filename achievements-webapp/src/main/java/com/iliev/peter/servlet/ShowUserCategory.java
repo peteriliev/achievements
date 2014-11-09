@@ -49,7 +49,7 @@ public class ShowUserCategory extends javax.servlet.http.HttpServlet {
 			catUUID = UUID.fromString(req.getParameter("catUUID"));
 
 		} catch (Exception e) {
-			resp.sendRedirect("/achievements-webapp/UserDashboard.jsp");
+			resp.sendRedirect("/ShowUserDashboard");
 		}
 
 		UUID targetUsrUUID = null;

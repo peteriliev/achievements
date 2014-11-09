@@ -9,26 +9,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>User Dashboard</title>
 </head>
 <body>
 
-<%
-	final Subject currentUser = SecurityUtils.getSubject();
-%>
+<jsp:useBean id="currentAdmin" class="com.iliev.peter.user.User" scope="request" />
 
-<%=currentUser.getPrincipal()%><a href="/achievements-webapp/Logout.jsp">logout</a>
+<jsp:getProperty name="currentAdmin" property="login" /><a href="/achievements-webapp/Logout.jsp">logout</a>
 
 <ul>
-	<%	final List<CategoryNode> topLevel = CategoryBuilder.build();
-		
-		for (final CategoryNode cn : topLevel)  { %> 
-		<li><a href="/achievements-webapp/ShowUserCategory?catUUID=<%=cn.getUUID()%>"><%=cn.getName()%></a></li>
-		
-		<% final List<Category> children = cn.getChildren();
-			for (final Category child : children) { %>
-					<li>+<a href="/achievements-webapp/ShowUserCategory?catUUID=<%=child.getUUID()%>"><%=child.getName()%></a></li><%}}%></ul>
+
+	<c:forEach var="cn" items="${topLevel}" >
+		<li><a href="/achievements-webapp/ShowUserCategory?catUUID=${cn.UUID}">${cn.name}</a></li>
+			<c:forEach var="child" items="${cn.children}" >
+				<li>+<a href="/achievements-webapp/ShowUserCategory?catUUID=${child.UUID}">${child.name}</a></li>
+			</c:forEach>
+	</c:forEach>
+	
+	</ul>
 </body>
 </html>

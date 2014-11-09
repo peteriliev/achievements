@@ -31,7 +31,7 @@
 	try {
 		catUUID = UUID.fromString(request.getParameter("catUUID"));
 	} catch (Exception e) {
-		response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
+		response.sendRedirect("/achievements-webapp/ShowUserDashboard");
 	}
 	UUID targetUsrUUID = null;
 	try {

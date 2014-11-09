@@ -29,7 +29,7 @@
 		try {
 			UsernamePasswordToken token = new UsernamePasswordToken(user, pass);
 			currentUser.login(token);
-			response.sendRedirect("/achievements-webapp/UserDashboard.jsp");
+			response.sendRedirect("/achievements-webapp/ShowUserDashboard");
 
 		} catch (Exception e) {
 			// TODO:peteri

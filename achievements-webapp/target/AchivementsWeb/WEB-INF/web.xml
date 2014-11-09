@@ -11,6 +11,11 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>ShowUserDashboard</servlet-name>
+		<servlet-class>com.iliev.peter.servlet.ShowUserDashboard</servlet-class>
+	</servlet>
+
+	<servlet>
 		<servlet-name>GetAvailableActions</servlet-name>
 		<servlet-class>com.iliev.peter.servlet.GetAvailableActions</servlet-class>
 	</servlet>
@@ -38,6 +43,11 @@
 	<servlet-mapping>
 		<servlet-name>ShowUserCategory</servlet-name>
 		<url-pattern>/ShowUserCategory</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ShowUserDashboard</servlet-name>
+		<url-pattern>/ShowUserDashboard</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
