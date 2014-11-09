@@ -23,13 +23,24 @@
 			<div class="desc">
 				<span>${achieve.name}&nbsp;<span style='color:white' id="achievement-status-${achieve.achievementUUID}">&nbsp;</span><br />${achieve.description}
 	
-				<h2>${achieve.actions}</h2>
 				
 				<ul id="achievement-action-menu-${achieve.achievementUUID}" class="action_menu" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}" record_status="${achieve.status}">
 					<c:forEach var="action" items="${achieve.actions}" >
-						<h3>my act = ${action}</h3>
+
 						<c:if test="${action eq 'USR_CLAIM' }" >
 							<li><a style="display: none" class="btn_claim" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+						</c:if>
+
+						<c:if test="${action eq 'USR_RECLAIM' }" >
+							<li><a style="display: none" class="btn_reclaim" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}" record_uuid="${achieve.recordUUID}" user_uuid="<%=currentAdmin.getUUID()%>">Claim</a></li>
+						</c:if>
+
+						<c:if test="${action eq 'ADMIN_REJECT' }" >
+							<li><a style="display: none" class="btn_reject" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}" record_uuid="${achieve.recordUUID}" admin_uuid="<%=currentAdmin.getUUID()%>">Reject</a></li>
+						</c:if>
+
+						<c:if test="${action eq 'ADMIN_APPROVE' }" >
+							<li><a style="display: none" class="btn_approve" achievement_uuid="${achieve.achievementUUID}" achievement_type="${achieve.achievementType}" record_uuid="${achieve.recordUUID}" admin_uuid="<%=currentAdmin.getUUID()%>">Approve</a></li>
 						</c:if>
 					</c:forEach>
 				
